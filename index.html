@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Casamento de Beatriz & João · Convite Oficial & Presentes</title>
+  <title>Casamento de Beatriz & João · Manual do Convidado & Presentes</title>
   
   <link rel="icon" href="./assets/logo-bj-transp.png">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#4A1E29">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="Convite oficial de casamento de Beatriz & João. 13 de novembro de 2027 às 15h30 no Espaço Paradayse. Confirme sua presença e confira nossa lista de presentes!">
+  <meta name="description" content="Site oficial de casamento de Beatriz & João. 13 de novembro de 2027 às 15h30 no Espaço Paradayse. Confira o manual do convidado, confirme sua presença e veja nossa lista de presentes!">
 
   <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,11 +35,8 @@
       --text-main: #2A1D21;
       --text-muted: #6B5B60;
       --border-color: #EADCDD;
-      --sunflower: #E8A922;
-      --orchid: #9E256C;
-      --lily-orange: #E06B2D;
+      --green: #2B7A4B;
       --rose: #D65D7B;
-      --green: #486E53;
       --shadow-sm: 0 4px 14px rgba(77, 28, 40, 0.05);
       --shadow-md: 0 10px 30px rgba(77, 28, 40, 0.09);
       --shadow-lg: 0 20px 50px rgba(77, 28, 40, 0.14);
@@ -346,79 +343,99 @@
       font-size: 16px;
     }
 
-    /* SEÇÃO CONVITE OFICIAL & LOCAL */
-    .convite-box {
-      background: #FFF;
-      border-radius: 20px;
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-md);
-      overflow: hidden;
+    /* SEÇÃO: MANUAL DO CONVIDADO */
+    .manual-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
     }
-    @media (min-width: 860px) {
-      .convite-box { grid-template-columns: 1.1fr 1fr; }
-    }
-    .convite-img-wrap {
-      background: #FDF9F5;
-      padding: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-right: 1px solid var(--border-color);
-      cursor: pointer;
-    }
-    .convite-img-wrap img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 12px 35px rgba(77, 28, 40, 0.15);
-      transition: transform 0.3s ease;
-    }
-    .convite-img-wrap:hover img { transform: scale(1.02); }
-    .convite-info-wrap {
-      padding: clamp(24px, 4vw, 44px);
+    .manual-card {
+      background: #FFF;
+      border-radius: var(--radius);
+      border: 1px solid var(--border-color);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
-      justify-content: center;
     }
-    .convite-badge {
-      display: inline-flex;
+    .manual-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: rgba(200, 138, 60, 0.4);
+    }
+    .manual-icon-header {
+      display: flex;
       align-items: center;
-      gap: 6px;
-      color: var(--gold);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
+      gap: 14px;
+      margin-bottom: 16px;
     }
-    .convite-parents-box {
-      margin: 18px 0;
-      padding: 16px;
+    .manual-icon-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
       background: var(--marsala-light);
-      border-radius: 12px;
-      border-left: 3px solid var(--marsala);
-      font-size: 13px;
-      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--marsala);
+      flex-shrink: 0;
     }
-    .convite-details-grid {
+    .manual-card-title {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--marsala);
+    }
+    .manual-card-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      flex-grow: 1;
+    }
+    .manual-highlight-box {
+      background: #FAF6F1;
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin-top: 16px;
+      border-left: 3px solid var(--gold);
+      font-size: 13px;
+      color: var(--marsala);
+      font-weight: 500;
+    }
+
+    /* BANNER PIX OFICIAL EM DESTAQUE */
+    .pix-hero-box {
+      background: linear-gradient(135deg, #FFFDFB 0%, #FAF0E4 100%);
+      border: 2px solid var(--gold);
+      border-radius: 20px;
+      padding: clamp(24px, 4vw, 36px);
+      box-shadow: var(--shadow-md);
+      margin-bottom: 40px;
       display: grid;
       grid-template-columns: 1fr;
-      gap: 16px;
-      margin: 20px 0 28px;
+      gap: 24px;
+      align-items: center;
     }
-    @media (min-width: 500px) {
-      .convite-details-grid { grid-template-columns: 1fr 1fr; }
+    @media (min-width: 780px) {
+      .pix-hero-box { grid-template-columns: 200px 1fr; }
     }
-    .convite-item-card {
-      background: #FAF6F1;
-      padding: 14px 16px;
-      border-radius: 12px;
+    .pix-qr-preview-box {
+      text-align: center;
+      background: #FFF;
+      padding: 14px;
+      border-radius: 16px;
       border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
     }
-    .convite-item-label { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold); font-weight: 600; }
-    .convite-item-val { font-size: 14px; font-weight: 600; color: var(--marsala); margin-top: 4px; }
+    .pix-qr-preview-img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+    }
 
     /* SELETOR DE ABAS PRINCIPAIS */
     .tabs-nav-wrapper {
@@ -797,7 +814,7 @@
     .modal-card {
       background: #FFF;
       border-radius: 20px;
-      max-width: 520px;
+      max-width: 540px;
       width: 100%;
       padding: clamp(24px, 5vw, 36px);
       box-shadow: 0 25px 60px rgba(0,0,0,0.35);
@@ -826,29 +843,54 @@
       transition: 0.2s;
     }
     .modal-close-btn:hover { background: #E4DCD3; color: #000; }
-    .qr-container {
-      display: flex;
-      justify-content: center;
-      margin: 20px auto;
-      padding: 16px;
+
+    /* PIX BOX NO MODAL */
+    .modal-pix-qr-area {
       background: #FFF;
-      border-radius: 12px;
+      border-radius: 14px;
       border: 1px solid var(--border-color);
+      padding: 16px;
+      text-align: center;
+      margin: 16px auto;
       width: fit-content;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
-    .pix-copy-box {
-      display: flex;
-      align-items: center;
-      background: #F7F4EE;
+    .pix-payload-box {
+      background: #FBF8F4;
       border: 1px solid var(--border-color);
       border-radius: 10px;
-      padding: 8px 12px;
-      margin-bottom: 20px;
-      gap: 10px;
+      padding: 10px 14px;
+      margin-bottom: 14px;
+      font-family: monospace;
+      font-size: 12px;
+      color: var(--text-muted);
+      word-break: break-all;
+      max-height: 70px;
+      overflow-y: auto;
+      text-align: left;
     }
-    .pix-key-val { font-family: monospace; font-size: 14px; color: var(--text-main); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex-grow: 1; }
+    .btn-copy-pix {
+      background: var(--gold-gradient);
+      color: #240E14;
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 20px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-copy-pix.copied {
+      background: #2B7A4B !important;
+      color: #FFF !important;
+    }
 
-    /* ADMIN MODAL COMPLETO */
+    /* ADMIN MODAL */
     .admin-modal-card { max-width: 960px; width: 100%; }
     .admin-tabs-nav {
       display: flex;
@@ -935,7 +977,7 @@
       </a>
       <div class="nav-links">
         <a href="#inicio" class="nav-link active"><span>🏠</span> <span class="nav-link-text">Início</span></a>
-        <a href="#convite" class="nav-link"><span>📜</span> <span class="nav-link-text">O Convite</span></a>
+        <a href="#manual" class="nav-link"><span>📖</span> <span class="nav-link-text">Manual</span></a>
         <a href="#rsvp" class="nav-link"><span>💌</span> <span class="nav-link-text">RSVP</span></a>
         <a href="#presentes" class="nav-link"><span>🎁</span> <span class="nav-link-text">Presentes</span></a>
         <a href="#fotos" class="nav-link"><span>📷</span> <span class="nav-link-text">Fotos</span></a>
@@ -975,7 +1017,7 @@
         </div>
       </div>
 
-      <!-- CONTAGEM REGRESSIVA (13/11/2027 15:30) -->
+      <!-- CONTAGEM REGRESSIVA (13/11/2027 às 15:30) -->
       <div class="hero-countdown" id="countdownTimer">
         <div class="cd-box"><span class="cd-num" id="cdDays">00</span><span class="cd-label">Dias</span></div>
         <div class="cd-box"><span class="cd-num" id="cdHours">00</span><span class="cd-label">Horas</span></div>
@@ -985,71 +1027,115 @@
 
       <div class="hero-actions">
         <a href="#rsvp" class="btn btn-gold">💌 Confirmar Presença</a>
-        <a href="#convite" class="btn btn-outline">📜 Ver Convite &amp; Local</a>
+        <a href="#manual" class="btn btn-outline">📖 Manual do Convidado</a>
         <a href="#presentes" class="btn btn-outline">🎁 Lista de Presentes</a>
       </div>
     </div>
   </header>
 
   <!-- ========================================================================= -->
-  <!-- SEÇÃO: O CONVITE OFICIAL & LOCAL DA CERIMÔNIA -->
+  <!-- SEÇÃO: MANUAL DO CONVIDADO -->
   <!-- ========================================================================= -->
-  <section id="convite">
+  <section id="manual">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">A Nossa Cerimônia</span>
-        <h2 class="section-title serif">O Convite Oficial</h2>
+        <span class="section-tag">Dicas &amp; Informações Práticas</span>
+        <h2 class="section-title serif">Manual do Convidado</h2>
         <p class="section-desc">
-          Juntamente com nossos amados pais, convidamos você para celebrar conosco esse dia tão sonhado e abençoado por Deus.
+          Preparamos com muito carinho tudo o que você precisa saber para viver esse dia inesquecível junto com a gente!
         </p>
       </div>
 
-      <div class="convite-box">
-        <!-- Imagem do Convite Original Feito pela Bia -->
-        <div class="convite-img-wrap" onclick="openLightbox(currentConviteImgUrl, 'Convite Oficial · Beatriz & João')">
-          <img src="./assets/convite-card.jpg" alt="Convite Oficial Beatriz e João" id="displayConviteImg" loading="lazy">
+      <div class="manual-grid">
+        <!-- 1. Horário & Pontualidade -->
+        <div class="manual-card">
+          <div class="manual-icon-header">
+            <div class="manual-icon-box">⏰</div>
+            <h3 class="manual-card-title">Horário &amp; Pontualidade</h3>
+          </div>
+          <p class="manual-card-desc">
+            Nossa cerimônia terá início pontualmente às <strong>15h30</strong> do dia <strong>13 de Novembro de 2027</strong>.
+          </p>
+          <div class="manual-highlight-box">
+            💡 <strong>Dica dos Noivos:</strong> Recomendamos chegar entre 15h00 e 15h15 para estacionar com tranquilidade e encontrar seu lugar no salão.
+          </div>
         </div>
 
-        <!-- Informações Oficiais -->
-        <div class="convite-info-wrap">
-          <div class="convite-badge">✨ Cerimônia &amp; Recepção</div>
-          <h3 class="serif" style="font-size: 28px; color: var(--marsala); margin-bottom: 8px;">Beatriz &amp; João</h3>
-          
-          <p style="font-size: 14px; color: var(--text-muted); font-style: italic;">
-            "Juntamente com os seus pais"
-          </p>
-
-          <div class="convite-parents-box">
-            <div style="margin-bottom: 6px;">
-              <strong>Pais da Noiva:</strong> Marcela de Mello Rosa &amp; Wilde dos Santos Rosa
-            </div>
-            <div>
-              <strong>Pais do Noivo:</strong> Vanessa dos Santos Barbosa Souza &amp; Alexandre Soares da Silva Souza
-            </div>
+        <!-- 2. Local & Recepção -->
+        <div class="manual-card">
+          <div class="manual-icon-header">
+            <div class="manual-icon-box">📍</div>
+            <h3 class="manual-card-title">Local &amp; Recepção</h3>
           </div>
-
-          <div class="convite-details-grid">
-            <div class="convite-item-card">
-              <div class="convite-item-label">Data &amp; Horário</div>
-              <div class="convite-item-val">13 de Novembro de 2027<br>às 15h30</div>
-            </div>
-            <div class="convite-item-card">
-              <div class="convite-item-label">Local &amp; Recepção</div>
-              <div class="convite-item-val">Espaço Paradayse<br><span style="font-size: 12px; font-weight: normal; color: var(--text-muted);">Recepção no salão do espaço</span></div>
-            </div>
-          </div>
-
-          <p style="font-size: 13.5px; color: var(--text-muted); margin-bottom: 20px;">
-            📍 <strong>Endereço:</strong> Estrada Mato Grosso, 80 - Campo Alegre, Nova Iguaçu, Rio de Janeiro.
+          <p class="manual-card-desc">
+            Tanto a cerimônia religiosa quanto a festa acontecerão no <strong>Espaço Paradayse</strong>:
+            <br>
+            Estrada Mato Grosso, 80 - Campo Alegre, Nova Iguaçu, Rio de Janeiro.
           </p>
+          <div class="manual-highlight-box">
+            🥂 <strong>Tudo no mesmo lugar:</strong> Após a cerimônia, os convidados serão recepcionados no salão do próprio espaço para celebrar e brindar conosco!
+          </div>
+        </div>
 
-          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-            <a href="https://www.google.com/maps/search/?api=1&query=Espa%C3%A7o+Paradayse+Estrada+Mato+Grosso+80+Nova+Igua%C3%A7u" target="_blank" rel="noopener noreferrer" class="btn btn-marsala" style="padding: 10px 20px; font-size: 13px;">
-              <span>🗺️ Como Chegar (Google Maps)</span>
+        <!-- 3. Como Chegar (GPS) -->
+        <div class="manual-card">
+          <div class="manual-icon-header">
+            <div class="manual-icon-box">🚗</div>
+            <h3 class="manual-card-title">Como Chegar</h3>
+          </div>
+          <p class="manual-card-desc">
+            O Espaço Paradayse conta com estacionamento no local e acesso fácil pela região de Campo Alegre em Nova Iguaçu.
+          </p>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 16px;">
+            <a href="https://www.google.com/maps/search/?api=1&query=Espa%C3%A7o+Paradayse+Estrada+Mato+Grosso+80+Nova+Igua%C3%A7u" target="_blank" rel="noopener noreferrer" class="btn btn-marsala" style="padding: 10px 14px; font-size: 13px;">
+              <span>Google Maps</span>
             </a>
-            <button class="btn btn-outline" style="padding: 10px 18px; font-size: 13px; color: var(--text-main); border-color: var(--border-color);" onclick="openLightbox(currentConviteImgUrl, 'Convite Oficial')">
-              <span>🔍 Ver Convite em Tela Cheia</span>
-            </button>
+            <a href="https://waze.com/ul?q=Espaço%20Paradayse%20Nova%20Iguaçu" target="_blank" rel="noopener noreferrer" class="btn btn-gold" style="padding: 10px 14px; font-size: 13px;">
+              <span>Abrir no Waze</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- 4. Traje Sugerido (Dress Code) -->
+        <div class="manual-card">
+          <div class="manual-icon-header">
+            <div class="manual-icon-box">👗</div>
+            <h3 class="manual-card-title">Traje Sugerido</h3>
+          </div>
+          <p class="manual-card-desc">
+            Sugerimos <strong>Passeio Completo / Esporte Fino Elegante</strong>. Queremos que você se sinta deslumbrante e ao mesmo tempo confortável para dançar a noite inteira!
+          </p>
+          <div class="manual-highlight-box" style="border-left-color: #D65D7B;">
+            ✨ <strong>Gentileza:</strong> Pedimos que evitem branco, off-white e tons claríssimos, que são reservados com exclusividade para a noiva.
+          </div>
+        </div>
+
+        <!-- 5. Convite Individual & RSVP -->
+        <div class="manual-card">
+          <div class="manual-icon-header">
+            <div class="manual-icon-box">💌</div>
+            <h3 class="manual-card-title">Convite Individual</h3>
+          </div>
+          <p class="manual-card-desc">
+            Preparamos cada detalhe com muito carinho para quem amamos. O convite é <strong>pessoal e individual</strong>.
+          </p>
+          <div class="manual-highlight-box">
+            ✅ <strong>Importante:</strong> Por favor, confirme sua presença aqui pelo site ou pelo WhatsApp com antecedência para que possamos organizar o buffet e os lugares.
+          </div>
+        </div>
+
+        <!-- 6. Bênção dos Pais -->
+        <div class="manual-card">
+          <div class="manual-icon-header">
+            <div class="manual-icon-box">🕊️</div>
+            <h3 class="manual-card-title">Bênção de Nossos Pais</h3>
+          </div>
+          <p class="manual-card-desc" style="font-size: 13.5px;">
+            Agradecemos a Deus e aos nossos pais por nos ensinarem o verdadeiro valor do amor e da família:
+          </p>
+          <div style="font-size: 12.5px; margin-top: 10px; line-height: 1.5; color: var(--marsala);">
+            <strong>Pais da Noiva:</strong> Marcela de Mello Rosa &amp; Wilde dos Santos Rosa<br>
+            <strong>Pais do Noivo:</strong> Vanessa dos Santos Barbosa Souza &amp; Alexandre Soares da Silva Souza
           </div>
         </div>
       </div>
@@ -1057,7 +1143,7 @@
   </section>
 
   <!-- ABAS PRINCIPAIS: SELECTOR RÁPIDO -->
-  <section id="navegacao-abas" style="padding: 20px 0 0;">
+  <section id="navegacao-abas" style="padding: 10px 0 0;">
     <div class="container text-center">
       <div class="tabs-nav-wrapper">
         <div class="tabs-nav">
@@ -1081,7 +1167,7 @@
         <span class="section-tag">Confirmação de Presença</span>
         <h2 class="section-title serif">Você é Nosso Convidado Especial</h2>
         <p class="section-desc">
-          Sua presença tornará o nosso grande dia inesquecível. Por favor, confirme individualmente sua presença até 30 dias antes!
+          Sua presença tornará o nosso grande dia inesquecível. Por favor, confirme individualmente sua presença!
         </p>
       </div>
 
@@ -1159,7 +1245,7 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- SEÇÃO 2: LISTA DE PRESENTES -->
+  <!-- SEÇÃO 2: LISTA DE PRESENTES & PIX EM DESTAQUE -->
   <!-- ========================================================================= -->
   <section id="presentes" style="background: #F8F2EB;">
     <div class="container">
@@ -1167,8 +1253,37 @@
         <span class="section-tag">Montando Nosso Lar</span>
         <h2 class="section-title serif">Lista de Presentes dos Noivos</h2>
         <p class="section-desc">
-          Ficaremos imensamente felizes com seu carinho! Você pode nos presentear com o valor sugerido via Pix OU pelos links das lojas (Amazon e Mercado Livre) se preferir escolher e enviar diretamente.
+          Ficaremos imensamente felizes com seu carinho! Você pode nos presentear via Pix pelo QR Code abaixo OU pelos links das lojas (Amazon e Mercado Livre) se preferir enviar o produto físico.
         </p>
+      </div>
+
+      <!-- BANNER OFICIAL DO PIX DOS NOIVOS (C6 BANK - JOÃO MIGUEL DIAS) -->
+      <div class="pix-hero-box">
+        <div class="pix-qr-preview-box">
+          <img src="./assets/pix-c6-qrcode.png" alt="QR Code Pix dos Noivos" class="pix-qr-preview-img" onerror="this.src='./assets/logo-bj-transp.png'">
+          <span style="font-size: 11px; color: var(--text-muted); display: block; margin-top: 6px;">Escaneie pelo app do banco</span>
+        </div>
+
+        <div>
+          <span style="background: var(--marsala-light); color: var(--marsala); font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 1px;">
+            🏦 Pix Oficial dos Noivos · C6 Bank
+          </span>
+          <h3 class="serif" style="font-size: 24px; color: var(--marsala); margin: 8px 0 4px;">
+            Presenteie via Pix com Qualquer Valor
+          </h3>
+          <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
+            <strong>Titular:</strong> João Miguel Dias · <strong>Chave E-mail:</strong> <code style="background: #FFF; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-color);">jmdias1317@icloud.com</code>
+          </p>
+
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <button class="btn-copy-pix" id="btnHeroCopyPayload" style="flex: 1; min-width: 240px;" onclick="copyPixCopiaECola(this)">
+              <span>📋 Copiar Pix Copia e Cola</span>
+            </button>
+            <button class="btn btn-outline" style="color: var(--marsala); border-color: var(--gold);" onclick="copyEmailKey(this)">
+              <span>✉️ Copiar Chave E-mail</span>
+            </button>
+          </div>
+        </div>
       </div>
 
       <!-- Filtros por Categoria -->
@@ -1247,50 +1362,57 @@
   </footer>
 
   <!-- ========================================================================= -->
-  <!-- MODAL 1: PRESENTEAR VIA PIX -->
+  <!-- MODAL 1: PRESENTEAR VIA PIX (CLIQUE EM QUALQUER PRESENTE) -->
   <!-- ========================================================================= -->
   <div class="modal-backdrop" id="pixModal">
     <div class="modal-card">
       <button class="modal-close-btn" onclick="closeModal('pixModal')">&times;</button>
+      
       <div style="text-align: center;">
         <span style="font-size: 38px;">🎁</span>
         <h3 class="serif" style="font-size: 24px; margin-top: 6px; color: var(--marsala);" id="pixModalItemTitle">Presentear os Noivos</h3>
         <p style="color: var(--text-muted); font-size: 13px;" id="pixModalItemSubtitle">Contribuição sugerida via Pix</p>
         
-        <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 700; color: var(--marsala); margin: 12px 0;" id="pixModalAmount">
+        <div style="font-family: var(--font-serif); font-size: 32px; font-weight: 700; color: var(--marsala); margin: 10px 0;" id="pixModalAmount">
           R$ 0,00
         </div>
       </div>
 
       <!-- Ajustar valor se for presente livre -->
-      <div id="customValueBox" style="display: none; margin-bottom: 16px;">
+      <div id="customValueBox" style="display: none; margin-bottom: 14px;">
         <label class="form-label" style="font-size: 13px; text-align: center;">Digite o valor que deseja doar (R$):</label>
         <input type="number" id="customAmountInput" class="form-control" style="font-size: 18px; text-align: center; font-weight: 700;" min="10" step="10" value="100" oninput="updateCustomPixAmount(this.value)">
       </div>
 
-      <!-- QR Code Container -->
-      <div class="qr-container" id="pixQrCode"></div>
-
-      <!-- Copia e Cola -->
-      <div class="form-group">
-        <label class="form-label" style="font-size: 12px;">Chave Pix (E-mail dos Noivos):</label>
-        <div class="pix-copy-box">
-          <span class="pix-key-val" id="pixKeyDisplay">jmsantos108@gmail.com</span>
-          <button class="btn btn-gold" style="padding: 6px 14px; font-size: 12px;" onclick="copyPixKey()">Copiar</button>
-        </div>
+      <!-- QR Code Oficial -->
+      <div class="modal-pix-qr-area">
+        <img src="./assets/pix-c6-qrcode.png" alt="QR Code Pix" style="width: 170px; height: 170px; object-fit: contain; display: block; margin: 0 auto;">
+        <span style="font-size: 12px; color: var(--text-muted); margin-top: 6px; display: block;">
+          <strong>João Miguel Dias</strong> · C6 Bank
+        </span>
       </div>
 
+      <!-- Botão Copiar Pix Copia e Cola -->
+      <button class="btn-copy-pix" id="btnModalCopyPayload" style="margin-bottom: 10px;" onclick="copyPixCopiaECola(this)">
+        <span>📋 Copiar Pix Copia e Cola</span>
+      </button>
+
+      <!-- Botão Copiar Chave E-mail -->
+      <button class="btn btn-outline" style="width: 100%; border-color: var(--border-color); color: var(--text-main); font-size: 13px; padding: 10px; margin-bottom: 18px;" onclick="copyEmailKey(this)">
+        <span>✉️ Copiar Chave E-mail (jmdias1317@icloud.com)</span>
+      </button>
+
       <!-- Deixar recado junto ao presente -->
-      <div class="form-group">
+      <div class="form-group" style="margin-bottom: 12px;">
         <label class="form-label" for="pixSenderName">Seu Nome / Família:</label>
         <input type="text" id="pixSenderName" class="form-control" placeholder="Ex: Tio Marcos">
       </div>
-      <div class="form-group">
+      <div class="form-group" style="margin-bottom: 16px;">
         <label class="form-label" for="pixGreeting">Recado para os noivos:</label>
         <textarea id="pixGreeting" class="form-control" rows="2" placeholder="Ex: Parabéns Bia e João! Que Deus abençoe esse novo lar!"></textarea>
       </div>
 
-      <div style="display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px;">
+      <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
         <button class="btn btn-gold" onclick="confirmPixGiftRecord()">
           <span>💌 Enviar Recado &amp; Confirmar Presente</span>
         </button>
@@ -1361,18 +1483,18 @@
   </div>
 
   <!-- ========================================================================= -->
-  <!-- MODAL 5: PAINEL DE GESTÃO DOS NOIVOS (ADMIN COMPLETO COM EDIÇÃO DE IMAGENS) -->
+  <!-- MODAL 5: PAINEL DOS NOIVOS (ADMIN) -->
   <!-- ========================================================================= -->
   <div class="modal-backdrop" id="adminModal">
     <div class="modal-card admin-modal-card">
       <button class="modal-close-btn" onclick="closeModal('adminModal')">&times;</button>
       
-      <!-- Tela de Autenticação Rápida (sem texto de dicas) -->
+      <!-- Tela de Login Sem Dicas -->
       <div id="adminAuthBlock" style="text-align: center; padding: 20px 0;">
         <img src="./assets/logo-bj-transp.png" alt="B & J" style="width: 60px; height: 60px; margin-bottom: 12px;">
         <h3 class="serif" style="font-size: 26px; margin: 4px 0; color: var(--marsala);">Painel dos Noivos</h3>
         <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">
-          Digite sua senha de acesso para gerenciar o site, todas as fotos e a lista de convidados.
+          Digite sua senha de acesso para gerenciar o site, fotos e a lista de convidados.
         </p>
         <div style="max-width: 320px; margin: 0 auto;">
           <input type="password" id="adminPassInput" class="form-control" placeholder="Senha de acesso" style="text-align: center; margin-bottom: 12px;" onkeydown="if(event.key==='Enter') checkAdminAccess()">
@@ -1380,9 +1502,8 @@
         </div>
       </div>
 
-      <!-- Conteúdo do Painel Logado -->
+      <!-- Conteúdo Logado -->
       <div id="adminPanelBlock" style="display: none;">
-        <!-- Abas do Painel de Admin -->
         <div class="admin-tabs-nav">
           <button class="admin-tab-btn active" id="btnAdminTabGuests" onclick="switchAdminTab('guests')">📋 Convidados Confirmados</button>
           <button class="admin-tab-btn" id="btnAdminTabImages" onclick="switchAdminTab('images')">🖼️ Editar Todas as Imagens</button>
@@ -1406,7 +1527,7 @@
           <!-- Estatísticas Rápidas -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px;">
             <div style="background: #FDF9F5; border: 1px solid #F0DFD7; padding: 12px; border-radius: 10px; text-align: center;">
-              <div style="font-size: 24px; font-weight: 700; color: #4E7C59;" id="adminConfirmedCount">0</div>
+              <div style="font-size: 24px; font-weight: 700; color: #2B7A4B;" id="adminConfirmedCount">0</div>
               <div style="font-size: 12px; color: var(--text-muted);">Presenças Confirmadas</div>
             </div>
             <div style="background: #FDF9F5; border: 1px solid #F0DFD7; padding: 12px; border-radius: 10px; text-align: center;">
@@ -1419,10 +1540,8 @@
             </div>
           </div>
 
-          <!-- Campo de Busca -->
           <input type="text" id="adminSearchInput" class="search-input" placeholder="🔍 Buscar por nome ou telefone..." oninput="filterAdminGuestsTable()">
 
-          <!-- Tabela de Convidados -->
           <div style="overflow-x: auto; max-height: 380px;">
             <table class="admin-table">
               <thead>
@@ -1435,23 +1554,20 @@
                   <th>Ações</th>
                 </tr>
               </thead>
-              <tbody id="adminGuestsTableBody">
-                <!-- Renderizado dinamicamente -->
-              </tbody>
+              <tbody id="adminGuestsTableBody"></tbody>
             </table>
           </div>
         </div>
 
-        <!-- ABA ADMIN 2: EDITAR TODAS AS IMAGENS PRINCIPAIS & GALERIA -->
+        <!-- ABA ADMIN 2: EDITAR IMAGENS PRINCIPAIS & GALERIA -->
         <div id="adminViewImages" style="display: none;">
           <h3 class="serif" style="font-size: 22px; color: var(--marsala); margin-bottom: 6px;">Gerenciador Geral de Imagens</h3>
           <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
-            Aqui você pode editar a foto de fundo, o logotipo oficial, o convite e todas as fotos da história do casal.
+            Altere a foto de fundo principal (Hero) e todas as fotos da história do casal.
           </p>
 
-          <!-- 1. Foto de Capa (Hero) -->
           <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 18px;">
-            <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 6px;">1. Foto de Fundo Principal (Capa do Início)</h4>
+            <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 6px;">Foto de Fundo Principal (Capa do Início)</h4>
             <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px;">
               <img id="adminHeroThumb" src="./assets/hero-luzes.jpg" style="width: 70px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-color);">
               <input type="text" id="adminHeroPhotoInput" class="form-control" placeholder="Caminho ou URL da foto de fundo">
@@ -1462,29 +1578,14 @@
             </div>
           </div>
 
-          <!-- 2. Imagem do Convite Oficial -->
-          <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 18px;">
-            <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 6px;">2. Imagem do Convite Oficial</h4>
-            <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px;">
-              <img id="adminConviteThumb" src="./assets/convite-card.jpg" style="width: 70px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-color);">
-              <input type="text" id="adminConvitePhotoInput" class="form-control" placeholder="Caminho ou URL da imagem do convite">
-            </div>
-            <div style="display: flex; gap: 8px;">
-              <button class="btn btn-gold" style="padding: 7px 16px; font-size: 12px;" onclick="saveConvitePhoto()">Salvar Imagem do Convite</button>
-              <button class="btn btn-outline" style="padding: 7px 14px; font-size: 12px; color: var(--text-main);" onclick="resetConvitePhoto()">Restaurar Convite</button>
-            </div>
-          </div>
-
-          <!-- 3. Fotos da Galeria da Nossa História -->
+          <!-- Fotos da Galeria -->
           <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-              <h4 style="font-size: 15px; color: var(--marsala);">3. Fotos da Galeria do Casal</h4>
+              <h4 style="font-size: 15px; color: var(--marsala);">Fotos da Galeria do Casal</h4>
               <button class="btn btn-gold" style="padding: 6px 14px; font-size: 12px;" onclick="addNewGalleryItem()">+ Adicionar Nova Foto</button>
             </div>
 
-            <div id="adminGalleryList" style="max-height: 380px; overflow-y: auto;">
-              <!-- Renderizado dinamicamente via JS -->
-            </div>
+            <div id="adminGalleryList" style="max-height: 380px; overflow-y: auto;"></div>
             <button class="btn btn-marsala" style="margin-top: 14px; padding: 9px 20px; font-size: 13px;" onclick="saveAllGalleryChanges()">💾 Salvar Todas as Fotos da Galeria</button>
           </div>
         </div>
@@ -1496,13 +1597,11 @@
             Altere a imagem de qualquer presente colando uma nova URL para o produto.
           </p>
 
-          <div id="adminGiftsList" style="max-height: 420px; overflow-y: auto;">
-            <!-- Renderizado via JS -->
-          </div>
+          <div id="adminGiftsList" style="max-height: 420px; overflow-y: auto;"></div>
           <button class="btn btn-marsala" style="margin-top: 14px; padding: 9px 20px; font-size: 13px;" onclick="saveAllGiftsChanges()">💾 Salvar Alterações nos Presentes</button>
         </div>
 
-        <!-- ABA ADMIN 4: CONFIGURAÇÕES & SENHA -->
+        <!-- ABA ADMIN 4: CONFIGURAÇÕES, PIX & SENHA -->
         <div id="adminViewSettings" style="display: none;">
           <h3 class="serif" style="font-size: 22px; color: var(--marsala); margin-bottom: 6px;">Configurações &amp; Segurança</h3>
           
@@ -1522,8 +1621,22 @@
             <button class="btn btn-gold" style="margin-top: 12px; padding: 8px 18px; font-size: 13px;" onclick="saveNewAdminPassword()">Salvar Nova Senha</button>
           </div>
 
-          <!-- Configurar Telefones dos Noivos -->
+          <!-- Chave Pix & Copia e Cola -->
           <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+            <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 8px;">Configuração do Pix Oficial (C6 Bank)</h4>
+            <div style="margin-bottom: 12px;">
+              <label class="form-label" style="font-size: 12px;">Chave Pix (E-mail):</label>
+              <input type="text" id="adminPixInput" class="form-control" value="jmdias1317@icloud.com">
+            </div>
+            <div style="margin-bottom: 12px;">
+              <label class="form-label" style="font-size: 12px;">Código Pix Copia e Cola:</label>
+              <textarea id="adminPixPayloadInput" class="form-control" rows="3"></textarea>
+            </div>
+            <button class="btn btn-gold" style="padding: 8px 18px; font-size: 13px;" onclick="savePixConfig()">Salvar Dados do Pix</button>
+          </div>
+
+          <!-- Configurar Telefones dos Noivos -->
+          <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px;">
             <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 12px;">Números de WhatsApp para Mensagem Automática</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
               <div>
@@ -1536,13 +1649,6 @@
               </div>
             </div>
             <button class="btn btn-gold" style="margin-top: 12px; padding: 8px 18px; font-size: 13px;" onclick="savePhonesConfig()">Salvar Telefones</button>
-          </div>
-
-          <!-- Chave Pix -->
-          <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px;">
-            <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 8px;">Chave Pix Oficial para Presentes</h4>
-            <input type="text" id="adminPixInput" class="form-control" value="jmsantos108@gmail.com" style="margin-bottom: 12px;">
-            <button class="btn btn-gold" style="padding: 8px 18px; font-size: 13px;" onclick="savePixConfig()">Salvar Chave Pix</button>
           </div>
         </div>
       </div>
@@ -1559,11 +1665,14 @@
   <!-- JAVASCRIPT: LÓGICA COMPLETA DE DADOS, SUPABASE, PRESENTES E RSVP -->
   <!-- ========================================================================= -->
   <script>
-    // 1. CONFIGURAÇÃO OFICIAL DO CASAMENTO DE BEATRIZ & JOÃO
+    // 1. DADOS OFICIAIS DO CASAMENTO DE BEATRIZ & JOÃO
     const SUPABASE_URL = 'https://izzxjvagmihujlhsmkrt.supabase.co';
     const SUPABASE_ANON = 'sb_publishable_ZxBbxtRcbXMTevaaIBeqmQ__dAUMcZj';
-    let currentPixKey = localStorage.getItem('wedding_pix') || 'jmsantos108@gmail.com';
-    const PIX_NAME = 'João Miguel Santos';
+    
+    // Pix Oficial C6 Bank - João Miguel Dias
+    let currentPixKey = localStorage.getItem('wedding_pix') || 'jmdias1317@icloud.com';
+    let currentPixPayload = localStorage.getItem('wedding_pix_payload') || '00020101021126430014br.gov.bcb.pix0121jmdias1317@icloud.com5204000053039865802BR5925JOAO MIGUEL DOS SANTOS DI6009SAO PAULO622905251M7GBS4ZJE7QSEZNZ1V5H72Y863041033';
+    const PIX_NAME = 'João Miguel Dias (C6 Bank)';
     
     // Data & Horário Oficial: 13 de Novembro de 2027 às 15h30
     const WEDDING_DATE = new Date('2027-11-13T15:30:00-03:00').getTime();
@@ -1575,9 +1684,8 @@
     // Senha do Admin
     let adminPassword = localStorage.getItem('wedding_admin_pass') || 'casamento2027';
 
-    // Imagens Configuráveis
+    // Foto de Fundo Hero
     let heroPhotoUrl = localStorage.getItem('wedding_hero_photo') || './assets/hero-luzes.jpg';
-    let currentConviteImgUrl = localStorage.getItem('wedding_convite_photo') || './assets/convite-card.jpg';
 
     // 2. FOTOS DA GALERIA PADRÃO
     const DEFAULT_GALLERY = [
@@ -1600,7 +1708,7 @@
       currentGallery = DEFAULT_GALLERY;
     }
 
-    // 3. LISTA DE PRESENTES PADRÃO (TOTALMENTE EDITÁVEL NO ADMIN)
+    // 3. LISTA DE PRESENTES PADRÃO
     const DEFAULT_GIFTS = [
       // COZINHA
       {
@@ -1810,7 +1918,7 @@
         image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&auto=format&fit=crop&q=80'
       },
 
-      // PRESENTE DO CORAÇÃO (SEM LINKS DE LOJAS)
+      // PRESENTE DO CORAÇÃO
       {
         id: 'coracao-1',
         title: 'Jantar Romântico na Lua de Mel',
@@ -1885,10 +1993,9 @@
     let customSelectedPrice = 100;
     let rsvpListCache = [];
 
-    // 4. INICIALIZAÇÃO DA PÁGINA
+    // 4. INICIALIZAÇÃO
     document.addEventListener('DOMContentLoaded', () => {
       applyHeroPhoto(heroPhotoUrl);
-      applyConvitePhoto(currentConviteImgUrl);
       initCountdown();
       renderGallery();
       renderGifts('todos');
@@ -1900,12 +2007,6 @@
     function applyHeroPhoto(url) {
       const hero = document.getElementById('inicio');
       if (hero) hero.style.backgroundImage = `url('${url}')`;
-    }
-
-    function applyConvitePhoto(url) {
-      const img = document.getElementById('displayConviteImg');
-      if (img) img.src = url;
-      currentConviteImgUrl = url;
     }
 
     // 5. CONTAGEM REGRESSIVA (13/11/2027 às 15:30)
@@ -2030,7 +2131,50 @@
       renderGifts(category);
     }
 
-    // 9. MODAL PIX & QR CODE
+    // 9. COPIAR CÓDIGO PIX COPIA E COLA & CHAVE E-MAIL
+    function copyPixCopiaECola(btn) {
+      navigator.clipboard.writeText(currentPixPayload).then(() => {
+        markButtonCopied(btn, '✓ Código Pix Copiado!');
+        showToast('📋 Código Pix Copia e Cola copiado! Abra o app do seu banco e cole.', '✨');
+      }).catch(() => {
+        fallbackCopyText(currentPixPayload);
+        markButtonCopied(btn, '✓ Código Pix Copiado!');
+        showToast('📋 Código Pix Copia e Cola copiado!', '✨');
+      });
+    }
+
+    function copyEmailKey(btn) {
+      navigator.clipboard.writeText(currentPixKey).then(() => {
+        markButtonCopied(btn, '✓ Chave Copiada!');
+        showToast(`✉️ Chave Pix (${currentPixKey}) copiada!`, '✨');
+      }).catch(() => {
+        fallbackCopyText(currentPixKey);
+        markButtonCopied(btn, '✓ Chave Copiada!');
+        showToast(`✉️ Chave Pix (${currentPixKey}) copiada!`, '✨');
+      });
+    }
+
+    function markButtonCopied(btn, text) {
+      if (!btn) return;
+      const originalText = btn.innerHTML;
+      btn.classList.add('copied');
+      btn.innerHTML = `<span>${text}</span>`;
+      setTimeout(() => {
+        btn.classList.remove('copied');
+        btn.innerHTML = originalText;
+      }, 3000);
+    }
+
+    function fallbackCopyText(text) {
+      const temp = document.createElement('textarea');
+      temp.value = text;
+      document.body.appendChild(temp);
+      temp.select();
+      document.execCommand('copy');
+      document.body.removeChild(temp);
+    }
+
+    // 10. MODAL PIX AO CLICAR EM QUALQUER PRESENTE
     function openPixModal(giftId) {
       const item = currentGifts.find(g => g.id === giftId);
       if (!item) return;
@@ -2044,54 +2188,20 @@
         customBox.style.display = 'block';
         customSelectedPrice = 100;
         document.getElementById('customAmountInput').value = '100';
-        renderPixQrAndAmount(100);
+        document.getElementById('pixModalAmount').textContent = 'R$ 100,00';
       } else {
         customBox.style.display = 'none';
-        renderPixQrAndAmount(item.price);
+        const formattedPrice = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        document.getElementById('pixModalAmount').textContent = formattedPrice;
       }
 
-      document.getElementById('pixKeyDisplay').textContent = currentPixKey;
       openModal('pixModal');
     }
 
     function updateCustomPixAmount(val) {
       const num = parseFloat(val) || 10;
       customSelectedPrice = num;
-      renderPixQrAndAmount(num);
-    }
-
-    function renderPixQrAndAmount(price) {
-      const formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-      document.getElementById('pixModalAmount').textContent = formattedPrice;
-
-      const qrEl = document.getElementById('pixQrCode');
-      qrEl.innerHTML = '';
-      
-      const priceStr = price.toFixed(2);
-      const pixPayload = `00020126360014BR.GOV.BCB.PIX0114${currentPixKey}520400005303986540${priceStr.length.toString().padStart(2, '0')}${priceStr}5802BR5919${PIX_NAME}6009SAO PAULO62070503***6304`;
-      
-      new QRCode(qrEl, {
-        text: pixPayload,
-        width: 170,
-        height: 170,
-        colorDark: "#240E14",
-        colorLight: "#FFFFFF",
-        correctLevel: QRCode.CorrectLevel.M
-      });
-    }
-
-    function copyPixKey() {
-      navigator.clipboard.writeText(currentPixKey).then(() => {
-        showToast('📋 Chave Pix copiada com sucesso!', '✨');
-      }).catch(() => {
-        const temp = document.createElement('textarea');
-        temp.value = currentPixKey;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-        showToast('📋 Chave Pix copiada com sucesso!', '✨');
-      });
+      document.getElementById('pixModalAmount').textContent = num.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
     }
 
     async function confirmPixGiftRecord() {
@@ -2138,7 +2248,7 @@
       window.open(waUrl, '_blank');
     }
 
-    // 10. RSVP INDIVIDUAL
+    // 11. RSVP INDIVIDUAL
     let isAttending = true;
 
     function selectAttendance(val) {
@@ -2219,7 +2329,7 @@
       }
     }
 
-    // 11. CONFIRMAÇÃO VIA WHATSAPP (BIA OU JOÃO)
+    // 12. WHATSAPP CONFIRMATION
     function openWhatsAppModal() {
       const name = document.getElementById('rsvpName').value.trim();
       const phone = document.getElementById('rsvpPhone').value.trim();
@@ -2280,7 +2390,7 @@
       showToast('Abrindo WhatsApp para enviar a confirmação!', '💬');
     }
 
-    // 12. ESTATÍSTICAS E SUPABASE
+    // 13. ESTATÍSTICAS E SUPABASE
     async function loadRsvpStats() {
       if (!supabaseClient) {
         document.getElementById('liveGuestsCount').textContent = '1';
@@ -2417,7 +2527,7 @@
       }
     }
 
-    // 13. PAINEL DOS NOIVOS (ADMIN COMPLETO)
+    // 14. PAINEL DOS NOIVOS (ADMIN)
     document.getElementById('openAdminBtn').addEventListener('click', () => {
       openModal('adminModal');
     });
@@ -2430,8 +2540,8 @@
         document.getElementById('adminGroomPhone').value = groomWhatsApp;
         document.getElementById('adminBridePhone').value = brideWhatsApp;
         document.getElementById('adminHeroPhotoInput').value = heroPhotoUrl;
-        document.getElementById('adminConvitePhotoInput').value = currentConviteImgUrl;
         document.getElementById('adminPixInput').value = currentPixKey;
+        document.getElementById('adminPixPayloadInput').value = currentPixPayload;
         renderAdminGuestsTable(rsvpListCache);
         renderAdminGalleryEditor();
         renderAdminGiftsEditor();
@@ -2464,7 +2574,6 @@
       }
     }
 
-    // TABELA DE CONVIDADOS NO ADMIN
     function filterAdminGuestsTable() {
       const q = document.getElementById('adminSearchInput').value.toLowerCase();
       const filtered = rsvpListCache.filter(r => 
@@ -2492,7 +2601,7 @@
                 ${r.phone}
               </a>
             </td>
-            <td><span style="color:${isConf ? '#4E7C59' : '#C97C6B'}; font-weight:600;">${isConf ? '✅ Confirmado' : '❌ Não irá'}</span></td>
+            <td><span style="color:${isConf ? '#2B7A4B' : '#C97C6B'}; font-weight:600;">${isConf ? '✅ Confirmado' : '❌ Não irá'}</span></td>
             <td style="font-size:12px; max-width:200px; overflow:hidden; text-overflow:ellipsis;">${r.message || '-'}</td>
             <td style="font-size:11px; color:var(--text-muted);">${dateStr}</td>
             <td>
@@ -2516,7 +2625,7 @@
       }
     }
 
-    // 14. GERENCIADOR DE IMAGENS NO ADMIN
+    // FOTOS NO ADMIN
     function saveHeroPhoto() {
       const val = document.getElementById('adminHeroPhotoInput').value.trim();
       if (!val) return;
@@ -2534,25 +2643,6 @@
       document.getElementById('adminHeroThumb').src = heroPhotoUrl;
       applyHeroPhoto(heroPhotoUrl);
       showToast('Foto de fundo restaurada para o padrão!', '✨');
-    }
-
-    function saveConvitePhoto() {
-      const val = document.getElementById('adminConvitePhotoInput').value.trim();
-      if (!val) return;
-      currentConviteImgUrl = val;
-      localStorage.setItem('wedding_convite_photo', val);
-      applyConvitePhoto(val);
-      document.getElementById('adminConviteThumb').src = val;
-      showToast('Imagem do convite oficial atualizada!', '📜');
-    }
-
-    function resetConvitePhoto() {
-      currentConviteImgUrl = './assets/convite-card.jpg';
-      localStorage.setItem('wedding_convite_photo', currentConviteImgUrl);
-      document.getElementById('adminConvitePhotoInput').value = currentConviteImgUrl;
-      document.getElementById('adminConviteThumb').src = currentConviteImgUrl;
-      applyConvitePhoto(currentConviteImgUrl);
-      showToast('Imagem do convite restaurada!', '✨');
     }
 
     function renderAdminGalleryEditor() {
@@ -2594,7 +2684,6 @@
       showToast('Galeria de fotos salva com sucesso!', '💾');
     }
 
-    // 15. GERENCIADOR DE FOTOS DOS PRESENTES NO ADMIN
     function renderAdminGiftsEditor() {
       const container = document.getElementById('adminGiftsList');
       container.innerHTML = currentGifts.map((gift, idx) => `
@@ -2617,7 +2706,7 @@
       showToast('Lista de presentes atualizada com sucesso!', '🎁');
     }
 
-    // 16. SENHA E CONFIGURAÇÕES NO ADMIN
+    // 15. SENHA E CONFIGURAÇÕES NO ADMIN
     function saveNewAdminPassword() {
       const p1 = document.getElementById('adminNewPass').value.trim();
       const p2 = document.getElementById('adminConfirmPass').value.trim();
@@ -2640,12 +2729,16 @@
 
     function savePixConfig() {
       const k = document.getElementById('adminPixInput').value.trim();
+      const p = document.getElementById('adminPixPayloadInput').value.trim();
       if (k) {
         currentPixKey = k;
         localStorage.setItem('wedding_pix', k);
-        document.getElementById('pixKeyDisplay').textContent = k;
-        showToast('Chave Pix atualizada com sucesso!', '💳');
       }
+      if (p) {
+        currentPixPayload = p;
+        localStorage.setItem('wedding_pix_payload', p);
+      }
+      showToast('Configurações de Pix salvas com sucesso!', '💳');
     }
 
     function exportGuestsCsv() {
@@ -2686,7 +2779,7 @@
       });
     }
 
-    // 17. LIGHTBOX & MODAL HELPERS
+    // 16. LIGHTBOX & MODAL HELPERS
     function openLightbox(src, caption) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxCaption').textContent = caption || '';
