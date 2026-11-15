@@ -1272,7 +1272,7 @@
             Presenteie via Pix com Qualquer Valor
           </h3>
           <p style="font-size: 14px; color: var(--text-muted); margin-bottom: 14px;">
-            <strong>Titular:</strong> João Miguel Dias · <strong>Chave E-mail:</strong> <code style="background: #FFF; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-color);">jmdias1317@icloud.com</code>
+            <strong>Titular:</strong> João Miguel Dias · <strong>Chave E-mail:</strong> <code style="background: #FFF; padding: 2px 6px; border-radius: 4px; border: 1px solid var(--border-color);" class="pix-key-text">jmdias1317@icloud.com</code>
           </p>
 
           <div style="display: flex; gap: 10px; flex-wrap: wrap;">
@@ -1399,7 +1399,7 @@
 
       <!-- Botão Copiar Chave E-mail -->
       <button class="btn btn-outline" style="width: 100%; border-color: var(--border-color); color: var(--text-main); font-size: 13px; padding: 10px; margin-bottom: 18px;" onclick="copyEmailKey(this)">
-        <span>✉️ Copiar Chave E-mail (jmdias1317@icloud.com)</span>
+        <span>✉️ Copiar Chave E-mail (<span class="pix-key-text">jmdias1317@icloud.com</span>)</span>
       </button>
 
       <!-- Deixar recado junto ao presente -->
@@ -1494,16 +1494,21 @@
         <img src="./assets/logo-bj-transp.png" alt="B & J" style="width: 60px; height: 60px; margin-bottom: 12px;">
         <h3 class="serif" style="font-size: 26px; margin: 4px 0; color: var(--marsala);">Painel dos Noivos</h3>
         <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">
-          Digite sua senha de acesso para gerenciar o site, fotos e a lista de convidados.
+          Entre com seu e-mail e senha para gerenciar o site, fotos e a lista de convidados.
         </p>
         <div style="max-width: 320px; margin: 0 auto;">
-          <input type="password" id="adminPassInput" class="form-control" placeholder="Senha de acesso" style="text-align: center; margin-bottom: 12px;" onkeydown="if(event.key==='Enter') checkAdminAccess()">
-          <button class="btn btn-gold" style="width: 100%;" onclick="checkAdminAccess()">Entrar</button>
+          <input type="email" id="adminEmailInput" class="form-control" placeholder="E-mail" autocomplete="username" style="text-align: center; margin-bottom: 10px;" onkeydown="if(event.key==='Enter') checkAdminAccess()">
+          <input type="password" id="adminPassInput" class="form-control" placeholder="Senha de acesso" autocomplete="current-password" style="text-align: center; margin-bottom: 12px;" onkeydown="if(event.key==='Enter') checkAdminAccess()">
+          <button class="btn btn-gold" id="adminLoginBtn" style="width: 100%;" onclick="checkAdminAccess()">Entrar</button>
         </div>
       </div>
 
       <!-- Conteúdo Logado -->
       <div id="adminPanelBlock" style="display: none;">
+        <div style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; margin-bottom: 8px; font-size: 12px; color: var(--text-muted);">
+          <span id="adminUserLabel"></span>
+          <button class="btn btn-outline" style="padding: 5px 12px; font-size: 12px; color: var(--text-main);" onclick="adminLogout()">Sair</button>
+        </div>
         <div class="admin-tabs-nav">
           <button class="admin-tab-btn active" id="btnAdminTabGuests" onclick="switchAdminTab('guests')">📋 Convidados Confirmados</button>
           <button class="admin-tab-btn" id="btnAdminTabImages" onclick="switchAdminTab('images')">🖼️ Editar Todas as Imagens</button>
@@ -1574,6 +1579,7 @@
             </div>
             <div style="display: flex; gap: 8px;">
               <button class="btn btn-gold" style="padding: 7px 16px; font-size: 12px;" onclick="saveHeroPhoto()">Salvar Foto de Fundo</button>
+              <button class="btn btn-outline" style="padding: 7px 14px; font-size: 12px; color: var(--text-main);" onclick="uploadHeroPhoto()">📤 Enviar Foto</button>
               <button class="btn btn-outline" style="padding: 7px 14px; font-size: 12px; color: var(--text-main);" onclick="resetHeroPhoto()">Restaurar Capa</button>
             </div>
           </div>
@@ -1594,7 +1600,7 @@
         <div id="adminViewGifts" style="display: none;">
           <h3 class="serif" style="font-size: 22px; color: var(--marsala); margin-bottom: 6px;">Gerenciar Fotos dos Presentes</h3>
           <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
-            Altere a imagem de qualquer presente colando uma nova URL para o produto.
+            Altere a imagem de qualquer presente colando uma nova URL ou enviando uma foto (📤).
           </p>
 
           <div id="adminGiftsList" style="max-height: 420px; overflow-y: auto;"></div>
@@ -1607,15 +1613,15 @@
           
           <!-- Alterar Senha de Admin -->
           <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
-            <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 12px;">Alterar Senha do Painel dos Noivos</h4>
+            <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 12px;">Alterar a Sua Senha de Acesso</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
               <div>
                 <label class="form-label" style="font-size: 12px;">Nova Senha:</label>
-                <input type="password" id="adminNewPass" class="form-control" placeholder="Digite a nova senha">
+                <input type="password" id="adminNewPass" class="form-control" placeholder="Mínimo 8 caracteres" autocomplete="new-password">
               </div>
               <div>
                 <label class="form-label" style="font-size: 12px;">Confirmar Nova Senha:</label>
-                <input type="password" id="adminConfirmPass" class="form-control" placeholder="Repita a nova senha">
+                <input type="password" id="adminConfirmPass" class="form-control" placeholder="Repita a nova senha" autocomplete="new-password">
               </div>
             </div>
             <button class="btn btn-gold" style="margin-top: 12px; padding: 8px 18px; font-size: 13px;" onclick="saveNewAdminPassword()">Salvar Nova Senha</button>
@@ -1670,22 +1676,20 @@
     const SUPABASE_ANON = 'sb_publishable_ZxBbxtRcbXMTevaaIBeqmQ__dAUMcZj';
     
     // Pix Oficial C6 Bank - João Miguel Dias
-    let currentPixKey = localStorage.getItem('wedding_pix') || 'jmdias1317@icloud.com';
-    let currentPixPayload = localStorage.getItem('wedding_pix_payload') || '00020101021126430014br.gov.bcb.pix0121jmdias1317@icloud.com5204000053039865802BR5925JOAO MIGUEL DOS SANTOS DI6009SAO PAULO622905251M7GBS4ZJE7QSEZNZ1V5H72Y863041033';
+    let currentPixKey = 'jmdias1317@icloud.com';
+    let currentPixPayload = '00020101021126430014br.gov.bcb.pix0121jmdias1317@icloud.com5204000053039865802BR5925JOAO MIGUEL DOS SANTOS DI6009SAO PAULO622905251M7GBS4ZJE7QSEZNZ1V5H72Y863041033';
     const PIX_NAME = 'João Miguel Dias (C6 Bank)';
     
     // Data & Horário Oficial: 13 de Novembro de 2027 às 15h30
     const WEDDING_DATE = new Date('2027-11-13T15:30:00-03:00').getTime();
 
     // Telefones padrão dos noivos
-    let groomWhatsApp = localStorage.getItem('groom_wa') || '5521999999999';
-    let brideWhatsApp = localStorage.getItem('bride_wa') || '5521999999999';
+    let groomWhatsApp = '5521999999999';
+    let brideWhatsApp = '5521999999999';
 
-    // Senha do Admin
-    let adminPassword = localStorage.getItem('wedding_admin_pass') || 'casamento2027';
-
-    // Foto de Fundo Hero
-    let heroPhotoUrl = localStorage.getItem('wedding_hero_photo') || './assets/hero-luzes.jpg';
+    // Foto de Fundo Hero (o valor salvo no Supabase substitui este padrão)
+    const DEFAULT_HERO = './assets/hero-luzes.jpg';
+    let heroPhotoUrl = DEFAULT_HERO;
 
     // 2. FOTOS DA GALERIA PADRÃO
     const DEFAULT_GALLERY = [
@@ -1700,13 +1704,7 @@
       { id: 'gal-9', url: './assets/grama-sorrindo.jpg', title: 'Simplicidade & Amor', sub: 'A verdadeira beleza está no nosso companheirismo' }
     ];
 
-    let currentGallery = [];
-    try {
-      const savedGal = localStorage.getItem('wedding_gallery_photos');
-      currentGallery = savedGal ? JSON.parse(savedGal) : DEFAULT_GALLERY;
-    } catch(e) {
-      currentGallery = DEFAULT_GALLERY;
-    }
+    let currentGallery = JSON.parse(JSON.stringify(DEFAULT_GALLERY));
 
     // 3. LISTA DE PRESENTES PADRÃO
     const DEFAULT_GIFTS = [
@@ -1972,13 +1970,7 @@
       }
     ];
 
-    let currentGifts = [];
-    try {
-      const savedGifts = localStorage.getItem('wedding_custom_gifts');
-      currentGifts = savedGifts ? JSON.parse(savedGifts) : DEFAULT_GIFTS;
-    } catch(e) {
-      currentGifts = DEFAULT_GIFTS;
-    }
+    let currentGifts = JSON.parse(JSON.stringify(DEFAULT_GIFTS));
 
     let supabaseClient = null;
     try {
@@ -1992,13 +1984,18 @@
     let currentGiftForPix = null;
     let customSelectedPrice = 100;
     let rsvpListCache = [];
+    let isAdminSession = false;
+    let currentGiftCategory = 'todos';
+    let siteConfig = {};
 
     // 4. INICIALIZAÇÃO
     document.addEventListener('DOMContentLoaded', () => {
+      applyConfig(readConfigCache(), { skipEditors: true });
       applyHeroPhoto(heroPhotoUrl);
       initCountdown();
       renderGallery();
       renderGifts('todos');
+      loadSiteConfig();
       loadRsvpStats();
       loadGuestMessages();
       initRealtimeSubscriptions();
@@ -2006,7 +2003,7 @@
 
     function applyHeroPhoto(url) {
       const hero = document.getElementById('inicio');
-      if (hero) hero.style.backgroundImage = `url('${url}')`;
+      if (hero) hero.style.backgroundImage = `url(${JSON.stringify(String(url))})`;
     }
 
     // 5. CONTAGEM REGRESSIVA (13/11/2027 às 15:30)
@@ -2054,12 +2051,12 @@
     function renderGallery() {
       const grid = document.getElementById('galleryGrid');
       grid.innerHTML = currentGallery.map(item => `
-        <div class="gallery-item" onclick="openLightbox('${item.url}', '${item.title}')">
-          <img src="${item.url}" alt="${item.title}" loading="lazy" onerror="this.src='./assets/noivado-anel.jpg'">
+        <div class="gallery-item" data-src="${escapeHtml(item.url)}" data-caption="${escapeHtml(item.title)}" onclick="openLightbox(this.dataset.src, this.dataset.caption)">
+          <img src="${escapeHtml(item.url)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.src='./assets/noivado-anel.jpg'">
           <div class="gallery-overlay">
             <div>
-              <div class="gallery-caption-title">${item.title}</div>
-              <div class="gallery-caption-sub">${item.sub || ''}</div>
+              <div class="gallery-caption-title">${escapeHtml(item.title)}</div>
+              <div class="gallery-caption-sub">${escapeHtml(item.sub || '')}</div>
             </div>
           </div>
         </div>
@@ -2068,19 +2065,20 @@
 
     // 8. RENDERIZAR PRESENTES
     function renderGifts(category) {
+      currentGiftCategory = category || 'todos';
       const container = document.getElementById('giftsContainer');
       const filtered = category === 'todos' 
         ? currentGifts 
         : currentGifts.filter(g => g.category === category);
 
       container.innerHTML = filtered.map(item => {
-        const formattedPrice = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        const formattedPrice = (Number(item.price) || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
         let buttonsHtml = '';
         if (item.isHeart) {
           buttonsHtml = `
             <div class="gift-btn-stack">
-              <button class="gift-btn-pix" onclick="openPixModal('${item.id}')">
+              <button class="gift-btn-pix" onclick="openPixModal('${escapeHtml(item.id)}')">
                 <span>🎁 Presentear via Pix</span>
               </button>
             </div>
@@ -2088,7 +2086,7 @@
         } else {
           buttonsHtml = `
             <div class="gift-btn-stack">
-              <button class="gift-btn-pix" onclick="openPixModal('${item.id}')">
+              <button class="gift-btn-pix" onclick="openPixModal('${escapeHtml(item.id)}')">
                 <span>🎁 Presentear via Pix</span>
               </button>
               <div class="gift-store-row">
@@ -2106,12 +2104,12 @@
         return `
           <div class="gift-card ${item.isHeart ? 'gift-card-heart' : ''}">
             <div class="gift-card-media">
-              <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80'">
-              <span class="gift-category-tag">${item.categoryLabel}</span>
+              <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80'">
+              <span class="gift-category-tag">${escapeHtml(item.categoryLabel)}</span>
             </div>
             <div class="gift-card-body">
-              <h3 class="gift-title serif">${item.title}</h3>
-              <p class="gift-desc">${item.desc}</p>
+              <h3 class="gift-title serif">${escapeHtml(item.title)}</h3>
+              <p class="gift-desc">${escapeHtml(item.desc)}</p>
               
               <div class="gift-price-row">
                 <span class="gift-price-label">${item.isCustom ? 'Sugerido (ou livre)' : 'Valor aproximado'}</span>
@@ -2191,7 +2189,7 @@
         document.getElementById('pixModalAmount').textContent = 'R$ 100,00';
       } else {
         customBox.style.display = 'none';
-        const formattedPrice = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        const formattedPrice = (Number(item.price) || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
         document.getElementById('pixModalAmount').textContent = formattedPrice;
       }
 
@@ -2397,6 +2395,19 @@
         return;
       }
 
+      // Contador público: só números, sem expor nomes/telefones
+      try {
+        const { data, error } = await supabaseClient.rpc('cofre_rsvp_stats');
+        if (error) throw error;
+        const row = Array.isArray(data) ? data[0] : data;
+        document.getElementById('liveGuestsCount').textContent = row ? row.confirmed : 0;
+      } catch(err) {
+        console.warn('Erro ao carregar contagem do RSVP:', err);
+        document.getElementById('liveGuestsCount').textContent = '1';
+      }
+
+      // Lista completa: somente para os noivos logados
+      if (!isAdminSession) return;
       try {
         const { data, error } = await supabaseClient
           .from('cofre_rsvp')
@@ -2408,25 +2419,18 @@
 
         let totalConfirmed = 0;
         let totalDeclined = 0;
-
         rsvpListCache.forEach(entry => {
-          if (entry.status === 'confirmed') {
-            totalConfirmed += 1;
-          } else {
-            totalDeclined += 1;
-          }
+          if (entry.status === 'confirmed') totalConfirmed += 1;
+          else totalDeclined += 1;
         });
 
-        document.getElementById('liveGuestsCount').textContent = totalConfirmed;
         document.getElementById('adminConfirmedCount').textContent = totalConfirmed;
         document.getElementById('adminDeclinedCount').textContent = totalDeclined;
         document.getElementById('adminTotalEntries').textContent = rsvpListCache.length;
 
         renderAdminGuestsTable(rsvpListCache);
-
       } catch(err) {
-        console.warn('Erro ao carregar estatísticas do RSVP:', err);
-        document.getElementById('liveGuestsCount').textContent = '1';
+        console.warn('Erro ao carregar lista de convidados:', err);
       }
     }
 
@@ -2466,10 +2470,10 @@
           const dateStr = new Date(msg.created_at).toLocaleDateString('pt-BR');
           return `
             <div class="msg-card">
-              <div class="msg-sender">✨ ${msg.sender_name}</div>
+              <div class="msg-sender">✨ ${escapeHtml(msg.sender_name)}</div>
               <div class="msg-date">${dateStr}</div>
-              <p class="msg-body">"${msg.message}"</p>
-              ${msg.gift_title ? `<span class="msg-badge">🎁 Presente: ${msg.gift_title}</span>` : ''}
+              <p class="msg-body">"${escapeHtml(msg.message)}"</p>
+              ${msg.gift_title ? `<span class="msg-badge">🎁 Presente: ${escapeHtml(msg.gift_title)}</span>` : ''}
             </div>
           `;
         }).join('');
@@ -2517,6 +2521,14 @@
           .subscribe();
 
         supabaseClient
+          .channel('public:cofre_config')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'cofre_config' }, () => {
+            // Não atropela edições em andamento no painel
+            if (!document.getElementById('adminModal').classList.contains('open')) loadSiteConfig();
+          })
+          .subscribe();
+
+        supabaseClient
           .channel('public:cofre_guest_messages')
           .on('postgres_changes', { event: '*', schema: 'public', table: 'cofre_guest_messages' }, () => {
             loadGuestMessages();
@@ -2527,27 +2539,315 @@
       }
     }
 
-    // 14. PAINEL DOS NOIVOS (ADMIN)
-    document.getElementById('openAdminBtn').addEventListener('click', () => {
-      openModal('adminModal');
-    });
+    // 14. UTILITÁRIOS DE SEGURANÇA
+    function escapeHtml(value) {
+      return String(value ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
 
-    function checkAdminAccess() {
-      const pass = document.getElementById('adminPassInput').value.trim();
-      if (pass === adminPassword || pass === 'casamento2027') {
-        document.getElementById('adminAuthBlock').style.display = 'none';
-        document.getElementById('adminPanelBlock').style.display = 'block';
-        document.getElementById('adminGroomPhone').value = groomWhatsApp;
-        document.getElementById('adminBridePhone').value = brideWhatsApp;
-        document.getElementById('adminHeroPhotoInput').value = heroPhotoUrl;
-        document.getElementById('adminPixInput').value = currentPixKey;
-        document.getElementById('adminPixPayloadInput').value = currentPixPayload;
-        renderAdminGuestsTable(rsvpListCache);
+    function csvCell(value) {
+      let v = String(value ?? '');
+      if (/^[=+\-@\t\r]/.test(v)) v = "'" + v; // evita execução de fórmulas no Excel
+      return '"' + v.replace(/"/g, '""') + '"';
+    }
+
+    function safeStorageGet(key) { try { return localStorage.getItem(key); } catch(e) { return null; } }
+    function safeStorageSet(key, val) { try { localStorage.setItem(key, val); } catch(e) {} }
+    function safeStorageRemove(key) { try { localStorage.removeItem(key); } catch(e) {} }
+
+    // 15. CONFIGURAÇÃO CENTRAL DO SITE (Supabase · tabela cofre_config, linha id = 1)
+    //     O localStorage guarda apenas um CACHE para a página abrir mais rápido;
+    //     a fonte da verdade é sempre o banco.
+    const CONFIG_CACHE_KEY = 'cofre_config_cache_v1';
+
+    function readConfigCache() {
+      try { return JSON.parse(safeStorageGet(CONFIG_CACHE_KEY) || 'null'); } catch(e) { return null; }
+    }
+
+    function writeConfigCache(cfg) {
+      safeStorageSet(CONFIG_CACHE_KEY, JSON.stringify(cfg || {}));
+    }
+
+    function updatePixKeyLabels() {
+      document.querySelectorAll('.pix-key-text').forEach(el => { el.textContent = currentPixKey; });
+    }
+
+    function applyConfig(cfg, opts = {}) {
+      if (!cfg) return;
+      siteConfig = cfg;
+      if (cfg.pix_key) currentPixKey = cfg.pix_key;
+      if (cfg.pix_copia_cola) currentPixPayload = cfg.pix_copia_cola;
+      if (cfg.whatsapp_groom) groomWhatsApp = cfg.whatsapp_groom;
+      if (cfg.whatsapp_bride) brideWhatsApp = cfg.whatsapp_bride;
+      heroPhotoUrl = cfg.hero_url || DEFAULT_HERO;
+      currentGallery = Array.isArray(cfg.gallery) ? cfg.gallery : JSON.parse(JSON.stringify(DEFAULT_GALLERY));
+      currentGifts = Array.isArray(cfg.gifts) ? cfg.gifts : JSON.parse(JSON.stringify(DEFAULT_GIFTS));
+
+      if (opts.skipEditors) return; // na primeira carga o DOMContentLoaded já renderiza
+      applyHeroPhoto(heroPhotoUrl);
+      renderGallery();
+      renderGifts(currentGiftCategory);
+      updatePixKeyLabels();
+    }
+
+    async function loadSiteConfig() {
+      updatePixKeyLabels();
+      if (!supabaseClient) return;
+      try {
+        const { data, error } = await supabaseClient
+          .from('cofre_config')
+          .select('*')
+          .eq('id', 1)
+          .maybeSingle();
+        if (error) throw error;
+        if (data) {
+          applyConfig(data);
+          writeConfigCache(data);
+        }
+      } catch(err) {
+        console.warn('Erro ao carregar configuração do site:', err);
+      }
+    }
+
+    async function saveSiteConfig(patch, successMsg, icon) {
+      if (!supabaseClient || !isAdminSession) {
+        alert('Sua sessão expirou. Entre novamente no Painel dos Noivos.');
+        return false;
+      }
+      try {
+        const { data, error } = await supabaseClient
+          .from('cofre_config')
+          .update(patch)
+          .eq('id', 1)
+          .select('*');
+        if (error) throw error;
+        if (!data || data.length === 0) {
+          throw new Error('Sem permissão para salvar. Confirme se seu usuário está cadastrado em cofre_admins.');
+        }
+        applyConfig(data[0]);
+        writeConfigCache(data[0]);
+        if (successMsg) showToast(successMsg, icon || '💾');
+        return true;
+      } catch(err) {
+        console.error('Erro ao salvar configuração:', err);
+        alert('Não foi possível salvar: ' + (err.message || err));
+        return false;
+      }
+    }
+
+    // Migração única: dados antigos que ficaram só no localStorage deste navegador
+    const LEGACY_KEYS = ['wedding_hero_photo', 'wedding_gallery_photos', 'wedding_custom_gifts',
+                         'wedding_pix', 'wedding_pix_payload', 'groom_wa', 'bride_wa'];
+
+    async function migrateLegacyLocalData() {
+      safeStorageRemove('wedding_admin_pass'); // senha antiga nunca mais é usada
+      const legacy = {};
+      LEGACY_KEYS.forEach(k => { const v = safeStorageGet(k); if (v !== null) legacy[k] = v; });
+      if (Object.keys(legacy).length === 0) return;
+
+      const send = confirm(
+        'Encontramos alterações antigas salvas SOMENTE neste navegador ' +
+        '(fotos, presentes, Pix ou telefones).\n\n' +
+        'Deseja enviá-las para o banco, para aparecerem em todos os aparelhos?\n\n' +
+        'Atenção: isso substitui o que estiver salvo hoje no banco para esses itens.'
+      );
+      if (!send) {
+        if (confirm('Deseja DESCARTAR essas alterações antigas deste navegador?')) {
+          LEGACY_KEYS.forEach(safeStorageRemove);
+        }
+        return;
+      }
+
+      const patch = {};
+      const parse = (v) => { try { const p = JSON.parse(v); return Array.isArray(p) ? p : null; } catch(e) { return null; } };
+      if (legacy.wedding_hero_photo) patch.hero_url = legacy.wedding_hero_photo;
+      if (legacy.wedding_gallery_photos && parse(legacy.wedding_gallery_photos)) patch.gallery = parse(legacy.wedding_gallery_photos);
+      if (legacy.wedding_custom_gifts && parse(legacy.wedding_custom_gifts)) patch.gifts = parse(legacy.wedding_custom_gifts);
+      if (legacy.wedding_pix) patch.pix_key = legacy.wedding_pix;
+      if (legacy.wedding_pix_payload) patch.pix_copia_cola = legacy.wedding_pix_payload;
+      if (legacy.groom_wa) patch.whatsapp_groom = legacy.groom_wa;
+      if (legacy.bride_wa) patch.whatsapp_bride = legacy.bride_wa;
+
+      if (Object.keys(patch).length === 0) { LEGACY_KEYS.forEach(safeStorageRemove); return; }
+      const ok = await saveSiteConfig(patch, 'Alterações antigas enviadas para todos os aparelhos!', '☁️');
+      if (ok) {
+        LEGACY_KEYS.forEach(safeStorageRemove);
+        fillAdminFields();
         renderAdminGalleryEditor();
         renderAdminGiftsEditor();
-      } else {
-        alert('Senha incorreta! Verifique a senha digitada.');
       }
+    }
+
+    // 16. ENVIO DE FOTOS (Supabase Storage · bucket "cofre-imagens")
+    function pickImageFile() {
+      return new Promise(resolve => {
+        const input = document.createElement('input');
+        input.type = 'file';
+        input.accept = 'image/*';
+        input.onchange = () => resolve(input.files && input.files[0] ? input.files[0] : null);
+        input.click();
+      });
+    }
+
+    function compressImage(file, maxDim = 1920, quality = 0.85) {
+      if (file.type === 'image/gif') return Promise.resolve(file);
+      return new Promise((resolve) => {
+        const img = new Image();
+        const url = URL.createObjectURL(file);
+        img.onload = () => {
+          let { width, height } = img;
+          const scale = Math.min(1, maxDim / Math.max(width, height));
+          width = Math.round(width * scale);
+          height = Math.round(height * scale);
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, width, height);
+          ctx.drawImage(img, 0, 0, width, height);
+          URL.revokeObjectURL(url);
+          canvas.toBlob(blob => resolve(blob || file), 'image/jpeg', quality);
+        };
+        img.onerror = () => { URL.revokeObjectURL(url); resolve(file); };
+        img.src = url;
+      });
+    }
+
+    async function uploadImageToStorage(folder) {
+      if (!supabaseClient || !isAdminSession) {
+        alert('Sua sessão expirou. Entre novamente no Painel dos Noivos.');
+        return null;
+      }
+      const file = await pickImageFile();
+      if (!file) return null;
+      if (!file.type.startsWith('image/')) { alert('Escolha um arquivo de imagem.'); return null; }
+
+      showToast('Enviando foto...', '⏳');
+      try {
+        const blob = await compressImage(file);
+        const ext = blob.type === 'image/gif' ? 'gif' : (blob.type === 'image/png' ? 'png' : (blob.type === 'image/webp' ? 'webp' : 'jpg'));
+        const path = `${folder}/${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${ext}`;
+        const { error } = await supabaseClient.storage
+          .from('cofre-imagens')
+          .upload(path, blob, { contentType: blob.type || 'image/jpeg', cacheControl: '31536000', upsert: false });
+        if (error) throw error;
+        const { data } = supabaseClient.storage.from('cofre-imagens').getPublicUrl(path);
+        return data.publicUrl;
+      } catch(err) {
+        console.error('Erro no upload:', err);
+        alert('Erro ao enviar a foto: ' + (err.message || err));
+        return null;
+      }
+    }
+
+    async function uploadHeroPhoto() {
+      const url = await uploadImageToStorage('capa');
+      if (!url) return;
+      document.getElementById('adminHeroPhotoInput').value = url;
+      await saveHeroPhoto();
+    }
+
+    async function uploadGalleryImage(idx) {
+      const url = await uploadImageToStorage('galeria');
+      if (!url || !currentGallery[idx]) return;
+      currentGallery[idx].url = url;
+      renderAdminGalleryEditor();
+      await saveAllGalleryChanges();
+    }
+
+    async function uploadGiftImage(idx) {
+      const url = await uploadImageToStorage('presentes');
+      if (!url || !currentGifts[idx]) return;
+      currentGifts[idx].image = url;
+      renderAdminGiftsEditor();
+      await saveAllGiftsChanges();
+    }
+
+    // 17. PAINEL DOS NOIVOS (ADMIN) · login via Supabase Auth
+    document.getElementById('openAdminBtn').addEventListener('click', async () => {
+      openModal('adminModal');
+      if (!supabaseClient) return;
+      try {
+        const { data } = await supabaseClient.auth.getSession();
+        if (data && data.session && await verifyAdmin()) {
+          await enterAdminPanel(data.session.user);
+        }
+      } catch(e) {
+        console.warn('Sessão admin:', e);
+      }
+    });
+
+    async function verifyAdmin() {
+      try {
+        const { data, error } = await supabaseClient.rpc('cofre_is_admin');
+        isAdminSession = !error && data === true;
+      } catch(e) {
+        isAdminSession = false;
+      }
+      return isAdminSession;
+    }
+
+    function fillAdminFields() {
+      document.getElementById('adminGroomPhone').value = groomWhatsApp;
+      document.getElementById('adminBridePhone').value = brideWhatsApp;
+      document.getElementById('adminHeroPhotoInput').value = heroPhotoUrl;
+      document.getElementById('adminHeroThumb').src = heroPhotoUrl;
+      document.getElementById('adminPixInput').value = currentPixKey;
+      document.getElementById('adminPixPayloadInput').value = currentPixPayload;
+    }
+
+    async function enterAdminPanel(user) {
+      document.getElementById('adminAuthBlock').style.display = 'none';
+      document.getElementById('adminPanelBlock').style.display = 'block';
+      document.getElementById('adminUserLabel').textContent = user && user.email ? `Conectado como ${user.email}` : '';
+      await loadSiteConfig();
+      fillAdminFields();
+      renderAdminGalleryEditor();
+      renderAdminGiftsEditor();
+      await loadRsvpStats();
+      await migrateLegacyLocalData();
+    }
+
+    async function checkAdminAccess() {
+      const email = document.getElementById('adminEmailInput').value.trim();
+      const pass = document.getElementById('adminPassInput').value;
+      if (!email || !pass) { alert('Informe e-mail e senha.'); return; }
+      if (!supabaseClient) { alert('Sem conexão com o servidor. Tente novamente em instantes.'); return; }
+
+      const btn = document.getElementById('adminLoginBtn');
+      btn.disabled = true;
+      btn.textContent = 'Entrando...';
+      try {
+        const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password: pass });
+        if (error) { alert('E-mail ou senha incorretos.'); return; }
+        if (!(await verifyAdmin())) {
+          await supabaseClient.auth.signOut();
+          alert('Este usuário não tem permissão de administrador.');
+          return;
+        }
+        document.getElementById('adminPassInput').value = '';
+        await enterAdminPanel(data.user);
+      } catch(err) {
+        alert('Erro ao entrar: ' + (err.message || err));
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Entrar';
+      }
+    }
+
+    async function adminLogout() {
+      try { await supabaseClient.auth.signOut(); } catch(e) {}
+      isAdminSession = false;
+      rsvpListCache = [];
+      renderAdminGuestsTable([]);
+      document.getElementById('adminPanelBlock').style.display = 'none';
+      document.getElementById('adminAuthBlock').style.display = 'block';
+      showToast('Você saiu do Painel dos Noivos.', '👋');
     }
 
     function switchAdminTab(tab) {
@@ -2595,17 +2895,17 @@
         const dateStr = r.created_at ? new Date(r.created_at).toLocaleString('pt-BR') : '-';
         return `
           <tr>
-            <td><strong>${r.name}</strong></td>
+            <td><strong>${escapeHtml(r.name)}</strong></td>
             <td>
-              <a href="https://api.whatsapp.com/send?phone=${r.phone.replace(/\D/g, '')}" target="_blank" style="color:var(--marsala);font-weight:600;text-decoration:none;">
-                ${r.phone}
+              <a href="https://api.whatsapp.com/send?phone=${String(r.phone || '').replace(/\D/g, '')}" target="_blank" rel="noopener noreferrer" style="color:var(--marsala);font-weight:600;text-decoration:none;">
+                ${escapeHtml(r.phone)}
               </a>
             </td>
             <td><span style="color:${isConf ? '#2B7A4B' : '#C97C6B'}; font-weight:600;">${isConf ? '✅ Confirmado' : '❌ Não irá'}</span></td>
-            <td style="font-size:12px; max-width:200px; overflow:hidden; text-overflow:ellipsis;">${r.message || '-'}</td>
+            <td style="font-size:12px; max-width:200px; overflow:hidden; text-overflow:ellipsis;">${escapeHtml(r.message || '-')}</td>
             <td style="font-size:11px; color:var(--text-muted);">${dateStr}</td>
             <td>
-              <button onclick="deleteRsvpEntry(${r.id})" style="background:none; border:none; color:#C97C6B; cursor:pointer; font-size:16px;" title="Remover registro">🗑️</button>
+              <button onclick="deleteRsvpEntry(${Number(r.id)})" style="background:none; border:none; color:#C97C6B; cursor:pointer; font-size:16px;" title="Remover registro">🗑️</button>
             </td>
           </tr>
         `;
@@ -2614,48 +2914,48 @@
 
     async function deleteRsvpEntry(id) {
       if (!confirm('Deseja realmente remover esta confirmação de presença?')) return;
-      if (supabaseClient) {
-        try {
-          await supabaseClient.from('cofre_rsvp').delete().eq('id', id);
-          loadRsvpStats();
-          showToast('Registro de convidado removido.', '🗑️');
-        } catch(e) {
-          alert('Erro ao excluir: ' + e.message);
-        }
+      if (!supabaseClient || !isAdminSession) { alert('Sua sessão expirou. Entre novamente.'); return; }
+      try {
+        const { data, error } = await supabaseClient.from('cofre_rsvp').delete().eq('id', id).select('id');
+        if (error) throw error;
+        if (!data || data.length === 0) throw new Error('Registro não removido (sem permissão).');
+        await loadRsvpStats();
+        showToast('Registro de convidado removido.', '🗑️');
+      } catch(e) {
+        alert('Erro ao excluir: ' + (e.message || e));
       }
     }
 
     // FOTOS NO ADMIN
-    function saveHeroPhoto() {
+    async function saveHeroPhoto() {
       const val = document.getElementById('adminHeroPhotoInput').value.trim();
       if (!val) return;
-      heroPhotoUrl = val;
-      localStorage.setItem('wedding_hero_photo', val);
-      applyHeroPhoto(val);
-      document.getElementById('adminHeroThumb').src = val;
-      showToast('Foto de fundo da capa atualizada!', '🖼️');
+      const ok = await saveSiteConfig({ hero_url: val }, 'Foto de fundo da capa atualizada!', '🖼️');
+      if (ok) document.getElementById('adminHeroThumb').src = heroPhotoUrl;
     }
 
-    function resetHeroPhoto() {
-      heroPhotoUrl = './assets/hero-luzes.jpg';
-      localStorage.setItem('wedding_hero_photo', heroPhotoUrl);
-      document.getElementById('adminHeroPhotoInput').value = heroPhotoUrl;
-      document.getElementById('adminHeroThumb').src = heroPhotoUrl;
-      applyHeroPhoto(heroPhotoUrl);
-      showToast('Foto de fundo restaurada para o padrão!', '✨');
+    async function resetHeroPhoto() {
+      const ok = await saveSiteConfig({ hero_url: null }, 'Foto de fundo restaurada para o padrão!', '✨');
+      if (ok) {
+        document.getElementById('adminHeroPhotoInput').value = heroPhotoUrl;
+        document.getElementById('adminHeroThumb').src = heroPhotoUrl;
+      }
     }
 
     function renderAdminGalleryEditor() {
       const container = document.getElementById('adminGalleryList');
       container.innerHTML = currentGallery.map((item, idx) => `
         <div class="admin-img-card" id="adminGalCard_${idx}">
-          <img src="${item.url}" class="admin-img-thumb" onerror="this.src='./assets/noivado-anel.jpg'">
+          <img src="${escapeHtml(item.url)}" class="admin-img-thumb" onerror="this.src='./assets/noivado-anel.jpg'">
           <div style="flex-grow: 1;">
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 6px;">
-              <input type="text" class="form-control" style="padding: 6px 10px; font-size: 13px;" value="${item.title}" placeholder="Título da foto" oninput="currentGallery[${idx}].title = this.value">
-              <input type="text" class="form-control" style="padding: 6px 10px; font-size: 13px;" value="${item.sub || ''}" placeholder="Legenda / Momento" oninput="currentGallery[${idx}].sub = this.value">
+              <input type="text" class="form-control" style="padding: 6px 10px; font-size: 13px;" value="${escapeHtml(item.title)}" placeholder="Título da foto" oninput="currentGallery[${idx}].title = this.value">
+              <input type="text" class="form-control" style="padding: 6px 10px; font-size: 13px;" value="${escapeHtml(item.sub || '')}" placeholder="Legenda / Momento" oninput="currentGallery[${idx}].sub = this.value">
             </div>
-            <input type="text" class="form-control" style="padding: 6px 10px; font-size: 12px;" value="${item.url}" placeholder="URL ou caminho da imagem" oninput="currentGallery[${idx}].url = this.value; this.parentElement.previousElementSibling.src = this.value">
+            <div style="display: flex; gap: 6px;">
+              <input type="text" class="form-control" style="padding: 6px 10px; font-size: 12px;" value="${escapeHtml(item.url)}" placeholder="URL ou caminho da imagem" oninput="currentGallery[${idx}].url = this.value; document.querySelector('#adminGalCard_${idx} .admin-img-thumb').src = this.value">
+              <button onclick="uploadGalleryImage(${idx})" class="btn btn-outline" style="padding: 4px 10px; font-size: 12px; color: var(--text-main); white-space: nowrap;" title="Enviar foto do aparelho">📤</button>
+            </div>
           </div>
           <button onclick="removeGalleryItem(${idx})" style="background: none; border: none; font-size: 18px; color: #C97C6B; cursor: pointer;" title="Excluir foto">🗑️</button>
         </div>
@@ -2673,72 +2973,69 @@
     }
 
     function removeGalleryItem(idx) {
-      if (!confirm('Deseja remover esta foto da galeria?')) return;
+      if (!confirm('Deseja remover esta foto da galeria? (Clique em "Salvar" para confirmar.)')) return;
       currentGallery.splice(idx, 1);
       renderAdminGalleryEditor();
     }
 
-    function saveAllGalleryChanges() {
-      localStorage.setItem('wedding_gallery_photos', JSON.stringify(currentGallery));
-      renderGallery();
-      showToast('Galeria de fotos salva com sucesso!', '💾');
+    async function saveAllGalleryChanges() {
+      await saveSiteConfig({ gallery: currentGallery }, 'Galeria de fotos salva com sucesso!', '💾');
     }
 
     function renderAdminGiftsEditor() {
       const container = document.getElementById('adminGiftsList');
       container.innerHTML = currentGifts.map((gift, idx) => `
-        <div class="admin-img-card">
-          <img src="${gift.image}" class="admin-img-thumb" onerror="this.src='https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80'">
+        <div class="admin-img-card" id="adminGiftCard_${idx}">
+          <img src="${escapeHtml(gift.image)}" class="admin-img-thumb" onerror="this.src='https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80'">
           <div style="flex-grow: 1;">
-            <div style="font-weight: 600; font-size: 14px; color: var(--marsala);">${gift.title} (${gift.categoryLabel})</div>
+            <div style="font-weight: 600; font-size: 14px; color: var(--marsala);">${escapeHtml(gift.title)} (${escapeHtml(gift.categoryLabel)})</div>
             <div style="display: flex; gap: 8px; margin-top: 6px;">
-              <input type="text" class="form-control" style="padding: 6px 10px; font-size: 12px;" value="${gift.image}" placeholder="URL da foto do produto" oninput="currentGifts[${idx}].image = this.value; this.parentElement.previousElementSibling.previousElementSibling.src = this.value">
-              <input type="number" class="form-control" style="width: 100px; padding: 6px 8px; font-size: 13px;" value="${gift.price}" placeholder="Preço (R$)" oninput="currentGifts[${idx}].price = parseFloat(this.value) || 50">
+              <input type="text" class="form-control" style="padding: 6px 10px; font-size: 12px;" value="${escapeHtml(gift.image)}" placeholder="URL da foto do produto" oninput="currentGifts[${idx}].image = this.value; document.querySelector('#adminGiftCard_${idx} .admin-img-thumb').src = this.value">
+              <button onclick="uploadGiftImage(${idx})" class="btn btn-outline" style="padding: 4px 10px; font-size: 12px; color: var(--text-main); white-space: nowrap;" title="Enviar foto do aparelho">📤</button>
+              <input type="number" class="form-control" style="width: 100px; padding: 6px 8px; font-size: 13px;" value="${Number(gift.price) || 0}" placeholder="Preço (R$)" oninput="currentGifts[${idx}].price = parseFloat(this.value) || 50">
             </div>
           </div>
         </div>
       `).join('');
     }
 
-    function saveAllGiftsChanges() {
-      localStorage.setItem('wedding_custom_gifts', JSON.stringify(currentGifts));
-      renderGifts('todos');
-      showToast('Lista de presentes atualizada com sucesso!', '🎁');
+    async function saveAllGiftsChanges() {
+      await saveSiteConfig({ gifts: currentGifts }, 'Lista de presentes atualizada com sucesso!', '🎁');
     }
 
-    // 15. SENHA E CONFIGURAÇÕES NO ADMIN
-    function saveNewAdminPassword() {
-      const p1 = document.getElementById('adminNewPass').value.trim();
-      const p2 = document.getElementById('adminConfirmPass').value.trim();
+    // SENHA E CONFIGURAÇÕES NO ADMIN
+    async function saveNewAdminPassword() {
+      const p1 = document.getElementById('adminNewPass').value;
+      const p2 = document.getElementById('adminConfirmPass').value;
       if (!p1) { alert('Digite uma nova senha!'); return; }
+      if (p1.length < 8) { alert('A senha precisa ter pelo menos 8 caracteres.'); return; }
       if (p1 !== p2) { alert('As senhas digitadas não coincidem!'); return; }
-      adminPassword = p1;
-      localStorage.setItem('wedding_admin_pass', p1);
+      if (!supabaseClient || !isAdminSession) { alert('Sua sessão expirou. Entre novamente.'); return; }
+      const { error } = await supabaseClient.auth.updateUser({ password: p1 });
+      if (error) { alert('Não foi possível alterar a senha: ' + error.message); return; }
       document.getElementById('adminNewPass').value = '';
       document.getElementById('adminConfirmPass').value = '';
-      showToast('Senha de administrador alterada com sucesso!', '🔐');
+      showToast('Senha alterada! Vale para todos os aparelhos.', '🔐');
     }
 
-    function savePhonesConfig() {
-      const b = document.getElementById('adminBridePhone').value.trim();
-      const g = document.getElementById('adminGroomPhone').value.trim();
-      if (b) { brideWhatsApp = b; localStorage.setItem('bride_wa', b); }
-      if (g) { groomWhatsApp = g; localStorage.setItem('groom_wa', g); }
-      showToast('Telefones salvos com sucesso!', '📱');
+    async function savePhonesConfig() {
+      const b = document.getElementById('adminBridePhone').value.replace(/\D/g, '');
+      const g = document.getElementById('adminGroomPhone').value.replace(/\D/g, '');
+      const patch = {};
+      if (b) patch.whatsapp_bride = b;
+      if (g) patch.whatsapp_groom = g;
+      if (Object.keys(patch).length === 0) return;
+      await saveSiteConfig(patch, 'Telefones salvos com sucesso!', '📱');
     }
 
-    function savePixConfig() {
+    async function savePixConfig() {
       const k = document.getElementById('adminPixInput').value.trim();
       const p = document.getElementById('adminPixPayloadInput').value.trim();
-      if (k) {
-        currentPixKey = k;
-        localStorage.setItem('wedding_pix', k);
-      }
-      if (p) {
-        currentPixPayload = p;
-        localStorage.setItem('wedding_pix_payload', p);
-      }
-      showToast('Configurações de Pix salvas com sucesso!', '💳');
+      const patch = {};
+      if (k) patch.pix_key = k;
+      if (p) patch.pix_copia_cola = p;
+      if (Object.keys(patch).length === 0) return;
+      await saveSiteConfig(patch, 'Configurações de Pix salvas com sucesso!', '💳');
     }
 
     function exportGuestsCsv() {
@@ -2748,7 +3045,7 @@
       }
       let csv = 'Nome,Telefone,Status,Mensagem,Data\n';
       rsvpListCache.forEach(r => {
-        csv += `"${r.name}","${r.phone}","${r.status}","${(r.message||'').replace(/"/g, '""')}","${r.created_at}"\n`;
+        csv += [r.name, r.phone, r.status, r.message || '', r.created_at].map(csvCell).join(',') + '\n';
       });
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
