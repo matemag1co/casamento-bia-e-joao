@@ -31,6 +31,6 @@ Site oficial e convite digital interativo de casamento de **Beatriz & João**, r
 
 ## 🚀 Publicação & GitHub Pages
 
-- Repositório: `https://github.com/matemag1co/cofre-dos-noivos.git`
+- Repositório: `https://github.com/matemag1co/casamento-bia-e-joao.git`
 - Branch: `main`
-- Site no ar: [matemag1co.github.io/cofre-dos-noivos](https://matemag1co.github.io/cofre-dos-noivos/)
+- Site no ar: [matemag1co.github.io/cofre-dos-noivos](https://matemag1co.github.io/casamento-bia-e-joao/)
