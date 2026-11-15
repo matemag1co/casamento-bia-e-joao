@@ -2521,8 +2521,8 @@
           .subscribe();
 
         supabaseClient
-          .channel('public:cofre_config')
-          .on('postgres_changes', { event: '*', schema: 'public', table: 'cofre_config' }, () => {
+          .channel('public:casamento_config')
+          .on('postgres_changes', { event: '*', schema: 'public', table: 'casamento_config' }, () => {
             // Não atropela edições em andamento no painel
             if (!document.getElementById('adminModal').classList.contains('open')) loadSiteConfig();
           })
@@ -2559,7 +2559,7 @@
     function safeStorageSet(key, val) { try { localStorage.setItem(key, val); } catch(e) {} }
     function safeStorageRemove(key) { try { localStorage.removeItem(key); } catch(e) {} }
 
-    // 15. CONFIGURAÇÃO CENTRAL DO SITE (Supabase · tabela cofre_config, linha id = 1)
+    // 15. CONFIGURAÇÃO CENTRAL DO SITE (Supabase · tabela casamento_config, linha id = 1)
     //     O localStorage guarda apenas um CACHE para a página abrir mais rápido;
     //     a fonte da verdade é sempre o banco.
     const CONFIG_CACHE_KEY = 'cofre_config_cache_v1';
@@ -2599,7 +2599,7 @@
       if (!supabaseClient) return;
       try {
         const { data, error } = await supabaseClient
-          .from('cofre_config')
+          .from('casamento_config')
           .select('*')
           .eq('id', 1)
           .maybeSingle();
@@ -2620,7 +2620,7 @@
       }
       try {
         const { data, error } = await supabaseClient
-          .from('cofre_config')
+          .from('casamento_config')
           .update(patch)
           .eq('id', 1)
           .select('*');

@@ -31,39 +31,25 @@ revoke all on function public.cofre_is_admin() from public;
 grant execute on function public.cofre_is_admin() to anon, authenticated;
 
 -- ------------------------------------------------------------------------------
--- 1. CONFIGURAÇÃO DO SITE (linha única, id = 1)
+-- 1. CONFIGURAÇÃO DO SITE (tabela própria · linha única, id = 1)
+--    Atenção: "cofre_config" pertence ao app do fundo (meta/plano) — não usar aqui.
 -- ------------------------------------------------------------------------------
-create table if not exists public.cofre_config (
-  id int primary key default 1,
-  names text not null default 'Beatriz & João',
-  wedding_date timestamptz default '2027-11-13T15:30:00-03:00',
+create table if not exists public.casamento_config (
+  id int primary key default 1 check (id = 1),
   whatsapp_groom text default '5521999999999',
   whatsapp_bride text default '5521999999999',
   pix_key text default 'jmdias1317@icloud.com',
   pix_name text default 'João Miguel Dias (C6 Bank)',
   pix_copia_cola text default '00020101021126430014br.gov.bcb.pix0121jmdias1317@icloud.com5204000053039865802BR5925JOAO MIGUEL DOS SANTOS DI6009SAO PAULO622905251M7GBS4ZJE7QSEZNZ1V5H72Y863041033',
-  ceremony_location text default 'Espaço Paradayse',
-  ceremony_address text default 'Estrada Mato Grosso, 80 - Campo Alegre, Nova Iguaçu, RJ',
+  hero_url text,      -- null = usa a capa padrão do site
+  gallery jsonb,      -- null = usa a galeria padrão do site
+  gifts jsonb,        -- null = usa a lista de presentes padrão do site
   created_at timestamptz default now(),
   updated_at timestamptz default now()
 );
 
--- Novos campos editáveis pelo painel (null = usa o padrão embutido no site)
-alter table public.cofre_config add column if not exists hero_url text;
-alter table public.cofre_config add column if not exists gallery jsonb;
-alter table public.cofre_config add column if not exists gifts jsonb;
-
--- Garante linha única
-do $$
-begin
-  if not exists (select 1 from pg_constraint where conname = 'cofre_config_singleton') then
-    alter table public.cofre_config add constraint cofre_config_singleton check (id = 1);
-  end if;
-end;
-$$;
-
 -- Cria a linha se não existir (NÃO sobrescreve o que foi editado no painel)
-insert into public.cofre_config (id) values (1) on conflict (id) do nothing;
+insert into public.casamento_config (id) values (1) on conflict (id) do nothing;
 
 -- updated_at automático
 create or replace function public.cofre_touch_updated_at()
@@ -73,9 +59,19 @@ begin
   return new;
 end;
 $$;
-drop trigger if exists trg_cofre_config_updated on public.cofre_config;
-create trigger trg_cofre_config_updated before update on public.cofre_config
+drop trigger if exists trg_casamento_config_updated on public.casamento_config;
+create trigger trg_casamento_config_updated before update on public.casamento_config
   for each row execute function public.cofre_touch_updated_at();
+
+-- Limpeza: desfaz alterações que uma versão anterior deste script fez por engano
+-- na tabela do app do fundo (cofre_config). Não toca em meta/plano.
+alter table public.cofre_config drop column if exists hero_url;
+alter table public.cofre_config drop column if exists gallery;
+alter table public.cofre_config drop column if exists gifts;
+alter table public.cofre_config drop constraint if exists cofre_config_singleton;
+drop trigger if exists trg_cofre_config_updated on public.cofre_config;
+drop policy if exists "Noivos atualizam cofre_config" on public.cofre_config;
+drop policy if exists "Noivos inserem cofre_config" on public.cofre_config;
 
 -- ------------------------------------------------------------------------------
 -- 2. CONFIRMAÇÃO DE PRESENÇA (RSVP INDIVIDUAL)
@@ -154,24 +150,19 @@ $$;
 -- ------------------------------------------------------------------------------
 -- 4. POLÍTICAS DE RLS
 -- ------------------------------------------------------------------------------
-alter table public.cofre_config enable row level security;
+alter table public.casamento_config enable row level security;
 alter table public.cofre_rsvp enable row level security;
 alter table public.cofre_guest_messages enable row level security;
 
--- cofre_config: leitura pública, escrita só dos noivos
-drop policy if exists "Leitura publica de cofre_config" on public.cofre_config;
-create policy "Leitura publica de cofre_config" on public.cofre_config
+-- casamento_config: leitura pública, escrita só dos noivos
+drop policy if exists "Leitura publica de casamento_config" on public.casamento_config;
+create policy "Leitura publica de casamento_config" on public.casamento_config
   for select using (true);
 
-drop policy if exists "Noivos atualizam cofre_config" on public.cofre_config;
-create policy "Noivos atualizam cofre_config" on public.cofre_config
+drop policy if exists "Noivos atualizam casamento_config" on public.casamento_config;
+create policy "Noivos atualizam casamento_config" on public.casamento_config
   for update to authenticated
   using (public.cofre_is_admin()) with check (public.cofre_is_admin());
-
-drop policy if exists "Noivos inserem cofre_config" on public.cofre_config;
-create policy "Noivos inserem cofre_config" on public.cofre_config
-  for insert to authenticated
-  with check (public.cofre_is_admin());
 
 -- cofre_rsvp: qualquer um confirma; só os noivos leem e excluem
 drop policy if exists "Leitura publica de cofre_rsvp" on public.cofre_rsvp;   -- removida (expunha telefones)
@@ -238,8 +229,8 @@ begin
   if not exists (select 1 from pg_publication_tables where pubname = 'supabase_realtime' and tablename = 'cofre_guest_messages') then
     alter publication supabase_realtime add table public.cofre_guest_messages;
   end if;
-  if not exists (select 1 from pg_publication_tables where pubname = 'supabase_realtime' and tablename = 'cofre_config') then
-    alter publication supabase_realtime add table public.cofre_config;
+  if not exists (select 1 from pg_publication_tables where pubname = 'supabase_realtime' and tablename = 'casamento_config') then
+    alter publication supabase_realtime add table public.casamento_config;
   end if;
 end;
 $$;
