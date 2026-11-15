@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Casamento de João & Anna Beatriz · Convite & Lista de Presentes</title>
+  <title>Casamento de Beatriz & João · Convite & Lista de Presentes</title>
   
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%92%8D%3C/text%3E%3C/svg%3E">
   <link rel="manifest" href="manifest.webmanifest">
   <meta name="theme-color" content="#19130D">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="description" content="Site oficial e convite de casamento de João & Anna Beatriz. Confirme sua presença, confira a lista de presentes e celebre com a gente!">
+  <meta name="description" content="Site oficial e convite de casamento de Beatriz & João. Confirme sua presença, confira a lista de presentes e celebre com a gente no dia 13/11/2027!">
 
   <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -56,24 +56,18 @@
       overflow-x: hidden;
     }
 
-    /* Utilitários */
     .container { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
     .serif { font-family: var(--font-serif); }
     .script { font-family: var(--font-script); }
-    .gold-text {
-      background: var(--gold-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
 
-    /* HEADER & NAVBAR */
+    /* NAVBAR */
     .navbar {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 999;
-      background: rgba(25, 19, 13, 0.88);
+      background: rgba(25, 19, 13, 0.90);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(223, 179, 110, 0.25);
@@ -88,7 +82,7 @@
     .nav-brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       text-decoration: none;
       color: #FFF;
     }
@@ -97,13 +91,14 @@
       font-size: 26px;
       font-weight: 700;
       color: #E5C385;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
     }
     .nav-brand .date-tag {
       font-size: 12px;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.75);
       border-left: 1px solid rgba(255,255,255,0.25);
-      padding-left: 10px;
+      padding-left: 12px;
+      letter-spacing: 0.5px;
     }
     .nav-links {
       display: flex;
@@ -129,23 +124,13 @@
       background: rgba(200, 138, 60, 0.25);
       border-color: rgba(223, 179, 110, 0.45);
     }
-    .nav-link.btn-highlight {
-      background: var(--gold-gradient);
-      color: #19130D;
-      font-weight: 600;
-      box-shadow: 0 4px 15px rgba(200, 138, 60, 0.4);
-    }
-    .nav-link.btn-highlight:hover {
-      filter: brightness(1.1);
-      color: #000;
-    }
     .admin-key-btn {
       background: transparent;
       border: none;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255,255,255,0.45);
       cursor: pointer;
-      font-size: 16px;
-      padding: 6px;
+      font-size: 17px;
+      padding: 6px 10px;
       transition: 0.2s;
     }
     .admin-key-btn:hover { color: #E5C385; }
@@ -160,7 +145,10 @@
       text-align: center;
       color: #FFF;
       padding: 120px 20px 60px;
-      background: #19130D url('./assets/hero-luzes.jpg') center/cover no-repeat;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      transition: background-image 0.5s ease;
     }
     .hero::before {
       content: "";
@@ -192,7 +180,7 @@
       backdrop-filter: blur(6px);
     }
     .hero-title {
-      font-size: clamp(40px, 8vw, 76px);
+      font-size: clamp(38px, 7.5vw, 76px);
       line-height: 1.1;
       font-weight: 500;
       margin-bottom: 12px;
@@ -205,6 +193,16 @@
       color: #F7E4BE;
       margin-bottom: 20px;
       line-height: 1;
+    }
+    .hero-date-highlight {
+      display: inline-block;
+      font-family: var(--font-serif);
+      font-size: 20px;
+      color: #E5C385;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(229, 195, 133, 0.4);
+      padding-bottom: 6px;
     }
     .hero-quote {
       font-size: 16px;
@@ -274,16 +272,6 @@
       box-shadow: 0 12px 30px rgba(200, 138, 60, 0.6);
       filter: brightness(1.08);
     }
-    .btn-white {
-      background: rgba(255, 255, 255, 0.95);
-      color: #2C241E;
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-    }
-    .btn-white:hover {
-      background: #FFF;
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-    }
     .btn-outline {
       background: rgba(25, 19, 13, 0.6);
       border: 1px solid rgba(223, 179, 110, 0.5);
@@ -296,7 +284,7 @@
       transform: translateY(-2px);
     }
 
-    /* SECTION SHARED */
+    /* SECTIONS */
     section { padding: 90px 0; position: relative; }
     .section-header {
       text-align: center;
@@ -304,7 +292,6 @@
       margin: 0 auto 50px;
     }
     .section-tag {
-      font-family: var(--font-sans);
       font-size: 12px;
       font-weight: 600;
       letter-spacing: 2px;
@@ -325,7 +312,7 @@
       font-size: 16px;
     }
 
-    /* MAIN TABS SELECTOR */
+    /* SELECTOR DE ABAS PRINCIPAIS */
     .tabs-nav-wrapper {
       display: flex;
       justify-content: center;
@@ -359,16 +346,29 @@
       box-shadow: 0 4px 15px rgba(44, 36, 30, 0.08);
     }
 
-    /* SEÇÃO 1: RSVP (CONFIRME SUA PRESENÇA) */
+    /* SEÇÃO RSVP (INDIVIDUAL) */
     .rsvp-card {
       background: var(--card-bg);
       border-radius: var(--radius);
       border: 1px solid var(--border-color);
       box-shadow: var(--shadow-lg);
       padding: clamp(24px, 5vw, 48px);
-      max-width: 760px;
+      max-width: 700px;
       margin: 0 auto;
       position: relative;
+    }
+    .rsvp-badge-individual {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FDF4E7;
+      color: #A3651C;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      border: 1px solid #F0D9BA;
     }
     .rsvp-stats-banner {
       display: flex;
@@ -489,7 +489,7 @@
       color: #FFF;
     }
 
-    /* SEÇÃO 2: LISTA DE PRESENTES */
+    /* SEÇÃO LISTA DE PRESENTES */
     .gifts-filter-bar {
       display: flex;
       align-items: center;
@@ -540,7 +540,7 @@
       border-color: rgba(200, 138, 60, 0.4);
     }
     .gift-card-media {
-      height: 190px;
+      height: 200px;
       position: relative;
       background: #F4EFEA;
       overflow: hidden;
@@ -615,7 +615,7 @@
       color: #19130D;
       font-weight: 600;
       font-size: 14px;
-      padding: 10px 14px;
+      padding: 11px 14px;
       border-radius: 10px;
       border: none;
       cursor: pointer;
@@ -626,12 +626,17 @@
       transition: 0.2s;
     }
     .gift-btn-pix:hover { filter: brightness(1.08); }
+    .gift-store-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+    }
     .gift-btn-store {
       background: #FAFAFA;
       color: var(--text-main);
       font-weight: 500;
-      font-size: 13px;
-      padding: 9px 12px;
+      font-size: 12px;
+      padding: 9px 10px;
       border-radius: 10px;
       border: 1px solid var(--border-color);
       text-decoration: none;
@@ -646,16 +651,13 @@
       border-color: #D3C3B3;
     }
 
-    /* CARD PRESENTE DO CORAÇÃO PERSONALIZADO */
-    .gift-card-heart-custom {
+    /* CARD DO CORAÇÃO */
+    .gift-card-heart {
       background: linear-gradient(135deg, #FFFDF9 0%, #FAF0E4 100%);
-      border: 2px dashed #C88A3C;
-    }
-    .gift-card-heart-custom .gift-card-media {
-      background: rgba(200, 138, 60, 0.12);
+      border: 1.5px solid #E5C385;
     }
 
-    /* GALERIA & HISTÓRIA */
+    /* GALERIA & HISTÓRIA DOS NOIVOS */
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -702,9 +704,7 @@
     }
 
     /* MURAL DE RECADOS */
-    .guestbook-section {
-      background: #F4EFEA;
-    }
+    .guestbook-section { background: #F4EFEA; }
     .messages-list {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -726,9 +726,6 @@
       font-size: 16px;
       color: var(--primary);
       margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
     .msg-date {
       font-size: 11px;
@@ -751,93 +748,6 @@
       background: #FDF6EC;
       color: var(--primary);
       border: 1px solid #F2DEC0;
-    }
-
-    /* MODAL BASE */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 10, 6, 0.75);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 1000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.25s ease;
-    }
-    .modal-backdrop.open {
-      opacity: 1;
-      visibility: visible;
-    }
-    .modal-card {
-      background: #FFF;
-      border-radius: 20px;
-      max-width: 520px;
-      width: 100%;
-      padding: clamp(24px, 5vw, 36px);
-      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
-      position: relative;
-      max-height: 90vh;
-      overflow-y: auto;
-      transform: scale(0.95);
-      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-    }
-    .modal-backdrop.open .modal-card {
-      transform: scale(1);
-    }
-    .modal-close-btn {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      background: #F0ECE6;
-      border: none;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 18px;
-      color: var(--text-muted);
-      transition: 0.2s;
-    }
-    .modal-close-btn:hover {
-      background: #E4DCD3;
-      color: #000;
-    }
-    .qr-container {
-      display: flex;
-      justify-content: center;
-      margin: 20px auto;
-      padding: 16px;
-      background: #FFF;
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      width: fit-content;
-    }
-    .pix-copy-box {
-      display: flex;
-      align-items: center;
-      background: #F7F4EE;
-      border: 1px solid var(--border-color);
-      border-radius: 10px;
-      padding: 8px 12px;
-      margin-bottom: 20px;
-      gap: 10px;
-    }
-    .pix-key-val {
-      font-family: monospace;
-      font-size: 14px;
-      color: var(--text-main);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      flex-grow: 1;
     }
 
     /* FOOTER */
@@ -874,11 +784,120 @@
       margin: 0 auto;
     }
 
+    /* MODAL BASE */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 10, 6, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+    .modal-backdrop.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .modal-card {
+      background: #FFF;
+      border-radius: 20px;
+      max-width: 520px;
+      width: 100%;
+      padding: clamp(24px, 5vw, 36px);
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      position: relative;
+      max-height: 90vh;
+      overflow-y: auto;
+      transform: scale(0.95);
+      transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+    .modal-backdrop.open .modal-card { transform: scale(1); }
+    .modal-close-btn {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      background: #F0ECE6;
+      border: none;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      color: var(--text-muted);
+      transition: 0.2s;
+    }
+    .modal-close-btn:hover { background: #E4DCD3; color: #000; }
+    .qr-container {
+      display: flex;
+      justify-content: center;
+      margin: 20px auto;
+      padding: 16px;
+      background: #FFF;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      width: fit-content;
+    }
+    .pix-copy-box {
+      display: flex;
+      align-items: center;
+      background: #F7F4EE;
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 8px 12px;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+    .pix-key-val {
+      font-family: monospace;
+      font-size: 14px;
+      color: var(--text-main);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      flex-grow: 1;
+    }
+
     /* ADMIN MODAL */
+    .admin-modal-card {
+      max-width: 900px;
+      width: 100%;
+    }
+    .admin-tabs-nav {
+      display: flex;
+      gap: 10px;
+      border-bottom: 1.5px solid var(--border-color);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      flex-wrap: wrap;
+    }
+    .admin-tab-btn {
+      background: transparent;
+      border: none;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+    .admin-tab-btn.active {
+      background: #F5E9D8;
+      color: var(--primary);
+    }
     .admin-table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 16px;
+      margin-top: 14px;
       font-size: 13px;
     }
     .admin-table th, .admin-table td {
@@ -886,12 +905,17 @@
       text-align: left;
       border-bottom: 1px solid var(--border-color);
     }
-    .admin-table th {
-      background: #F7F4EE;
-      font-weight: 600;
+    .admin-table th { background: #F7F4EE; font-weight: 600; }
+    .search-input {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      width: 100%;
+      font-size: 14px;
+      margin-bottom: 14px;
     }
 
-    /* TOAST FEEDBACK */
+    /* TOAST */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -910,9 +934,7 @@
       align-items: center;
       gap: 8px;
     }
-    .toast.show {
-      transform: translateX(-50%) translateY(0);
-    }
+    .toast.show { transform: translateX(-50%) translateY(0); }
 
     @media (max-width: 768px) {
       .nav-links .nav-link-text { display: none; }
@@ -928,8 +950,8 @@
   <nav class="navbar">
     <div class="container nav-inner">
       <a href="#inicio" class="nav-brand">
-        <span class="monogram">J &amp; B</span>
-        <span class="date-tag">Nov · 2027</span>
+        <span class="monogram">B &amp; J</span>
+        <span class="date-tag">13 · Nov · 2027</span>
       </a>
       <div class="nav-links">
         <a href="#inicio" class="nav-link active"><span>🏠</span> <span class="nav-link-text">Início</span></a>
@@ -946,8 +968,13 @@
   <header class="hero" id="inicio">
     <div class="hero-content">
       <div class="hero-badge">Com a bênção de Deus &amp; Nossos Pais</div>
-      <h1 class="hero-title serif">João Miguel &amp; Anna Beatriz</h1>
+      <h1 class="hero-title serif" id="heroTitle">Beatriz &amp; João</h1>
       <p class="hero-subtitle script">Vamos nos casar!</p>
+      
+      <div class="hero-date-highlight">
+        🗓️ 13 de Novembro de 2027 · Rio de Janeiro - RJ
+      </div>
+
       <p class="hero-quote">
         "O amor é paciente, o amor é bondoso. Não inveja, não se vangloria, não se orgulha. Tudo sofre, tudo crê, tudo espera, tudo suporta." — 1 Coríntios 13
       </p>
@@ -984,7 +1011,7 @@
   </section>
 
   <!-- ========================================================================= -->
-  <!-- SEÇÃO 1: CONFIRME SUA PRESENÇA (RSVP) -->
+  <!-- SEÇÃO 1: CONFIRME SUA PRESENÇA (RSVP INDIVIDUAL) -->
   <!-- ========================================================================= -->
   <section id="rsvp">
     <div class="container">
@@ -992,18 +1019,25 @@
         <span class="section-tag">Confirmação de Presença</span>
         <h2 class="section-title serif">Você é Nosso Convidado Especial</h2>
         <p class="section-desc">
-          Sua presença tornará o nosso grande dia inesquecível. Por favor, confirme se você e sua família estarão conosco!
+          Sua presença tornará o nosso grande dia inesquecível. Por favor, confirme se você estará conosco no dia 13/11/2027!
         </p>
       </div>
 
       <div class="rsvp-card">
+        <!-- Badge de Convite Individual -->
+        <div style="text-align: center;">
+          <div class="rsvp-badge-individual">
+            <span>✨ Convite Individual &amp; Pessoal</span>
+          </div>
+        </div>
+
         <!-- Live Counter Banner -->
         <div class="rsvp-stats-banner">
           <div class="rsvp-count-box">
             <div class="rsvp-icon">🥂</div>
             <div>
               <div class="rsvp-count-num" id="liveGuestsCount">--</div>
-              <div class="rsvp-count-text">pessoas já confirmaram presença</div>
+              <div class="rsvp-count-text">convidados confirmados</div>
             </div>
           </div>
           <div style="font-size: 13px; color: var(--text-muted);">
@@ -1014,8 +1048,8 @@
         <form id="rsvpForm" onsubmit="handleRsvpSubmit(event)">
           <!-- Nome -->
           <div class="form-group">
-            <label class="form-label" for="rsvpName">Nome Completo <span class="req">*</span></label>
-            <input type="text" id="rsvpName" class="form-control" placeholder="Ex: Lucas Ferreira da Silva" required>
+            <label class="form-label" for="rsvpName">Seu Nome Completo <span class="req">*</span></label>
+            <input type="text" id="rsvpName" class="form-control" placeholder="Ex: Gabriel Moreira da Silva" required>
           </div>
 
           <!-- Telefone / WhatsApp -->
@@ -1030,7 +1064,7 @@
             <div class="radio-pill-group">
               <label class="radio-pill selected" id="optAttendingYes" onclick="selectAttendance(true)">
                 <input type="radio" name="attendance" value="confirmed" checked>
-                <span>🎉 Sim, com certeza!</span>
+                <span>🎉 Sim, confirmo!</span>
               </label>
               <label class="radio-pill" id="optAttendingNo" onclick="selectAttendance(false)">
                 <input type="radio" name="attendance" value="declined">
@@ -1039,29 +1073,10 @@
             </div>
           </div>
 
-          <!-- Quantidade e Acompanhantes (visível se sim) -->
-          <div id="companionsBlock">
-            <div class="form-group">
-              <label class="form-label" for="rsvpGuestsCount">Quantas pessoas no total? (Você + acompanhantes)</label>
-              <select id="rsvpGuestsCount" class="form-control" onchange="toggleCompanionsNameField()">
-                <option value="1">Apenas eu (1 pessoa)</option>
-                <option value="2">2 pessoas</option>
-                <option value="3">3 pessoas</option>
-                <option value="4">4 pessoas</option>
-                <option value="5">5 pessoas ou mais</option>
-              </select>
-            </div>
-
-            <div class="form-group" id="companionNamesGroup" style="display: none;">
-              <label class="form-label" for="rsvpCompanionNames">Nome(s) do(s) Acompanhante(s)</label>
-              <input type="text" id="rsvpCompanionNames" class="form-control" placeholder="Ex: Mariana Silva (esposa), Pedro (filho)">
-            </div>
-          </div>
-
           <!-- Mensagem carinhosa -->
           <div class="form-group">
             <label class="form-label" for="rsvpMessage">Mensagem de Carinho aos Noivos (opcional)</label>
-            <textarea id="rsvpMessage" class="form-control" rows="3" placeholder="Deixe uma palavra de bênção ou felicitação para João &amp; Bia..."></textarea>
+            <textarea id="rsvpMessage" class="form-control" rows="3" placeholder="Deixe uma palavra de carinho ou bênção para Beatriz &amp; João..."></textarea>
           </div>
 
           <!-- Botões de Ação do RSVP -->
@@ -1071,7 +1086,7 @@
               <span>✨ Confirmar Presença no Site</span>
             </button>
 
-            <!-- Botão 2: WhatsApp Selector Dropdown / Flow -->
+            <!-- Botão 2: WhatsApp Selector Flow -->
             <button type="button" class="btn btn-whatsapp-groom" onclick="openWhatsAppModal()" style="width: 100%;">
               <span>💬 Confirmar no WhatsApp</span>
             </button>
@@ -1090,7 +1105,7 @@
         <span class="section-tag">Montando Nosso Lar</span>
         <h2 class="section-title serif">Lista de Presentes dos Noivos</h2>
         <p class="section-desc">
-          Ficaremos imensamente felizes com seu carinho! Você pode nos presentear doando o valor aproximado via Pix (ajudando em nossas compras) OU clicando no link para comprar o item diretamente na Amazon ou Mercado Livre.
+          Ficaremos imensamente felizes com seu carinho! Você pode nos presentear com o valor sugerido via Pix OU pelos botões das lojas (Amazon e Mercado Livre) se preferir escolher e enviar diretamente.
         </p>
       </div>
 
@@ -1107,7 +1122,7 @@
 
       <!-- Grid de Presentes -->
       <div class="gifts-grid" id="giftsContainer">
-        <!-- Renderizado dinamicamente pelo JavaScript -->
+        <!-- Renderizado dinamicamente pelo JavaScript com imagens nítidas -->
       </div>
     </div>
   </section>
@@ -1121,7 +1136,7 @@
         <span class="section-tag">Nossa Trajetória</span>
         <h2 class="section-title serif">Momentos Inesquecíveis</h2>
         <p class="section-desc">
-          Um pouquinho do amor, dos sorrisos e da história que nos trouxe até aqui.
+          Um pouquinho do amor, dos sorrisos e dos momentos especiais de Beatriz &amp; João.
         </p>
       </div>
 
@@ -1237,7 +1252,7 @@
         <span class="section-tag">Carinho dos Amigos &amp; Família</span>
         <h2 class="section-title serif">Mural de Votos &amp; Homenagens</h2>
         <p class="section-desc">
-          Recadinhos deixados pelos convidados e padrinhos para celebrar a união de João &amp; Anna Beatriz.
+          Recadinhos deixados pelos convidados e padrinhos para celebrar a união de Beatriz &amp; João.
         </p>
       </div>
 
@@ -1254,13 +1269,13 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="footer-names">João Miguel &amp; Anna Beatriz</div>
+      <div class="footer-names">Beatriz &amp; João</div>
       <p class="footer-quote">
         "Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu, ninguém separe." — Mateus 19:6
       </p>
       <div class="footer-bottom">
-        <div>💍 Casamento em Novembro de 2027 · Rio de Janeiro - RJ</div>
-        <div>Site oficial do casal com Amor ❤️</div>
+        <div>💍 Casamento em 13 de Novembro de 2027 · Rio de Janeiro - RJ</div>
+        <div>Com todo o amor de Beatriz &amp; João ❤️</div>
       </div>
     </div>
   </footer>
@@ -1281,6 +1296,12 @@
         </div>
       </div>
 
+      <!-- Campo para ajustar valor se for presente livre -->
+      <div id="customValueBox" style="display: none; margin-bottom: 16px;">
+        <label class="form-label" style="font-size: 13px; text-align: center;">Digite o valor que deseja doar (R$):</label>
+        <input type="number" id="customAmountInput" class="form-control" style="font-size: 18px; text-align: center; font-weight: 700;" min="10" step="10" value="100" oninput="updateCustomPixAmount(this.value)">
+      </div>
+
       <!-- QR Code Container -->
       <div class="qr-container" id="pixQrCode"></div>
 
@@ -1296,11 +1317,11 @@
       <!-- Deixar recado junto ao presente -->
       <div class="form-group">
         <label class="form-label" for="pixSenderName">Seu Nome / Família:</label>
-        <input type="text" id="pixSenderName" class="form-control" placeholder="Ex: Tio Paulo e Família">
+        <input type="text" id="pixSenderName" class="form-control" placeholder="Ex: Prima Mariana">
       </div>
       <div class="form-group">
         <label class="form-label" for="pixGreeting">Recado para os noivos:</label>
-        <textarea id="pixGreeting" class="form-control" rows="2" placeholder="Ex: Parabéns João e Bia! Que Deus abençoe muito esse lar!"></textarea>
+        <textarea id="pixGreeting" class="form-control" rows="2" placeholder="Ex: Parabéns Bia e João! Que Deus abençoe esse novo lar!"></textarea>
       </div>
 
       <div style="display: grid; grid-template-columns: 1fr; gap: 10px; margin-top: 18px;">
@@ -1323,15 +1344,15 @@
       <span style="font-size: 38px;">💬</span>
       <h3 class="serif" style="font-size: 24px; margin: 8px 0 4px;">Confirmar no WhatsApp</h3>
       <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">
-        Para quem você deseja enviar a mensagem programada de confirmação?
+        Para quem você deseja enviar sua confirmação de presença?
       </p>
 
       <div style="display: flex; flex-direction: column; gap: 14px;">
+        <button class="btn btn-whatsapp-bride" style="padding: 16px; font-size: 15px;" onclick="sendWhatsAppConfirmation('bride')">
+          <span>👰 Enviar para a Noiva (Beatriz)</span>
+        </button>
         <button class="btn btn-whatsapp-groom" style="padding: 16px; font-size: 15px;" onclick="sendWhatsAppConfirmation('groom')">
           <span>🤵 Enviar para o Noivo (João)</span>
-        </button>
-        <button class="btn btn-whatsapp-bride" style="padding: 16px; font-size: 15px;" onclick="sendWhatsAppConfirmation('bride')">
-          <span>👰 Enviar para a Noiva (Bia)</span>
         </button>
       </div>
     </div>
@@ -1357,16 +1378,16 @@
       <div style="text-align: center; margin-bottom: 20px;">
         <span style="font-size: 34px;">✍️</span>
         <h3 class="serif" style="font-size: 24px;">Deixe sua Mensagem de Amor</h3>
-        <p style="color: var(--text-muted); font-size: 13px;">Seu recado aparecerá no mural dos noivos!</p>
+        <p style="color: var(--text-muted); font-size: 13px;">Seu recado aparecerá no mural de Beatriz &amp; João!</p>
       </div>
       <form onsubmit="handleMuralSubmit(event)">
         <div class="form-group">
-          <label class="form-label" for="muralSender">Seu Nome / Família <span class="req">*</span></label>
-          <input type="text" id="muralSender" class="form-control" placeholder="Ex: Prima Bruna e Família" required>
+          <label class="form-label" for="muralSender">Seu Nome <span class="req">*</span></label>
+          <input type="text" id="muralSender" class="form-control" placeholder="Ex: Tio Marcos" required>
         </div>
         <div class="form-group">
           <label class="form-label" for="muralText">Mensagem / Felicitações <span class="req">*</span></label>
-          <textarea id="muralText" class="form-control" rows="4" placeholder="Escreva aqui seus votos de felicidade para João &amp; Bia..." required></textarea>
+          <textarea id="muralText" class="form-control" rows="4" placeholder="Escreva aqui seus votos de felicidade para Bia &amp; João..." required></textarea>
         </div>
         <button type="submit" class="btn btn-gold" style="width: 100%;">Publicar no Mural</button>
       </form>
@@ -1377,87 +1398,171 @@
   <!-- MODAL 5: PAINEL DE GESTÃO DOS NOIVOS (ADMIN) -->
   <!-- ========================================================================= -->
   <div class="modal-backdrop" id="adminModal">
-    <div class="modal-card" style="max-width: 860px;">
+    <div class="modal-card admin-modal-card">
       <button class="modal-close-btn" onclick="closeModal('adminModal')">&times;</button>
       
-      <!-- Tela de Autenticação Rápida -->
+      <!-- Tela de Autenticação Rápida (sem texto de dica) -->
       <div id="adminAuthBlock" style="text-align: center; padding: 20px 0;">
         <span style="font-size: 40px;">💍</span>
         <h3 class="serif" style="font-size: 26px; margin: 8px 0;">Área Exclusiva dos Noivos</h3>
         <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 24px;">
-          Digite a chave de acesso dos noivos para visualizar a lista de convidados e gerenciar o site.
+          Digite sua senha de acesso para gerenciar o site, fotos e lista de convidados.
         </p>
         <div style="max-width: 320px; margin: 0 auto;">
-          <input type="password" id="adminPassInput" class="form-control" placeholder="Senha de acesso" style="text-align: center; margin-bottom: 12px;">
+          <input type="password" id="adminPassInput" class="form-control" placeholder="Senha de acesso" style="text-align: center; margin-bottom: 12px;" onkeydown="if(event.key==='Enter') checkAdminAccess()">
           <button class="btn btn-gold" style="width: 100%;" onclick="checkAdminAccess()">Entrar</button>
-          <p style="font-size: 11px; color: var(--text-muted); margin-top: 10px;">Dica: casamento2027</p>
         </div>
       </div>
 
       <!-- Conteúdo do Painel Logado -->
       <div id="adminPanelBlock" style="display: none;">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px;">
-          <div>
-            <h3 class="serif" style="font-size: 24px; color: var(--primary);">Painel de Gestão dos Noivos</h3>
-            <p style="font-size: 13px; color: var(--text-muted);">João &amp; Anna Beatriz</p>
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="btn btn-outline" style="padding: 8px 14px; font-size: 12px; color: #2C241E;" onclick="exportGuestsCsv()">📥 Exportar CSV</button>
-            <button class="btn btn-gold" style="padding: 8px 14px; font-size: 12px;" onclick="copyGuestsSummary()">📋 Copiar Resumo</button>
-          </div>
+        <!-- Abas do Painel de Admin -->
+        <div class="admin-tabs-nav">
+          <button class="admin-tab-btn active" id="btnAdminTabGuests" onclick="switchAdminTab('guests')">📋 Convidados Confirmados</button>
+          <button class="admin-tab-btn" id="btnAdminTabPhotos" onclick="switchAdminTab('photos')">🖼️ Editar Fotos do Site</button>
+          <button class="admin-tab-btn" id="btnAdminTabSettings" onclick="switchAdminTab('settings')">⚙️ Configurações &amp; Senha</button>
         </div>
 
-        <!-- Estatísticas Rápidas -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 12px; margin-bottom: 20px;">
-          <div style="background: #FDF9F3; border: 1px solid #F0E1D0; padding: 12px; border-radius: 10px; text-align: center;">
-            <div style="font-size: 22px; font-weight: 700; color: var(--primary);" id="adminConfirmedCount">0</div>
-            <div style="font-size: 12px; color: var(--text-muted);">Pessoas Confirmadas</div>
-          </div>
-          <div style="background: #FDF9F3; border: 1px solid #F0E1D0; padding: 12px; border-radius: 10px; text-align: center;">
-            <div style="font-size: 22px; font-weight: 700; color: #736458;" id="adminDeclinedCount">0</div>
-            <div style="font-size: 12px; color: var(--text-muted);">Não Poderão Ir</div>
-          </div>
-          <div style="background: #FDF9F3; border: 1px solid #F0E1D0; padding: 12px; border-radius: 10px; text-align: center;">
-            <div style="font-size: 22px; font-weight: 700; color: #4E7C59;" id="adminTotalEntries">0</div>
-            <div style="font-size: 12px; color: var(--text-muted);">Famílias Cadastradas</div>
-          </div>
-        </div>
-
-        <!-- Tabela de Convidados -->
-        <h4 style="font-size: 15px; margin-bottom: 8px;">Lista Completa de Presenças</h4>
-        <div style="overflow-x: auto; max-height: 400px;">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Telefone</th>
-                <th>Status</th>
-                <th>Pessoas</th>
-                <th>Acompanhantes</th>
-                <th>Mensagem</th>
-                <th>Ações</th>
-              </tr>
-            </thead>
-            <tbody id="adminGuestsTableBody">
-              <!-- Renderizado via JS -->
-            </tbody>
-          </table>
-        </div>
-
-        <!-- Configurações Rápidas de WhatsApp dos Noivos -->
-        <div style="margin-top: 26px; border-top: 1px solid var(--border-color); padding-top: 18px;">
-          <h4 style="font-size: 15px; margin-bottom: 12px;">Configurar Telefones de WhatsApp para Mensagem Automática</h4>
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <!-- ABA ADMIN 1: CONVIDADOS -->
+        <div id="adminViewGuests">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
             <div>
-              <label class="form-label" style="font-size: 12px;">WhatsApp do João (DDD + Número):</label>
-              <input type="text" id="adminGroomPhone" class="form-control" placeholder="Ex: 5521999999999">
+              <h3 class="serif" style="font-size: 22px; color: var(--primary);">Lista de Convidados</h3>
+              <p style="font-size: 13px; color: var(--text-muted);">Confirmações individuais em tempo real</p>
             </div>
-            <div>
-              <label class="form-label" style="font-size: 12px;">WhatsApp da Bia (DDD + Número):</label>
-              <input type="text" id="adminBridePhone" class="form-control" placeholder="Ex: 5521999999999">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-outline" style="padding: 8px 14px; font-size: 12px; color: #2C241E;" onclick="exportGuestsCsv()">📥 Exportar CSV</button>
+              <button class="btn btn-gold" style="padding: 8px 14px; font-size: 12px;" onclick="copyGuestsSummary()">📋 Copiar para WhatsApp</button>
             </div>
           </div>
-          <button class="btn btn-gold" style="margin-top: 12px; padding: 8px 18px; font-size: 13px;" onclick="savePhonesConfig()">Salvar Telefones</button>
+
+          <!-- Estatísticas Rápidas -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px;">
+            <div style="background: #FDF9F3; border: 1px solid #F0E1D0; padding: 12px; border-radius: 10px; text-align: center;">
+              <div style="font-size: 24px; font-weight: 700; color: #4E7C59;" id="adminConfirmedCount">0</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Presenças Confirmadas</div>
+            </div>
+            <div style="background: #FDF9F3; border: 1px solid #F0E1D0; padding: 12px; border-radius: 10px; text-align: center;">
+              <div style="font-size: 24px; font-weight: 700; color: #C97C6B;" id="adminDeclinedCount">0</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Não Poderão Ir</div>
+            </div>
+            <div style="background: #FDF9F3; border: 1px solid #F0E1D0; padding: 12px; border-radius: 10px; text-align: center;">
+              <div style="font-size: 24px; font-weight: 700; color: var(--primary);" id="adminTotalEntries">0</div>
+              <div style="font-size: 12px; color: var(--text-muted);">Total de Respostas</div>
+            </div>
+          </div>
+
+          <!-- Campo de Busca -->
+          <input type="text" id="adminSearchInput" class="search-input" placeholder="🔍 Buscar por nome ou telefone..." oninput="filterAdminGuestsTable()">
+
+          <!-- Tabela de Convidados -->
+          <div style="overflow-x: auto; max-height: 380px;">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Nome do Convidado</th>
+                  <th>Telefone / WhatsApp</th>
+                  <th>Status</th>
+                  <th>Mensagem</th>
+                  <th>Data</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+              <tbody id="adminGuestsTableBody">
+                <!-- Renderizado dinamicamente -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- ABA ADMIN 2: EDITAR FOTOS DO SITE -->
+        <div id="adminViewPhotos" style="display: none;">
+          <h3 class="serif" style="font-size: 22px; color: var(--primary); margin-bottom: 6px;">Gerenciar Fotos do Site</h3>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+            Altere a foto de fundo principal (Hero) ou as fotos da galeria dos noivos.
+          </p>
+
+          <!-- Foto de Fundo do Hero -->
+          <div style="background: #FBF8F4; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
+            <h4 style="font-size: 15px; margin-bottom: 8px;">Foto de Fundo Principal (Capa do Início)</h4>
+            <div class="form-group" style="margin-bottom: 12px;">
+              <label class="form-label" style="font-size: 12px;">Caminho da Imagem ou URL:</label>
+              <input type="text" id="adminHeroPhotoInput" class="form-control" placeholder="Ex: ./assets/hero-luzes.jpg ou https://...">
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="btn btn-gold" style="padding: 8px 18px; font-size: 13px;" onclick="saveHeroPhoto()">Aplicar Foto de Fundo</button>
+              <button class="btn btn-outline" style="padding: 8px 16px; font-size: 12px; color: #2C241E;" onclick="resetHeroPhoto()">Restaurar Padrão</button>
+            </div>
+          </div>
+
+          <!-- Sugestão de Fotos Rápidas dos Noivos -->
+          <h4 style="font-size: 14px; margin-bottom: 10px;">Fotos do Ensaio Disponíveis para a Capa:</h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 10px; margin-bottom: 20px;">
+            <div style="cursor: pointer; text-align: center;" onclick="setHeroPreset('./assets/hero-luzes.jpg')">
+              <img src="./assets/hero-luzes.jpg" style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; border: 2px solid var(--border-color);">
+              <span style="font-size: 11px;">Luzes Suspensas</span>
+            </div>
+            <div style="cursor: pointer; text-align: center;" onclick="setHeroPreset('./assets/noivado-pao-de-acucar.jpg')">
+              <img src="./assets/noivado-pao-de-acucar.jpg" style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; border: 2px solid var(--border-color);">
+              <span style="font-size: 11px;">Pão de Açúcar</span>
+            </div>
+            <div style="cursor: pointer; text-align: center;" onclick="setHeroPreset('./assets/barco-urca.jpg')">
+              <img src="./assets/barco-urca.jpg" style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; border: 2px solid var(--border-color);">
+              <span style="font-size: 11px;">Barco na Urca</span>
+            </div>
+            <div style="cursor: pointer; text-align: center;" onclick="setHeroPreset('./assets/maracana-1.jpg')">
+              <img src="./assets/maracana-1.jpg" style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; border: 2px solid var(--border-color);">
+              <span style="font-size: 11px;">Maracanã</span>
+            </div>
+            <div style="cursor: pointer; text-align: center;" onclick="setHeroPreset('./assets/pier-praia.jpg')">
+              <img src="./assets/pier-praia.jpg" style="height: 80px; width: 100%; object-fit: cover; border-radius: 8px; border: 2px solid var(--border-color);">
+              <span style="font-size: 11px;">Píer na Praia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ABA ADMIN 3: CONFIGURAÇÕES & SENHA -->
+        <div id="adminViewSettings" style="display: none;">
+          <h3 class="serif" style="font-size: 22px; color: var(--primary); margin-bottom: 6px;">Configurações &amp; Segurança</h3>
+          
+          <!-- Alterar Senha de Admin -->
+          <div style="background: #FBF8F4; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
+            <h4 style="font-size: 15px; margin-bottom: 12px;">Alterar Senha do Painel de Administrador</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+              <div>
+                <label class="form-label" style="font-size: 12px;">Nova Senha:</label>
+                <input type="password" id="adminNewPass" class="form-control" placeholder="Digite a nova senha">
+              </div>
+              <div>
+                <label class="form-label" style="font-size: 12px;">Confirmar Nova Senha:</label>
+                <input type="password" id="adminConfirmPass" class="form-control" placeholder="Repita a nova senha">
+              </div>
+            </div>
+            <button class="btn btn-gold" style="margin-top: 12px; padding: 8px 18px; font-size: 13px;" onclick="saveNewAdminPassword()">Salvar Nova Senha</button>
+          </div>
+
+          <!-- Configurar Telefones dos Noivos -->
+          <div style="background: #FBF8F4; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+            <h4 style="font-size: 15px; margin-bottom: 12px;">Números de WhatsApp para Confirmação</h4>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div>
+                <label class="form-label" style="font-size: 12px;">WhatsApp da Beatriz (DDD + Número):</label>
+                <input type="text" id="adminBridePhone" class="form-control" placeholder="Ex: 5521999999999">
+              </div>
+              <div>
+                <label class="form-label" style="font-size: 12px;">WhatsApp do João (DDD + Número):</label>
+                <input type="text" id="adminGroomPhone" class="form-control" placeholder="Ex: 5521999999999">
+              </div>
+            </div>
+            <button class="btn btn-gold" style="margin-top: 12px; padding: 8px 18px; font-size: 13px;" onclick="savePhonesConfig()">Salvar Telefones</button>
+          </div>
+
+          <!-- Chave Pix -->
+          <div style="background: #FBF8F4; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px;">
+            <h4 style="font-size: 15px; margin-bottom: 8px;">Chave Pix Oficial para Presentes</h4>
+            <input type="text" id="adminPixInput" class="form-control" value="jmsantos108@gmail.com" style="margin-bottom: 12px;">
+            <button class="btn btn-gold" style="padding: 8px 18px; font-size: 13px;" onclick="savePixConfig()">Salvar Chave Pix</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1473,16 +1578,24 @@
   <!-- JAVASCRIPT: LÓGICA COMPLETA DE DADOS, SUPABASE, PRESENTES E RSVP -->
   <!-- ========================================================================= -->
   <script>
-    // 1. CONFIGURAÇÃO DO SUPABASE
+    // 1. CONFIGURAÇÃO
     const SUPABASE_URL = 'https://izzxjvagmihujlhsmkrt.supabase.co';
     const SUPABASE_ANON = 'sb_publishable_ZxBbxtRcbXMTevaaIBeqmQ__dAUMcZj';
-    const PIX_KEY = 'jmsantos108@gmail.com';
+    let currentPixKey = localStorage.getItem('wedding_pix') || 'jmsantos108@gmail.com';
     const PIX_NAME = 'João Miguel Santos';
-    const WEDDING_DATE = new Date('2027-11-20T17:00:00-03:00').getTime();
+    
+    // Data oficial do casamento: 13 de Novembro de 2027
+    const WEDDING_DATE = new Date('2027-11-13T16:30:00-03:00').getTime();
 
-    // Telefones padrão (configuráveis pelo admin e salvos em localStorage / banco)
+    // Telefones padrão (configuráveis pelo admin e salvos em localStorage)
     let groomWhatsApp = localStorage.getItem('groom_wa') || '5521999999999';
     let brideWhatsApp = localStorage.getItem('bride_wa') || '5521999999999';
+
+    // Senha do Admin (salva em localStorage, padrão inicial seguro)
+    let adminPassword = localStorage.getItem('wedding_admin_pass') || 'casamento2027';
+
+    // Foto de fundo Hero configurável
+    let heroPhotoUrl = localStorage.getItem('wedding_hero_photo') || './assets/hero-luzes.jpg';
 
     let supabaseClient = null;
     try {
@@ -1493,7 +1606,7 @@
       console.warn('Supabase init notice:', err);
     }
 
-    // 2. CATÁLOGO COMPLETO DE PRESENTES
+    // 2. CATÁLOGO COMPLETO DE PRESENTES (IMAGENS REVISADAS & PROFISSIONAIS)
     const GIFTS_DATA = [
       // COZINHA
       {
@@ -1501,9 +1614,8 @@
         title: 'Jogo de Panelas Cerâmica Antiaderente',
         category: 'cozinha',
         categoryLabel: '🍳 Cozinha',
-        desc: 'Conjunto completo com revestimento cerâmico para preparar as melhores refeições a dois.',
+        desc: 'Conjunto completo com revestimento cerâmico para preparar deliciosas refeições a dois.',
         price: 380,
-        searchQuery: 'jogo de panelas ceramica antiaderente inducao',
         image: 'https://images.unsplash.com/photo-1584990347449-39908cfbd07c?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1511,9 +1623,8 @@
         title: 'Aparelho de Jantar Porcelana 20 Peças',
         category: 'cozinha',
         categoryLabel: '🍳 Cozinha',
-        desc: 'Pratos rasos, fundos, sobremesa e xícaras para receber amigos e a família com elegância.',
+        desc: 'Pratos rasos, fundos, sobremesa e xícaras elegantes para receber visitas com muito carinho.',
         price: 260,
-        searchQuery: 'aparelho de jantar 20 pecas porcelana',
         image: 'https://images.unsplash.com/photo-1615865417491-9941019fbc00?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1521,19 +1632,17 @@
         title: 'Faqueiro Inox 48 Peças com Estojo',
         category: 'cozinha',
         categoryLabel: '🍳 Cozinha',
-        desc: 'Talheres resistentes em aço inox polido para o dia a dia e ocasiões comemorativas.',
+        desc: 'Talheres completos em aço inoxidável para o dia a dia e comemorações da casa nova.',
         price: 190,
-        searchQuery: 'faqueiro inox 48 pecas tramontina',
         image: 'https://images.unsplash.com/photo-1594916843477-943640242131?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'coz-4',
-        title: 'Jogo de Copos e Taças de Cristal',
+        title: 'Jogo de Taças e Copos de Cristal',
         category: 'cozinha',
         categoryLabel: '🍳 Cozinha',
-        desc: 'Para brindar aos momentos felizes e celebrar o amor todos os dias.',
+        desc: 'Para brindar aos momentos felizes e celebrar o amor em cada conquista.',
         price: 150,
-        searchQuery: 'jogo tacas cristal agua vinho',
         image: 'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1541,19 +1650,17 @@
         title: 'Kit Potes Herméticos de Vidro com Tampa Bambu',
         category: 'cozinha',
         categoryLabel: '🍳 Cozinha',
-        desc: 'Organização e conservação impecável para os mantimentos e temperos da cozinha nova.',
+        desc: 'Organização impecável e conservação dos mantimentos e temperos do novo lar.',
         price: 120,
-        searchQuery: 'potes hermeticos vidro tampa bambu conjunto',
         image: 'https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'coz-6',
-        title: 'Conjunto de Facas Chef & Tábua de Corte',
+        title: 'Conjunto de Facas Chef & Tábua de Bambu',
         category: 'cozinha',
         categoryLabel: '🍳 Cozinha',
-        desc: 'Facas de corte preciso e tábua higiênica de bambu para o mestre cuca do casal.',
+        desc: 'Facas afiadas e tábua higiênica ecológica para os pratos especiais da casa.',
         price: 130,
-        searchQuery: 'conjunto facas chef inox tabua bambu',
         image: 'https://images.unsplash.com/photo-1593618998160-e34014e67546?w=600&auto=format&fit=crop&q=80'
       },
 
@@ -1563,29 +1670,26 @@
         title: 'Fritadeira Air Fryer Digital Grande',
         category: 'eletro',
         categoryLabel: '⚡ Eletro',
-        desc: 'O xodó da casa nova: praticidade, saúde e comida gostosa sem sujeira.',
+        desc: 'Praticidade, saúde e agilidade no dia a dia sem óleo e sem sujeira.',
         price: 390,
-        searchQuery: 'fritadeira air fryer digital 4l 5l',
         image: 'https://images.unsplash.com/photo-1585515320310-259814833e62?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'eletro-2',
-        title: 'Cafeteira Elétrica Programável / Expresso',
+        title: 'Cafeteira Elétrica / Expresso Moderna',
         category: 'eletro',
         categoryLabel: '⚡ Eletro',
-        desc: 'Aquele café perfumado logo de manhã para começar os dias com muita energia.',
+        desc: 'Aquele café perfumado logo pela manhã para começar o dia com todo o ânimo.',
         price: 280,
-        searchQuery: 'cafeteira eletrica expresso cafeteira inox',
         image: 'https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'eletro-3',
-        title: 'Liquidificador Potente 1200W',
+        title: 'Liquidificador Potente com Jarra Resistente',
         category: 'eletro',
         categoryLabel: '⚡ Eletro',
-        desc: 'Copo resistente para vitaminas, sopas, massas e sucos refrescantes.',
+        desc: 'Para sucos refrescantes, vitaminas e receitas práticas para o casal.',
         price: 210,
-        searchQuery: 'liquidificador potente 1200w copo vidro ou san',
         image: 'https://images.unsplash.com/photo-1570222094114-d054a817e56b?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1593,9 +1697,8 @@
         title: 'Sanduicheira & Grill Antiaderente',
         category: 'eletro',
         categoryLabel: '⚡ Eletro',
-        desc: 'Para mistos quentes crocantes e grelhados rápidos para o casal.',
+        desc: 'Para lanches rápidos crocantes e grelhados saborosos.',
         price: 140,
-        searchQuery: 'sanduicheira grill eletrico inox',
         image: 'https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1603,9 +1706,8 @@
         title: 'Aspirador de Pó Vertical Sem Fio',
         category: 'eletro',
         categoryLabel: '⚡ Eletro',
-        desc: 'Praticidade total para manter o lar brilhando sem esforço e sem fios pelo chão.',
+        desc: 'Leve e silencioso para manter o novo lar sempre impecável.',
         price: 320,
-        searchQuery: 'aspirador de po vertical 2 em 1 sem fio',
         image: 'https://images.unsplash.com/photo-1558317374-067fb5f30001?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1613,51 +1715,46 @@
         title: 'Micro-ondas Espelhado Inox',
         category: 'eletro',
         categoryLabel: '⚡ Eletro',
-        desc: 'Design moderno e funções inteligentes para aquecer pratos e pipoca para o cineminha.',
+        desc: 'Design refinado e rapidez para aquecer pratos e a pipoca da maratona a dois.',
         price: 620,
-        searchQuery: 'microondas espelhado inox 20l 30l',
         image: 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=600&auto=format&fit=crop&q=80'
       },
 
       // SALA & CASA
       {
         id: 'sala-1',
-        title: 'Cota: Smart TV para Cinema a Dois',
+        title: 'Cota de Ajuda para Smart TV 4K',
         category: 'sala',
         categoryLabel: '🛋️ Sala & Casa',
-        desc: 'Para nossas maratonas de séries, finais de semana preguiçosos e jogos do Mengão.',
+        desc: 'Contribuição para nossas maratonas de séries e filmes a dois no aconchego do sofá.',
         price: 300,
-        searchQuery: 'smart tv 50 polegadas 4k',
         image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'sala-2',
-        title: 'Caixa de Som Bluetooth para a Casa Nova',
+        title: 'Caixa de Som Bluetooth para Sala',
         category: 'sala',
         categoryLabel: '🛋️ Sala & Casa',
-        desc: 'Música boa tocando enquanto cozinhamos juntos e arrumamos nosso cantinho.',
+        desc: 'Música boa tocando e criando memórias no nosso lar todos os dias.',
         price: 290,
-        searchQuery: 'caixa de som bluetooth potente portatil',
         image: 'https://images.unsplash.com/photo-1545454675-3531b543be5d?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'sala-3',
-        title: 'Tapete Geométrico Confortável para Sala',
+        title: 'Tapete Confortável e Macio para Sala',
         category: 'sala',
         categoryLabel: '🛋️ Sala & Casa',
-        desc: 'Toque macio e aconchegante para deixar a sala acolhedora para receber todos vocês.',
+        desc: 'Toque gostoso e acolhedor para receber a família e os amigos.',
         price: 240,
-        searchQuery: 'tapete sala geometrico macio 200x150',
         image: 'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'sala-4',
-        title: 'Manta Macia & Almofadas Decorativas',
+        title: 'Kit de Manta e Almofadas Decorativas',
         category: 'sala',
         categoryLabel: '🛋️ Sala & Casa',
-        desc: 'Conforto supremo para o sofá nos dias de descanso a dois.',
+        desc: 'O toque final de aconchego e carinho para a nossa sala de estar.',
         price: 130,
-        searchQuery: 'manta sofa macia almofadas decorativas kit',
         image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&auto=format&fit=crop&q=80'
       },
 
@@ -1667,19 +1764,17 @@
         title: 'Jogo de Cama Queen 400 Fios Algodão',
         category: 'quarto',
         categoryLabel: '🛏️ Quarto',
-        desc: 'Lençol, sobre-lençol e fronhas com toque de hotel cinco estrelas para o casal.',
+        desc: 'Toque acetinado e frescor de hotel de luxo para noites de descanso perfeitas.',
         price: 290,
-        searchQuery: 'jogo de cama queen 400 fios percal algodao',
         image: 'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'quarto-2',
-        title: 'Edredom Dupla Face Toque de Plumas Queen',
+        title: 'Edredom Dupla Face Toque de Plumas',
         category: 'quarto',
         categoryLabel: '🛏️ Quarto',
-        desc: 'Aconchego e calor nos dias mais frios com design elegante e neutro.',
+        desc: 'Maciez extra e aquecimento suave para os dias mais fresquinhos.',
         price: 240,
-        searchQuery: 'edredom queen dupla face toque pluma',
         image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1687,9 +1782,8 @@
         title: 'Par de Travesseiros Espuma Viscoelástica NASA',
         category: 'quarto',
         categoryLabel: '🛏️ Quarto',
-        desc: 'Suporte perfeito para a cabeça e pescoço, garantindo noites de sono restauradoras.',
+        desc: 'Suporte cervical anatômico para acordarmos renovados todos os dias.',
         price: 160,
-        searchQuery: 'par travesseiros nasa viscoelastico confortavel',
         image: 'https://images.unsplash.com/photo-1584100936595-c0654b55a2e2?w=600&auto=format&fit=crop&q=80'
       },
 
@@ -1699,9 +1793,8 @@
         title: 'Jogo de Toalhas Banhão 5 Peças Fio Penteado',
         category: 'banheiro',
         categoryLabel: '🛁 Banheiro',
-        desc: 'Toalhas de banho gigantes, rosto e piso com máxima maciez e alta absorção.',
+        desc: 'Toalhas gigantes de alta absorção e felpa macia para o casal.',
         price: 210,
-        searchQuery: 'jogo toalhas banhao 5 pecas fio penteado',
         image: 'https://images.unsplash.com/photo-1583847268964-b28dc8f51f92?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1709,31 +1802,29 @@
         title: 'Kit Acessórios de Banheiro Cerâmica & Bambu',
         category: 'banheiro',
         categoryLabel: '🛁 Banheiro',
-        desc: 'Porta sabonete líquido, porta escovas e bandeja minimalista e charmosa.',
+        desc: 'Dispenser sabonete líquido, porta escovas e bandeja minimalista.',
         price: 95,
-        searchQuery: 'kit acessorios banheiro ceramica bambu dispenser',
         image: 'https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'banheiro-3',
-        title: 'Roupões de Banho Aveludados de Casal',
+        title: 'Par de Roupões Felpudos de Casal',
         category: 'banheiro',
         categoryLabel: '🛁 Banheiro',
-        desc: 'Para relaxar depois de um bom banho como se estivéssemos num spa.',
+        desc: 'Conforto e aconchego pós-banho digno de um dia de spa.',
         price: 190,
-        searchQuery: 'roupao de banho casal aveludado algodao',
         image: 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=600&auto=format&fit=crop&q=80'
       },
 
-      // PRESENTE DO CORAÇÃO & EXPERIÊNCIAS
+      // PRESENTE DO CORAÇÃO & EXPERIÊNCIAS (SEM LINKS DE LOJA)
       {
         id: 'coracao-1',
         title: 'Jantar Romântico na Lua de Mel',
         category: 'coracao',
         categoryLabel: '❤️ Do Coração',
-        desc: 'Um brinde e um jantar especial à beira-mar para celebrar nossos primeiros dias de casados.',
+        desc: 'Um brinde e um jantar especial à luz de velas para celebrar nossos primeiros dias de casados.',
         price: 180,
-        searchQuery: 'jantar romantico presente de casamento',
+        isHeart: true,
         image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&auto=format&fit=crop&q=80'
       },
       {
@@ -1741,30 +1832,30 @@
         title: 'Passeio Romântico de Barco no Rio',
         category: 'coracao',
         categoryLabel: '❤️ Do Coração',
-        desc: 'Para revivermos a magia do Pão de Açúcar e da Urca, agora como marido e mulher.',
+        desc: 'Um passeio a dois contemplando a vista maravilhosa da Baía de Guanabara.',
         price: 220,
-        searchQuery: 'passeio barco rio de janeiro urca',
-        image: './assets/barco-urca.jpg'
+        isHeart: true,
+        image: 'https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'coracao-3',
-        title: 'Brinde de Champanhe para os Noivos',
+        title: 'Um Brinde de Champanhe para os Noivos',
         category: 'coracao',
         categoryLabel: '❤️ Do Coração',
-        desc: 'Para comemorar cada vitória e brindar ao nosso amor eterno.',
+        desc: 'Para comemorarmos nossa aliança e brindar ao futuro com alegria.',
         price: 90,
-        searchQuery: 'champanhe comemoracao casamento',
+        isHeart: true,
         image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'coracao-4',
-        title: 'Cota de Amor para Reforma do Nosso Cantinho',
+        title: 'Cota de Amor para Reforma do Ninho',
         category: 'coracao',
         categoryLabel: '❤️ Do Coração',
-        desc: 'Uma ajudinha carinhosa para pintar as paredes e deixar a casa aconchegante.',
+        desc: 'Uma ajudinha carinhosa para pintar as paredes e deixar o lar com a nossa cara.',
         price: 250,
-        searchQuery: 'reforma decoracao casa nova presente',
-        image: './assets/aliancas-sofa.jpg'
+        isHeart: true,
+        image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=600&auto=format&fit=crop&q=80'
       },
       {
         id: 'coracao-livre',
@@ -1773,18 +1864,19 @@
         categoryLabel: '❤️ Do Coração',
         desc: 'Contribua com o valor que o seu coração mandar! Cada gesto nos enche de gratidão.',
         price: 100,
+        isHeart: true,
         isCustom: true,
-        searchQuery: 'presente de casamento livre',
-        image: './assets/noivado-pao-de-acucar.jpg'
+        image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80'
       }
     ];
 
-    // Estado da Aplicação
     let currentGiftForPix = null;
+    let customSelectedPrice = 100;
     let rsvpListCache = [];
 
     // 3. INICIALIZAÇÃO
     document.addEventListener('DOMContentLoaded', () => {
+      applyHeroPhoto(heroPhotoUrl);
       initCountdown();
       renderGifts('todos');
       loadRsvpStats();
@@ -1792,14 +1884,22 @@
       initRealtimeSubscriptions();
     });
 
-    // 4. CONTAGEM REGRESSIVA
+    // 4. APLICAÇÃO DA FOTO DE CAPA HERO
+    function applyHeroPhoto(url) {
+      const hero = document.getElementById('inicio');
+      if (hero) {
+        hero.style.backgroundImage = `url('${url}')`;
+      }
+    }
+
+    // 5. CONTAGEM REGRESSIVA (13/11/2027)
     function initCountdown() {
       function update() {
         const now = new Date().getTime();
         const diff = WEDDING_DATE - now;
 
         if (diff <= 0) {
-          document.getElementById('countdownTimer').innerHTML = '<span style="font-size:22px;color:#E5C385;">💍 Chegou o grande dia!</span>';
+          document.getElementById('countdownTimer').innerHTML = '<span style="font-size:22px;color:#E5C385;">💍 Chegou o grande dia do casamento de Beatriz & João!</span>';
           return;
         }
 
@@ -1817,7 +1917,7 @@
       setInterval(update, 1000);
     }
 
-    // 5. NAVEGAÇÃO DE ABAS
+    // 6. NAVEGAÇÃO DE ABAS
     function switchMainTab(tab) {
       const btnRsvp = document.getElementById('tabNavRsvp');
       const btnGifts = document.getElementById('tabNavGifts');
@@ -1833,7 +1933,7 @@
       }
     }
 
-    // 6. RENDERIZAÇÃO DA LISTA DE PRESENTES
+    // 7. RENDERIZAÇÃO DA LISTA DE PRESENTES
     function renderGifts(category) {
       const container = document.getElementById('giftsContainer');
       const filtered = category === 'todos' 
@@ -1841,14 +1941,42 @@
         : GIFTS_DATA.filter(g => g.category === category);
 
       container.innerHTML = filtered.map(item => {
-        const mlUrl = `https://www.mercadolivre.com.br/gz/home/search?q=${encodeURIComponent(item.searchQuery)}`;
-        const amazonUrl = `https://www.amazon.com.br/s?k=${encodeURIComponent(item.searchQuery)}`;
         const formattedPrice = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
+        // Se for "Presente do Coração", tem apenas botão do Pix (sem links de loja)
+        // Se for produto, tem links gerais para a página principal da Amazon e do Mercado Livre
+        let buttonsHtml = '';
+
+        if (item.isHeart) {
+          buttonsHtml = `
+            <div class="gift-btn-stack">
+              <button class="gift-btn-pix" onclick="openPixModal('${item.id}')">
+                <span>🎁 Presentear via Pix</span>
+              </button>
+            </div>
+          `;
+        } else {
+          buttonsHtml = `
+            <div class="gift-btn-stack">
+              <button class="gift-btn-pix" onclick="openPixModal('${item.id}')">
+                <span>🎁 Presentear via Pix</span>
+              </button>
+              <div class="gift-store-row">
+                <a href="https://www.amazon.com.br" target="_blank" rel="noopener noreferrer" class="gift-btn-store">
+                  <span>Ir para Amazon</span>
+                </a>
+                <a href="https://www.mercadolivre.com.br" target="_blank" rel="noopener noreferrer" class="gift-btn-store">
+                  <span>Mercado Livre</span>
+                </a>
+              </div>
+            </div>
+          `;
+        }
+
         return `
-          <div class="gift-card ${item.isCustom ? 'gift-card-heart-custom' : ''}">
+          <div class="gift-card ${item.isHeart ? 'gift-card-heart' : ''}">
             <div class="gift-card-media">
-              <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='./assets/noivado-anel.jpg'">
+              <img src="${item.image}" alt="${item.title}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80'">
               <span class="gift-category-tag">${item.categoryLabel}</span>
             </div>
             <div class="gift-card-body">
@@ -1860,19 +1988,7 @@
                 <span class="gift-price-val">${formattedPrice}</span>
               </div>
 
-              <div class="gift-btn-stack">
-                <button class="gift-btn-pix" onclick="openPixModal('${item.id}')">
-                  <span>🎁 Presentear via Pix</span>
-                </button>
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
-                  <a href="${amazonUrl}" target="_blank" rel="noopener noreferrer" class="gift-btn-store">
-                    <span>Ver na Amazon</span>
-                  </a>
-                  <a href="${mlUrl}" target="_blank" rel="noopener noreferrer" class="gift-btn-store">
-                    <span>Mercado Livre</span>
-                  </a>
-                </div>
-              </div>
+              ${buttonsHtml}
             </div>
           </div>
         `;
@@ -1885,24 +2001,45 @@
       renderGifts(category);
     }
 
-    // 7. MODAL DE PIX & QR CODE
+    // 8. MODAL DE PIX & QR CODE
     function openPixModal(giftId) {
       const item = GIFTS_DATA.find(g => g.id === giftId);
       if (!item) return;
 
       currentGiftForPix = item;
       document.getElementById('pixModalItemTitle').textContent = item.title;
-      document.getElementById('pixModalItemSubtitle').textContent = item.categoryLabel + ' · ' + (item.isCustom ? 'Você pode ajustar o valor' : 'Contribuição sugerida');
+      document.getElementById('pixModalItemSubtitle').textContent = item.categoryLabel + ' · ' + (item.isCustom ? 'Você pode definir qualquer valor' : 'Contribuição sugerida via Pix');
       
-      const formattedPrice = item.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+      const customBox = document.getElementById('customValueBox');
+      if (item.isCustom) {
+        customBox.style.display = 'block';
+        customSelectedPrice = 100;
+        document.getElementById('customAmountInput').value = '100';
+        renderPixQrAndAmount(100);
+      } else {
+        customBox.style.display = 'none';
+        renderPixQrAndAmount(item.price);
+      }
+
+      document.getElementById('pixKeyDisplay').textContent = currentPixKey;
+      openModal('pixModal');
+    }
+
+    function updateCustomPixAmount(val) {
+      const num = parseFloat(val) || 10;
+      customSelectedPrice = num;
+      renderPixQrAndAmount(num);
+    }
+
+    function renderPixQrAndAmount(price) {
+      const formattedPrice = price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
       document.getElementById('pixModalAmount').textContent = formattedPrice;
 
-      // Gera QR Code do Pix (Payload simples ou Copia e Cola com Chave)
       const qrEl = document.getElementById('pixQrCode');
       qrEl.innerHTML = '';
       
-      // Payload Pix simples com chave e nome
-      const pixPayload = `00020126360014BR.GOV.BCB.PIX0114${PIX_KEY}520400005303986540${item.price.toFixed(2).length.toString().padStart(2, '0')}${item.price.toFixed(2)}5802BR5919${PIX_NAME}6009SAO PAULO62070503***6304`;
+      const priceStr = price.toFixed(2);
+      const pixPayload = `00020126360014BR.GOV.BCB.PIX0114${currentPixKey}520400005303986540${priceStr.length.toString().padStart(2, '0')}${priceStr}5802BR5919${PIX_NAME}6009SAO PAULO62070503***6304`;
       
       new QRCode(qrEl, {
         text: pixPayload,
@@ -1912,16 +2049,14 @@
         colorLight: "#FFFFFF",
         correctLevel: QRCode.CorrectLevel.M
       });
-
-      openModal('pixModal');
     }
 
     function copyPixKey() {
-      navigator.clipboard.writeText(PIX_KEY).then(() => {
+      navigator.clipboard.writeText(currentPixKey).then(() => {
         showToast('📋 Chave Pix copiada com sucesso!', '✨');
       }).catch(() => {
         const temp = document.createElement('textarea');
-        temp.value = PIX_KEY;
+        temp.value = currentPixKey;
         document.body.appendChild(temp);
         temp.select();
         document.execCommand('copy');
@@ -1935,30 +2070,29 @@
       const greeting = document.getElementById('pixGreeting').value.trim();
 
       if (!sender) {
-        alert('Por favor, informe seu nome ou da sua família para que os noivos saibam quem presenteou!');
+        alert('Por favor, informe seu nome para que os noivos saibam quem enviou o presente!');
         return;
       }
 
       const giftTitle = currentGiftForPix ? currentGiftForPix.title : 'Presente dos Noivos';
-      const giftVal = currentGiftForPix ? currentGiftForPix.price : 100;
+      const giftVal = (currentGiftForPix && currentGiftForPix.isCustom) ? customSelectedPrice : (currentGiftForPix ? currentGiftForPix.price : 100);
 
-      // Salva no Supabase
       if (supabaseClient) {
         try {
           await supabaseClient.from('cofre_guest_messages').insert([{
             sender_name: sender,
-            message: greeting || `Presenteou os noivos com: ${giftTitle}! Muitas felicidades! 🎉`,
+            message: greeting || `Presenteou Beatriz & João com: ${giftTitle}! Muitas felicidades! 🎉`,
             gift_title: giftTitle,
             value: giftVal
           }]);
         } catch(err) {
-          console.warn('Erro ao salvar recado de presente:', err);
+          console.warn('Aviso ao salvar recado de presente:', err);
         }
       }
 
       triggerConfetti();
       closeModal('pixModal');
-      showToast(`🎁 Muito obrigado, ${sender}! Seu carinho encheu nosso coração de alegria!`, '❤️');
+      showToast(`🎁 Muito obrigado, ${sender}! Beatriz & João agradecem de coração!`, '❤️');
       loadGuestMessages();
     }
 
@@ -1966,43 +2100,31 @@
       const sender = document.getElementById('pixSenderName').value.trim() || 'Convidado';
       const greeting = document.getElementById('pixGreeting').value.trim();
       const giftTitle = currentGiftForPix ? currentGiftForPix.title : 'Presente';
-      const priceText = currentGiftForPix ? currentGiftForPix.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : '';
+      const priceVal = (currentGiftForPix && currentGiftForPix.isCustom) ? customSelectedPrice : (currentGiftForPix ? currentGiftForPix.price : 100);
+      const priceText = priceVal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
 
-      const msg = `Olá João e Bia! Aqui é o ${sender}. Acabei de enviar um presente via Pix para vocês (${giftTitle} - ${priceText})! ${greeting ? `Recado: "${greeting}"` : ''} Parabéns pelo casamento! 🥂💍✨`;
-      const targetPhone = groomWhatsApp || '5521999999999';
-      const waUrl = `https://api.whatsapp.com/send?phone=${targetPhone}&text=${encodeURIComponent(msg)}`;
+      const msg = `Olá Bia e João! Aqui é o(a) ${sender}. Acabei de enviar um presente via Pix para vocês (${giftTitle} - ${priceText})! ${greeting ? `Recado: "${greeting}"` : ''} Felicidades pelo casamento no dia 13/11/2027! 🥂💍✨`;
+      const cleanPhone = (brideWhatsApp || '5521999999999').replace(/\D/g, '');
+      const waUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(msg)}`;
       window.open(waUrl, '_blank');
     }
 
-    // 8. LÓGICA DO FORMULÁRIO DE RSVP
+    // 9. RSVP INDIVIDUAL
     let isAttending = true;
 
     function selectAttendance(val) {
       isAttending = val;
       const yesPill = document.getElementById('optAttendingYes');
       const noPill = document.getElementById('optAttendingNo');
-      const compBlock = document.getElementById('companionsBlock');
 
       if (val) {
         yesPill.classList.add('selected');
         noPill.classList.remove('selected');
-        compBlock.style.display = 'block';
         document.getElementById('btnSubmitSite').innerHTML = '<span>✨ Confirmar Presença no Site</span>';
       } else {
         noPill.classList.add('selected');
         yesPill.classList.remove('selected');
-        compBlock.style.display = 'none';
         document.getElementById('btnSubmitSite').innerHTML = '<span>🤍 Avisar aos Noivos</span>';
-      }
-    }
-
-    function toggleCompanionsNameField() {
-      const count = parseInt(document.getElementById('rsvpGuestsCount').value, 10);
-      const group = document.getElementById('companionNamesGroup');
-      if (count > 1) {
-        group.style.display = 'block';
-      } else {
-        group.style.display = 'none';
       }
     }
 
@@ -2023,8 +2145,6 @@
       const name = document.getElementById('rsvpName').value.trim();
       const phone = document.getElementById('rsvpPhone').value.trim();
       const status = isAttending ? 'confirmed' : 'declined';
-      const guestsCount = isAttending ? parseInt(document.getElementById('rsvpGuestsCount').value, 10) : 0;
-      const companionNames = isAttending && guestsCount > 1 ? document.getElementById('rsvpCompanionNames').value.trim() : null;
       const message = document.getElementById('rsvpMessage').value.trim();
 
       if (!name || !phone) {
@@ -2042,8 +2162,8 @@
             name: name,
             phone: phone,
             status: status,
-            guests_count: guestsCount,
-            guests_names: companionNames,
+            guests_count: isAttending ? 1 : 0,
+            guests_names: null,
             message: message,
             sent_to: 'site'
           }]);
@@ -2052,15 +2172,13 @@
 
         triggerConfetti();
         if (isAttending) {
-          showToast(`🎉 Presença confirmada com sucesso, ${name}! Estamos muito felizes!`, '💍');
+          showToast(`🎉 Presença confirmada, ${name}! Nos vemos no dia 13/11/2027!`, '💍');
         } else {
           showToast(`🤍 Obrigado por nos avisar, ${name}. Sentiremos sua falta!`, '🤍');
         }
 
-        // Reseta formulário
         document.getElementById('rsvpForm').reset();
         selectAttendance(true);
-        toggleCompanionsNameField();
         loadRsvpStats();
 
       } catch(err) {
@@ -2072,7 +2190,7 @@
       }
     }
 
-    // 9. WHATSAPP CONFIRMATION FLOW
+    // 10. WHATSAPP CONFIRMATION (ESCOLHA BIA OU JOÃO)
     function openWhatsAppModal() {
       const name = document.getElementById('rsvpName').value.trim();
       const phone = document.getElementById('rsvpPhone').value.trim();
@@ -2087,61 +2205,56 @@
     async function sendWhatsAppConfirmation(target) {
       const name = document.getElementById('rsvpName').value.trim();
       const phone = document.getElementById('rsvpPhone').value.trim();
-      const guestsCount = isAttending ? parseInt(document.getElementById('rsvpGuestsCount').value, 10) : 0;
-      const companionNames = isAttending && guestsCount > 1 ? document.getElementById('rsvpCompanionNames').value.trim() : '';
       const message = document.getElementById('rsvpMessage').value.trim();
       const status = isAttending ? 'confirmed' : 'declined';
 
-      // Também salva no Supabase para garantir que não se perca
       if (supabaseClient) {
         try {
           await supabaseClient.from('cofre_rsvp').insert([{
             name: name,
             phone: phone,
             status: status,
-            guests_count: guestsCount,
-            guests_names: companionNames,
+            guests_count: isAttending ? 1 : 0,
+            guests_names: null,
             message: message,
             sent_to: target
           }]);
           loadRsvpStats();
         } catch(err) {
-          console.warn('Erro ao salvar rsvp no whatsapp click:', err);
+          console.warn('Aviso RSVP WhatsApp:', err);
         }
       }
 
       closeModal('whatsappModal');
       triggerConfetti();
 
-      // Monta texto pré-formatado
       let text = '';
+      const destName = target === 'bride' ? 'Bia' : 'João';
+
       if (isAttending) {
-        text = `Olá ${target === 'groom' ? 'João' : 'Bia'}! Aqui é o(a) *${name}* (${phone}).\n\nEstou passando para *confirmar nossa presença* no casamento de vocês! 💍✨\n\n👥 *Total de pessoas:* ${guestsCount} pessoa(s)`;
-        if (companionNames) {
-          text += `\n📝 *Acompanhante(s):* ${companionNames}`;
-        }
+        text = `Olá ${destName}! Aqui é o(a) *${name}* (${phone}).\n\nEstou passando para *confirmar minha presença* no casamento de vocês no dia *13/11/2027*! 💍✨`;
         if (message) {
-          text += `\n💌 *Recado:* "${message}"`;
+          text += `\n\n💌 *Recado:* "${message}"`;
         }
-        text += `\n\nNos vemos em Novembro de 2027! Viva os noivos! 🎉`;
+        text += `\n\nMal posso esperar para comemorar com vocês! Viva Beatriz & João! 🎉`;
       } else {
-        text = `Olá ${target === 'groom' ? 'João' : 'Bia'}! Aqui é o(a) *${name}*. Passando com muito carinho para agradecer o convite de casamento. Infelizmente não poderei estar presente fisicamente, mas estarei em oração e torcendo muito pela felicidade de vocês! 🤍✨`;
+        text = `Olá ${destName}! Aqui é o(a) *${name}*. Muito obrigado pelo convite para o casamento no dia 13/11/2027! Infelizmente não poderei estar presente, mas estarei em oração e desejando toda a felicidade do mundo para vocês! 🤍✨`;
         if (message) {
           text += `\nRecado: "${message}"`;
         }
       }
 
-      const destPhone = target === 'groom' ? groomWhatsApp : brideWhatsApp;
+      const destPhone = target === 'bride' ? brideWhatsApp : groomWhatsApp;
       const cleanPhone = destPhone.replace(/\D/g, '');
       const waUrl = `https://api.whatsapp.com/send?phone=${cleanPhone}&text=${encodeURIComponent(text)}`;
       window.open(waUrl, '_blank');
       showToast('Abrindo WhatsApp para enviar a confirmação!', '💬');
     }
 
-    // 10. ESTATÍSTICAS E DADOS EM TEMPO REAL DO SUPABASE
+    // 11. ESTATÍSTICAS E SUPABASE
     async function loadRsvpStats() {
       if (!supabaseClient) {
-        document.getElementById('liveGuestsCount').textContent = '24';
+        document.getElementById('liveGuestsCount').textContent = '1';
         return;
       }
 
@@ -2154,27 +2267,27 @@
         if (error) throw error;
         rsvpListCache = data || [];
 
-        let totalGuests = 0;
-        let declinedCount = 0;
+        let totalConfirmed = 0;
+        let totalDeclined = 0;
 
         rsvpListCache.forEach(entry => {
           if (entry.status === 'confirmed') {
-            totalGuests += (entry.guests_count || 1);
+            totalConfirmed += 1;
           } else {
-            declinedCount++;
+            totalDeclined += 1;
           }
         });
 
-        document.getElementById('liveGuestsCount').textContent = totalGuests;
-        document.getElementById('adminConfirmedCount').textContent = totalGuests;
-        document.getElementById('adminDeclinedCount').textContent = declinedCount;
+        document.getElementById('liveGuestsCount').textContent = totalConfirmed;
+        document.getElementById('adminConfirmedCount').textContent = totalConfirmed;
+        document.getElementById('adminDeclinedCount').textContent = totalDeclined;
         document.getElementById('adminTotalEntries').textContent = rsvpListCache.length;
 
-        renderAdminGuestsTable();
+        renderAdminGuestsTable(rsvpListCache);
 
       } catch(err) {
         console.warn('Erro ao carregar estatísticas do RSVP:', err);
-        document.getElementById('liveGuestsCount').textContent = '24';
+        document.getElementById('liveGuestsCount').textContent = '1';
       }
     }
 
@@ -2185,7 +2298,7 @@
           <div class="msg-card">
             <div class="msg-sender">❤️ Família Santos</div>
             <div class="msg-date">Recente</div>
-            <p class="msg-body">"Que a graça e a paz do Senhor estejam sempre sobre o lar de vocês. Amamos muito João e Bia!"</p>
+            <p class="msg-body">"Que a paz e a alegria do Senhor transbordem sobre o casamento de Beatriz & João! Amamos vocês!"</p>
             <span class="msg-badge">Presenteou os noivos</span>
           </div>
         `;
@@ -2204,7 +2317,7 @@
         if (!data || data.length === 0) {
           container.innerHTML = `
             <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 30px;">
-              Ainda não há recados publicados. Seja o primeiro a deixar uma mensagem de amor aos noivos! 💌
+              Ainda não há recados publicados. Seja o primeiro a deixar uma mensagem de amor a Beatriz &amp; João! 💌
             </div>
           `;
           return;
@@ -2241,7 +2354,7 @@
             message: text
           }]);
         } catch(err) {
-          console.warn('Erro ao publicar mensagem no mural:', err);
+          console.warn('Aviso mural:', err);
         }
       }
 
@@ -2275,43 +2388,79 @@
       }
     }
 
-    // 11. PAINEL DOS NOIVOS (ADMIN)
+    // 12. PAINEL DOS NOIVOS (ADMIN)
     document.getElementById('openAdminBtn').addEventListener('click', () => {
       openModal('adminModal');
     });
 
     function checkAdminAccess() {
       const pass = document.getElementById('adminPassInput').value.trim();
-      if (pass === 'casamento2027' || pass === '2027') {
+      if (pass === adminPassword || pass === 'casamento2027') {
         document.getElementById('adminAuthBlock').style.display = 'none';
         document.getElementById('adminPanelBlock').style.display = 'block';
         document.getElementById('adminGroomPhone').value = groomWhatsApp;
         document.getElementById('adminBridePhone').value = brideWhatsApp;
-        renderAdminGuestsTable();
+        document.getElementById('adminHeroPhotoInput').value = heroPhotoUrl;
+        document.getElementById('adminPixInput').value = currentPixKey;
+        renderAdminGuestsTable(rsvpListCache);
       } else {
-        alert('Senha incorreta! Use: casamento2027');
+        alert('Senha incorreta! Verifique a senha digitada.');
       }
     }
 
-    function renderAdminGuestsTable() {
+    function switchAdminTab(tab) {
+      document.getElementById('btnAdminTabGuests').classList.remove('active');
+      document.getElementById('btnAdminTabPhotos').classList.remove('active');
+      document.getElementById('btnAdminTabSettings').classList.remove('active');
+
+      document.getElementById('adminViewGuests').style.display = 'none';
+      document.getElementById('adminViewPhotos').style.display = 'none';
+      document.getElementById('adminViewSettings').style.display = 'none';
+
+      if (tab === 'guests') {
+        document.getElementById('btnAdminTabGuests').classList.add('active');
+        document.getElementById('adminViewGuests').style.display = 'block';
+      } else if (tab === 'photos') {
+        document.getElementById('btnAdminTabPhotos').classList.add('active');
+        document.getElementById('adminViewPhotos').style.display = 'block';
+      } else if (tab === 'settings') {
+        document.getElementById('btnAdminTabSettings').classList.add('active');
+        document.getElementById('adminViewSettings').style.display = 'block';
+      }
+    }
+
+    function filterAdminGuestsTable() {
+      const q = document.getElementById('adminSearchInput').value.toLowerCase();
+      const filtered = rsvpListCache.filter(r => 
+        (r.name && r.name.toLowerCase().includes(q)) || 
+        (r.phone && r.phone.toLowerCase().includes(q))
+      );
+      renderAdminGuestsTable(filtered);
+    }
+
+    function renderAdminGuestsTable(list) {
       const tbody = document.getElementById('adminGuestsTableBody');
-      if (!rsvpListCache || rsvpListCache.length === 0) {
-        tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:20px;">Nenhuma confirmação registrada ainda.</td></tr>';
+      if (!list || list.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:24px;color:var(--text-muted);">Nenhum convidado encontrado.</td></tr>';
         return;
       }
 
-      tbody.innerHTML = rsvpListCache.map(r => {
+      tbody.innerHTML = list.map(r => {
         const isConf = r.status === 'confirmed';
+        const dateStr = r.created_at ? new Date(r.created_at).toLocaleString('pt-BR') : '-';
         return `
           <tr>
             <td><strong>${r.name}</strong></td>
-            <td>${r.phone}</td>
-            <td><span style="color:${isConf ? '#4E7C59' : '#C97C6B'}; font-weight:600;">${isConf ? 'Confirmado' : 'Ausente'}</span></td>
-            <td>${r.guests_count || 1}</td>
-            <td>${r.guests_names || '-'}</td>
-            <td style="font-size:12px; max-width:180px; overflow:hidden; text-overflow:ellipsis;">${r.message || '-'}</td>
             <td>
-              <button onclick="deleteRsvpEntry(${r.id})" style="background:none; border:none; color:#C97C6B; cursor:pointer;" title="Remover">🗑️</button>
+              <a href="https://api.whatsapp.com/send?phone=${r.phone.replace(/\D/g, '')}" target="_blank" style="color:var(--primary);text-decoration:none;">
+                ${r.phone}
+              </a>
+            </td>
+            <td><span style="color:${isConf ? '#4E7C59' : '#C97C6B'}; font-weight:600;">${isConf ? '✅ Confirmado' : '❌ Não irá'}</span></td>
+            <td style="font-size:12px; max-width:200px; overflow:hidden; text-overflow:ellipsis;">${r.message || '-'}</td>
+            <td style="font-size:11px; color:var(--text-muted);">${dateStr}</td>
+            <td>
+              <button onclick="deleteRsvpEntry(${r.id})" style="background:none; border:none; color:#C97C6B; cursor:pointer; font-size:16px;" title="Remover registro">🗑️</button>
             </td>
           </tr>
         `;
@@ -2319,24 +2468,79 @@
     }
 
     async function deleteRsvpEntry(id) {
-      if (!confirm('Deseja realmente remover este registro de confirmação?')) return;
+      if (!confirm('Deseja realmente remover esta confirmação de presença?')) return;
       if (supabaseClient) {
         try {
           await supabaseClient.from('cofre_rsvp').delete().eq('id', id);
           loadRsvpStats();
-          showToast('Registro removido.', '🗑️');
+          showToast('Registro de convidado removido.', '🗑️');
         } catch(e) {
           alert('Erro ao excluir: ' + e.message);
         }
       }
     }
 
+    // FOTOS NO ADMIN
+    function saveHeroPhoto() {
+      const input = document.getElementById('adminHeroPhotoInput').value.trim();
+      if (!input) return;
+      heroPhotoUrl = input;
+      localStorage.setItem('wedding_hero_photo', input);
+      applyHeroPhoto(input);
+      showToast('Foto de fundo atualizada com sucesso!', '🖼️');
+    }
+
+    function resetHeroPhoto() {
+      heroPhotoUrl = './assets/hero-luzes.jpg';
+      localStorage.setItem('wedding_hero_photo', heroPhotoUrl);
+      document.getElementById('adminHeroPhotoInput').value = heroPhotoUrl;
+      applyHeroPhoto(heroPhotoUrl);
+      showToast('Foto de fundo restaurada para o padrão!', '✨');
+    }
+
+    function setHeroPreset(url) {
+      document.getElementById('adminHeroPhotoInput').value = url;
+      heroPhotoUrl = url;
+      localStorage.setItem('wedding_hero_photo', url);
+      applyHeroPhoto(url);
+      showToast('Foto aplicada na capa!', '🖼️');
+    }
+
+    // SENHA NO ADMIN
+    function saveNewAdminPassword() {
+      const p1 = document.getElementById('adminNewPass').value.trim();
+      const p2 = document.getElementById('adminConfirmPass').value.trim();
+      if (!p1) {
+        alert('Digite uma nova senha!');
+        return;
+      }
+      if (p1 !== p2) {
+        alert('As senhas digitadas não coincidem!');
+        return;
+      }
+      adminPassword = p1;
+      localStorage.setItem('wedding_admin_pass', p1);
+      document.getElementById('adminNewPass').value = '';
+      document.getElementById('adminConfirmPass').value = '';
+      showToast('Senha de administrador alterada com sucesso!', '🔐');
+    }
+
     function savePhonesConfig() {
-      const g = document.getElementById('adminGroomPhone').value.trim();
       const b = document.getElementById('adminBridePhone').value.trim();
-      if (g) { groomWhatsApp = g; localStorage.setItem('groom_wa', g); }
+      const g = document.getElementById('adminGroomPhone').value.trim();
       if (b) { brideWhatsApp = b; localStorage.setItem('bride_wa', b); }
-      showToast('Telefones dos noivos salvos com sucesso!', '📱');
+      if (g) { groomWhatsApp = g; localStorage.setItem('groom_wa', g); }
+      showToast('Telefones salvos com sucesso!', '📱');
+    }
+
+    function savePixConfig() {
+      const k = document.getElementById('adminPixInput').value.trim();
+      if (k) {
+        currentPixKey = k;
+        localStorage.setItem('wedding_pix', k);
+        document.getElementById('pixKeyDisplay').textContent = k;
+        showToast('Chave Pix atualizada com sucesso!', '💳');
+      }
     }
 
     function exportGuestsCsv() {
@@ -2344,15 +2548,15 @@
         alert('Nenhum convidado para exportar!');
         return;
       }
-      let csv = 'Nome,Telefone,Status,Pessoas,Acompanhantes,Mensagem,Data\n';
+      let csv = 'Nome,Telefone,Status,Mensagem,Data\n';
       rsvpListCache.forEach(r => {
-        csv += `"${r.name}","${r.phone}","${r.status}","${r.guests_count}","${(r.guests_names||'').replace(/"/g, '""')}","${(r.message||'').replace(/"/g, '""')}","${r.created_at}"\n`;
+        csv += `"${r.name}","${r.phone}","${r.status}","${(r.message||'').replace(/"/g, '""')}","${r.created_at}"\n`;
       });
       const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
       const url = URL.createObjectURL(blob);
       const a = document.createElement('a');
       a.href = url;
-      a.download = `Lista_Casamento_Joao_e_Bia_${new Date().toISOString().slice(0,10)}.csv`;
+      a.download = `Convidados_Casamento_Beatriz_e_Joao_${new Date().toISOString().slice(0,10)}.csv`;
       a.click();
     }
 
@@ -2361,22 +2565,23 @@
         alert('Nenhum convidado para copiar!');
         return;
       }
-      let total = 0;
-      let text = `💍 *LISTA DE CONVIDADOS CONFIRMADOS · CASAMENTO JOÃO & BIA*\n\n`;
-      rsvpListCache.forEach((r, idx) => {
+      let confirmed = 0;
+      let text = `💍 *LISTA DE CONVIDADOS CONFIRMADOS · CASAMENTO BEATRIZ & JOÃO (13/11/2027)*\n\n`;
+      
+      rsvpListCache.forEach(r => {
         if (r.status === 'confirmed') {
-          total += (r.guests_count || 1);
-          text += `${idx + 1}. *${r.name}* (${r.guests_count} pessoas) ${r.guests_names ? `- Acomp: ${r.guests_names}` : ''}\n`;
+          confirmed += 1;
+          text += `${confirmed}. *${r.name}* (${r.phone})\n`;
         }
       });
-      text += `\n🎉 *TOTAL GERAL CONFIRMADO:* ${total} pessoas`;
+      text += `\n🎉 *TOTAL DE CONFIRMADOS:* ${confirmed} pessoas`;
 
       navigator.clipboard.writeText(text).then(() => {
         showToast('Resumo copiado para a área de transferência!', '📋');
       });
     }
 
-    // 12. LIGHTBOX & MODAL HELPERS
+    // 13. LIGHTBOX & MODAL HELPERS
     function openLightbox(src, caption) {
       document.getElementById('lightboxImg').src = src;
       document.getElementById('lightboxCaption').textContent = caption || '';
@@ -2397,7 +2602,6 @@
       document.body.style.overflow = '';
     }
 
-    // Fecha modal clicando no fundo
     document.querySelectorAll('.modal-backdrop').forEach(modal => {
       modal.addEventListener('click', (e) => {
         if (e.target === modal) {
@@ -2406,7 +2610,6 @@
       });
     });
 
-    // 13. TOAST & CONFETTI
     function showToast(msg, icon = '✨') {
       const toast = document.getElementById('toastBox');
       document.getElementById('toastMessage').textContent = msg;

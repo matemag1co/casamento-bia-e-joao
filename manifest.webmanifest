@@ -1,7 +1,7 @@
 {
-  "name": "Casamento de João & Anna Beatriz · Convite & Presentes",
-  "short_name": "João & Bia 2027",
-  "description": "Site oficial de casamento de João & Anna Beatriz: confirme sua presença, lista de presentes e fotos dos noivos.",
+  "name": "Casamento de Beatriz & João · Convite & Presentes",
+  "short_name": "B & J 2027",
+  "description": "Site oficial de casamento de Beatriz & João (13/11/2027): confirmação de presença, lista de presentes e fotos dos noivos.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",

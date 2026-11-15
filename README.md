@@ -1,75 +1,36 @@
-# 💍 Casamento de João Miguel & Anna Beatriz · Convite Oficial & Lista de Presentes
+# 💍 Casamento de Beatriz & João · Convite Oficial & Lista de Presentes
 
-Site oficial e convite digital interativo de casamento de **João Miguel & Anna Beatriz**, rumo a **Novembro de 2027**.
-
-O projeto conta com confirmação de presença (RSVP) em tempo real, integração direta com WhatsApp dos noivos, lista completa de presentes para montagem do novo lar (com contribuição via Pix e links para Amazon e Mercado Livre), galeria com fotos reais do casal e painel administrativo para gestão dos noivos.
+Site oficial e convite digital interativo de casamento de **Beatriz & João**, rumo ao grande dia em **13 de Novembro de 2027** no Rio de Janeiro - RJ.
 
 ---
 
-## ✨ Principais Funcionalidades
+## ✨ Principais Atualizações
 
-### 💌 1. Confirmação de Presença (RSVP)
-- **Formulário Completo e Inteligente:**
-  - Nome completo e WhatsApp com formatação e máscara.
-  - Seletor de presença (*"Sim, com certeza!"* ou *"Infelizmente não"*).
-  - Quantidade de pessoas e nomes dos acompanhantes.
-  - Mensagem carinhosa de bênção/felicitações.
-- **Sincronização em Tempo Real (Supabase):**
-  - Salva instantaneamente na tabela `cofre_rsvp`.
-  - Contador dinâmico em tempo real exibindo quantas pessoas já confirmaram presença.
-- **Confirmação Direta no WhatsApp com Mensagem Programada:**
-  - Fluxo: `Nome > Telefone > Acompanhantes > Escolha do Destinatário`.
-  - Botão interativo para escolher enviar para o **Noivo (João)** ou para a **Noiva (Bia)**.
-  - Gera a mensagem perfeitamente formatada com nome, acompanhantes e recado.
+### 💌 1. Confirmação de Presença (RSVP Individual)
+- **Convite Individual:** Sem campo de acompanhantes; cada confirmação é única e pessoal.
+- **Formulário Dinâmico:** Nome completo, WhatsApp com máscara, confirmação de presença (*"Sim, confirmo!"* ou *"Infelizmente não"*) e recado carinhoso opcional.
+- **Sincronização em Tempo Real (Supabase):** Salva instantaneamente na tabela `cofre_rsvp` e atualiza o contador de presenças em tempo real.
+- **Confirmação no WhatsApp com Mensagem Programada:**
+  - Botão interativo com escolha do destinatário: **Enviar para a Noiva (Beatriz)** ou **Enviar para o Noivo (João)**.
+  - Abre diretamente a conversa com mensagem personalizada pré-preenchida para a data de **13/11/2027**.
 
-### 🎁 2. Lista de Presentes para o Novo Lar
-- **Categorias Organizadas:**
-  - 🍳 **Cozinha:** Panelas de cerâmica, aparelho de jantar, faqueiro, taças, potes herméticos, facas chef.
-  - ⚡ **Eletrodomésticos:** Air Fryer, cafeteira, liquidificador potente, sanduicheira grill, aspirador vertical, micro-ondas espelhado.
-  - 🛋️ **Sala & Casa:** Cota para Smart TV, caixa de som Bluetooth, tapete geométrico, mantas e almofadas.
-  - 🛏️ **Quarto:** Jogo de cama 400 fios, edredom dupla face toque de pluma, travesseiros NASA.
-  - 🛁 **Banheiro:** Jogo de toalhas banhão 5 peças, kit cerâmica & bambu, roupões de casal.
-  - ❤️ **Presentes do Coração & Experiências:** Jantar romântico na lua de mel, passeio de barco na Urca, brinde de champanhe, cota para reforma do ninho de amor e **Presente com Valor Livre** (onde o convidado escolhe qualquer valor).
-- **Modelo Duplo de Presente:**
-  1. **Presentear via Pix:** Abre modal com valor sugerido, QR Code Pix gerado na hora, Chave Pix com cópia em 1 toque (`jmsantos108@gmail.com`), campo para deixar recado e botão de avisar no WhatsApp.
-  2. **Comprar na Loja:** Botões diretos para buscar e comprar o produto exato na **Amazon** ou **Mercado Livre**.
+### 🎁 2. Lista de Presentes do Novo Lar
+- **Imagens Revisadas & Neutras:** Fotos estéticas, limpas e de alta resolução para os produtos de cada cômodo (cozinha, eletro, sala, quarto e banheiro) sem fotos do casal nos presentes.
+- **Links Gerais das Lojas:** Botões que levam direto para a página principal da [Amazon](https://www.amazon.com.br) e [Mercado Livre](https://www.mercadolivre.com.br).
+- **Presentes do Coração:** Sem links de lojas, focados exclusivamente na doação de amor via Pix (com opções de valores sugeridos ou valor livre à escolha do convidado).
+- **Chave Pix & QR Code:** Modal com QR Code Pix gerado na hora, chave copia e cola em 1 clique (`jmsantos108@gmail.com`) e aviso automático pelo WhatsApp.
 
-### 📷 3. Nossa História & Galeria de Fotos
-- Galeria com fotos reais do casal:
-  - O pedido de noivado inesquecível no Pão de Açúcar com o anel de noivado.
-  - Passeio de barco na Urca com o Pão de Açúcar ao fundo.
-  - Sob a luz das estrelas e iluminação suspensa.
-  - Momentos no Maracanã torcendo pelo Mengão.
-  - Píer e caminhadas na praia.
-  - A caminhada de fé na Igreja Batista Reviver em Cristo.
-- **Lightbox Interativo:** Toque em qualquer foto para visualizá-la em tela cheia com legenda.
-
-### 💬 4. Mural de Recados & Felicitações
-- Conectado em tempo real ao Supabase (`cofre_guest_messages`).
-- Os convidados podem deixar homenagens que aparecem na hora no mural.
-
-### 🔒 5. Painel de Gestão dos Noivos (Admin)
-- Acesso com senha (`casamento2027`) ou no topo pelo ícone 🔒.
-- Contagem total de pessoas confirmadas e famílias cadastradas.
-- Tabela com lista completa de convidados, telefones, acompanhantes e mensagens.
-- **Exportar para CSV (Excel)** com 1 clique para a cerimonialista.
-- **Copiar Resumo para WhatsApp** com a lista formatada.
-- Configuração e edição dos números de WhatsApp de João e Bia.
-
----
-
-## 🗄️ Configuração do Banco de Dados (Supabase)
-
-1. Acesse o seu projeto no [Supabase](https://supabase.com).
-2. Abra a aba **SQL Editor**.
-3. Execute o script contido em [`supabase-setup.sql`](./supabase-setup.sql).
-4. O script cria automaticamente a tabela `cofre_rsvp` e configura as políticas de RLS e o Realtime!
+### 🔒 3. Painel de Administração dos Noivos (Admin)
+- **Sem campo de dicas na tela de login.**
+- **Consultar Convidados:** Tabela com busca em tempo real por nome ou telefone, filtros, exclusão e contagem de presenças confirmadas.
+- **Exportação:** Exportar lista para CSV (Excel) e copiar resumo formatado para o WhatsApp com 1 toque.
+- **Editar Fotos do Site:** Altere a foto de capa do Hero colando qualquer URL ou selecionando presets do ensaio dos noivos.
+- **Segurança & Configurações:** Altere a senha do painel a qualquer momento, configure os números de WhatsApp de Beatriz e João e edite a chave Pix.
 
 ---
 
 ## 🚀 Publicação & GitHub Pages
 
-O site é 100% estático (Single Page Application com HTML5, CSS3 e JS moderno), podendo ser hospedado diretamente no **GitHub Pages**:
 - Repositório: `https://github.com/matemag1co/cofre-dos-noivos.git`
 - Branch: `main`
-- Raiz: `/` (root)
+- Site no ar: [matemag1co.github.io/cofre-dos-noivos](https://matemag1co.github.io/cofre-dos-noivos/)
