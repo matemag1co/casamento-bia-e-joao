@@ -1,9 +1,11 @@
-// Service Worker para Casamento João & Anna Beatriz
-const CACHE_NAME = 'casamento-joao-bia-v1';
+// Service Worker para Casamento Beatriz & João
+const CACHE_NAME = 'casamento-beatriz-joao-v2';
 const STATIC_ASSETS = [
   './',
   './index.html',
   './manifest.webmanifest',
+  './assets/logo-bj-transp.png',
+  './assets/convite-card.jpg',
   './assets/hero-luzes.jpg',
   './assets/noivado-pao-de-acucar.jpg',
   './assets/noivado-anel.jpg',
@@ -35,12 +37,12 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const url = new URL(event.request.url);
 
-  // Não intercepta chamadas de banco de dados do Supabase
+  // Não intercepta chamadas do Supabase
   if (url.hostname.includes('supabase.co')) {
     return;
   }
 
-  // Network first para o index.html (garantindo que atualizações cheguem rápido), cache fallback
+  // Network first para o index.html
   if (url.pathname.endsWith('/') || url.pathname.endsWith('index.html')) {
     event.respondWith(
       fetch(event.request)
