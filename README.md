@@ -1,58 +1,75 @@
-# 💍 Cofre dos Noivos — João & Anna Beatriz
+# 💍 Casamento de João Miguel & Anna Beatriz · Convite Oficial & Lista de Presentes
 
-Aplicativo web progressivo (PWA) e cofre de casamento inteligente, com mapa de envelopes, cotas de presente para padrinhos, sincronização em tempo real via Supabase e suporte offline.
+Site oficial e convite digital interativo de casamento de **João Miguel & Anna Beatriz**, rumo a **Novembro de 2027**.
+
+O projeto conta com confirmação de presença (RSVP) em tempo real, integração direta com WhatsApp dos noivos, lista completa de presentes para montagem do novo lar (com contribuição via Pix e links para Amazon e Mercado Livre), galeria com fotos reais do casal e painel administrativo para gestão dos noivos.
 
 ---
 
 ## ✨ Principais Funcionalidades
 
-### 💑 Modo Casal (Gestão dos Noivos)
-- **Mapa dos Sonhos (283 Envelopes):** Toque nos envelopes para marcar valores já guardados (R$ 5 a R$ 1.000). Totaliza a meta de R$ 25.000.
-- **Valores Livres:** Deposite valores fora do mapa com notas/observações.
-- **Contagem Regressiva:** Contador automático de dias restantes rumo a novembro de 2027.
-- **Gráfico de Evolução:** Curva diária de crescimento do fundo em relação à meta.
-- **Celebração com Confetes:** Animação festiva ao preencher envelopes e atingir marcos.
-- **Controle de Acesso Seguro:** Modo leitura público e modo edição protegido por código OTP por e-mail no Supabase (restrito ao João e Anna).
-- **Backup & Ajustes:** Exportação/importação em JSON e configuração de nomes e meta.
+### 💌 1. Confirmação de Presença (RSVP)
+- **Formulário Completo e Inteligente:**
+  - Nome completo e WhatsApp com formatação e máscara.
+  - Seletor de presença (*"Sim, com certeza!"* ou *"Infelizmente não"*).
+  - Quantidade de pessoas e nomes dos acompanhantes.
+  - Mensagem carinhosa de bênção/felicitações.
+- **Sincronização em Tempo Real (Supabase):**
+  - Salva instantaneamente na tabela `cofre_rsvp`.
+  - Contador dinâmico em tempo real exibindo quantas pessoas já confirmaram presença.
+- **Confirmação Direta no WhatsApp com Mensagem Programada:**
+  - Fluxo: `Nome > Telefone > Acompanhantes > Escolha do Destinatário`.
+  - Botão interativo para escolher enviar para o **Noivo (João)** ou para a **Noiva (Bia)**.
+  - Gera a mensagem perfeitamente formatada com nome, acompanhantes e recado.
 
-### 🎁 Modo Padrinhos & Convidados (Presentes em Cotas)
-- **Acesso direto via link:** Acesse adicionando `?modo=convidados` ou `?padrinhos` na URL.
-- **Catálogo de Cotas de Presente:**
-  - 🥂 Brinde dos Noivos — R$ 50
-  - 🍰 Mesa de Doces & Bem-Casados — R$ 80
-  - 📸 Álbum de Fotos do Grande Dia — R$ 120
-  - 🍽️ Jantar Romântico na Lua de Mel — R$ 180
-  - 🏖️ Passeio Inesquecível a Dois — R$ 250
-  - 🛏️ Primeira Noite dos Recém-Casados — R$ 350
-  - ✈️ Passagens da Lua de Mel — R$ 500
-  - 💎 Presente do Coração (Valor Livre)
-- **Pix com 1 Toque:** Chave Pix e QR Code para transferência bancária.
-- **Mural de Recados & Felicitações:** O convidado envia o nome e uma mensagem de carinho aos noivos, que fica eternizada no mural do casal.
+### 🎁 2. Lista de Presentes para o Novo Lar
+- **Categorias Organizadas:**
+  - 🍳 **Cozinha:** Panelas de cerâmica, aparelho de jantar, faqueiro, taças, potes herméticos, facas chef.
+  - ⚡ **Eletrodomésticos:** Air Fryer, cafeteira, liquidificador potente, sanduicheira grill, aspirador vertical, micro-ondas espelhado.
+  - 🛋️ **Sala & Casa:** Cota para Smart TV, caixa de som Bluetooth, tapete geométrico, mantas e almofadas.
+  - 🛏️ **Quarto:** Jogo de cama 400 fios, edredom dupla face toque de pluma, travesseiros NASA.
+  - 🛁 **Banheiro:** Jogo de toalhas banhão 5 peças, kit cerâmica & bambu, roupões de casal.
+  - ❤️ **Presentes do Coração & Experiências:** Jantar romântico na lua de mel, passeio de barco na Urca, brinde de champanhe, cota para reforma do ninho de amor e **Presente com Valor Livre** (onde o convidado escolhe qualquer valor).
+- **Modelo Duplo de Presente:**
+  1. **Presentear via Pix:** Abre modal com valor sugerido, QR Code Pix gerado na hora, Chave Pix com cópia em 1 toque (`jmsantos108@gmail.com`), campo para deixar recado e botão de avisar no WhatsApp.
+  2. **Comprar na Loja:** Botões diretos para buscar e comprar o produto exato na **Amazon** ou **Mercado Livre**.
 
-### 📲 Experiência Mobile & PWA
-- **Instalável como App:** No Android e Chrome através do botão "Instalar", e no iPhone/Safari através de "Compartilhar > Adicionar à Tela de Início".
-- **Compartilhamento Fácil no WhatsApp:** Botão para gerar um card de texto comemorativo e enviar direto no WhatsApp do casal ou dos amigos.
-- **Cache Offline:** Funciona mesmo sem conexão com a internet graças ao Service Worker e LocalStorage.
+### 📷 3. Nossa História & Galeria de Fotos
+- Galeria com fotos reais do casal:
+  - O pedido de noivado inesquecível no Pão de Açúcar com o anel de noivado.
+  - Passeio de barco na Urca com o Pão de Açúcar ao fundo.
+  - Sob a luz das estrelas e iluminação suspensa.
+  - Momentos no Maracanã torcendo pelo Mengão.
+  - Píer e caminhadas na praia.
+  - A caminhada de fé na Igreja Batista Reviver em Cristo.
+- **Lightbox Interativo:** Toque em qualquer foto para visualizá-la em tela cheia com legenda.
+
+### 💬 4. Mural de Recados & Felicitações
+- Conectado em tempo real ao Supabase (`cofre_guest_messages`).
+- Os convidados podem deixar homenagens que aparecem na hora no mural.
+
+### 🔒 5. Painel de Gestão dos Noivos (Admin)
+- Acesso com senha (`casamento2027`) ou no topo pelo ícone 🔒.
+- Contagem total de pessoas confirmadas e famílias cadastradas.
+- Tabela com lista completa de convidados, telefones, acompanhantes e mensagens.
+- **Exportar para CSV (Excel)** com 1 clique para a cerimonialista.
+- **Copiar Resumo para WhatsApp** com a lista formatada.
+- Configuração e edição dos números de WhatsApp de João e Bia.
 
 ---
 
 ## 🗄️ Configuração do Banco de Dados (Supabase)
 
-Para garantir que o mural de recados dos convidados e a sincronização em tempo real funcionem perfeitamente:
-
-1. Acesse o painel do seu projeto no [Supabase](https://supabase.com).
+1. Acesse o seu projeto no [Supabase](https://supabase.com).
 2. Abra a aba **SQL Editor**.
-3. Copie e cole todo o conteúdo do arquivo [`supabase-setup.sql`](./supabase-setup.sql).
-4. Clique em **Run** (Executar).
-
-Pronto! Todas as tabelas, políticas de segurança e canais de Realtime estarão ativos.
+3. Execute o script contido em [`supabase-setup.sql`](./supabase-setup.sql).
+4. O script cria automaticamente a tabela `cofre_rsvp` e configura as políticas de RLS e o Realtime!
 
 ---
 
-## 🚀 Como Publicar Grátis na Web
+## 🚀 Publicação & GitHub Pages
 
-Para que você e a Anna (e os convidados) possam acessar de qualquer lugar pelo celular com um link bonito:
-
-1. **Vercel / Netlify / GitHub Pages:**
-   - Basta subir esta pasta (`cofre-dos-noivos`) em um repositório no GitHub ou arrastar para o [Netlify Drop](https://app.netlify.com/drop).
-2. O site terá HTTPS automático, o que ativa o PWA completo para instalação no celular!
+O site é 100% estático (Single Page Application com HTML5, CSS3 e JS moderno), podendo ser hospedado diretamente no **GitHub Pages**:
+- Repositório: `https://github.com/matemag1co/cofre-dos-noivos.git`
+- Branch: `main`
+- Raiz: `/` (root)
