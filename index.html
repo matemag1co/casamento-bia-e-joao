@@ -24,22 +24,32 @@
 
   <style>
     :root {
+      /* Valores padrão (tema "Marsala & Dourado"). O painel pode sobrescrever via JS. */
       --marsala: #4D1C28;
       --marsala-hover: #3B141E;
       --marsala-light: #F8EDEF;
+      --primary-rgb: 77, 28, 40;
+      --dark: #240E14;
+      --dark-rgb: 36, 14, 20;
       --gold: #C58A3E;
       --gold-soft: #DFB36E;
+      --accent-light: #E5C385;
+      --accent-pale: #F7E4BE;
+      --accent-rgb: 200, 138, 60;
+      --accent-soft-rgb: 223, 179, 110;
       --gold-gradient: linear-gradient(135deg, #E5C385 0%, #C58A3E 50%, #8C561A 100%);
       --bg-cream: #FAF6F1;
+      --bg-soft: #FDF9F5;
+      --bg-alt: #F8F2EB;
       --card-bg: #FFFFFF;
       --text-main: #2A1D21;
       --text-muted: #6B5B60;
       --border-color: #EADCDD;
       --green: #2B7A4B;
       --rose: #D65D7B;
-      --shadow-sm: 0 4px 14px rgba(77, 28, 40, 0.05);
-      --shadow-md: 0 10px 30px rgba(77, 28, 40, 0.09);
-      --shadow-lg: 0 20px 50px rgba(77, 28, 40, 0.14);
+      --shadow-sm: 0 4px 14px rgba(var(--primary-rgb), 0.05);
+      --shadow-md: 0 10px 30px rgba(var(--primary-rgb), 0.09);
+      --shadow-lg: 0 20px 50px rgba(var(--primary-rgb), 0.14);
       --radius: 18px;
       --font-serif: 'Playfair Display', 'Cormorant Garamond', Georgia, serif;
       --font-garamond: 'Cormorant Garamond', Georgia, serif;
@@ -56,7 +66,7 @@
       font-size: 15px;
       line-height: 1.6;
       overflow-x: hidden;
-      background-image: radial-gradient(rgba(200, 138, 60, 0.04) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(var(--accent-rgb),  0.04) 1px, transparent 1px);
       background-size: 28px 28px;
     }
 
@@ -72,10 +82,10 @@
       left: 0;
       right: 0;
       z-index: 999;
-      background: rgba(36, 14, 20, 0.92);
+      background: rgba(var(--dark-rgb),  0.92);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid rgba(223, 179, 110, 0.25);
+      border-bottom: 1px solid rgba(var(--accent-soft-rgb),  0.25);
       transition: all 0.3s ease;
     }
     .nav-inner {
@@ -100,7 +110,7 @@
     .nav-brand:hover .nav-logo-img { transform: scale(1.05); }
     .nav-brand .date-tag {
       font-size: 13px;
-      color: #F7E4BE;
+      color: var(--accent-pale);
       font-family: var(--font-garamond);
       letter-spacing: 1px;
       border-left: 1px solid rgba(255,255,255,0.25);
@@ -127,8 +137,8 @@
     }
     .nav-link:hover, .nav-link.active {
       color: #FFF;
-      background: rgba(200, 138, 60, 0.3);
-      border-color: rgba(223, 179, 110, 0.5);
+      background: rgba(var(--accent-rgb),  0.3);
+      border-color: rgba(var(--accent-soft-rgb),  0.5);
     }
     .admin-key-btn {
       background: transparent;
@@ -139,7 +149,7 @@
       padding: 6px 10px;
       transition: 0.2s;
     }
-    .admin-key-btn:hover { color: #E5C385; }
+    .admin-key-btn:hover { color: var(--accent-light); }
 
     /* HERO SECTION */
     .hero {
@@ -161,9 +171,9 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, 
-        rgba(36, 14, 20, 0.65) 0%, 
-        rgba(36, 14, 20, 0.78) 50%, 
-        rgba(36, 14, 20, 0.95) 100%);
+        rgba(var(--dark-rgb),  0.65) 0%, 
+        rgba(var(--dark-rgb),  0.78) 50%, 
+        rgba(var(--dark-rgb),  0.95) 100%);
     }
     .hero-content {
       position: relative;
@@ -181,7 +191,7 @@
       font-family: var(--font-garamond);
       font-size: 18px;
       font-style: italic;
-      color: #F7E4BE;
+      color: var(--accent-pale);
       max-width: 620px;
       margin: 0 auto 16px;
       line-height: 1.4;
@@ -207,13 +217,13 @@
     .hero-subtitle {
       font-family: var(--font-script);
       font-size: clamp(34px, 6vw, 56px);
-      color: #F0D49C;
+      color: var(--accent-pale);
       margin-bottom: 22px;
       line-height: 1;
     }
     .hero-details-card {
-      background: rgba(45, 18, 25, 0.65);
-      border: 1px solid rgba(223, 179, 110, 0.4);
+      background: rgba(var(--dark-rgb),  0.65);
+      border: 1px solid rgba(var(--accent-soft-rgb),  0.4);
       padding: 16px 24px;
       border-radius: 14px;
       display: inline-flex;
@@ -240,8 +250,8 @@
       flex-wrap: wrap;
     }
     .cd-box {
-      background: rgba(36, 14, 20, 0.75);
-      border: 1px solid rgba(223, 179, 110, 0.35);
+      background: rgba(var(--dark-rgb),  0.75);
+      border: 1px solid rgba(var(--accent-soft-rgb),  0.35);
       padding: 12px 18px;
       border-radius: 12px;
       min-width: 78px;
@@ -251,7 +261,7 @@
       display: block;
       font-size: 28px;
       font-weight: 700;
-      color: #E5C385;
+      color: var(--accent-light);
       font-family: var(--font-garamond);
       line-height: 1;
     }
@@ -285,33 +295,33 @@
     .btn-marsala {
       background: var(--marsala);
       color: #FFF;
-      box-shadow: 0 8px 24px rgba(77, 28, 40, 0.3);
+      box-shadow: 0 8px 24px rgba(var(--primary-rgb),  0.3);
     }
     .btn-marsala:hover {
       background: var(--marsala-hover);
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(77, 28, 40, 0.45);
+      box-shadow: 0 12px 30px rgba(var(--primary-rgb),  0.45);
       color: #FFF;
     }
     .btn-gold {
       background: var(--gold-gradient);
-      color: #240E14;
-      box-shadow: 0 8px 24px rgba(200, 138, 60, 0.45);
+      color: var(--dark);
+      box-shadow: 0 8px 24px rgba(var(--accent-rgb),  0.45);
     }
     .btn-gold:hover {
       transform: translateY(-2px);
-      box-shadow: 0 12px 30px rgba(200, 138, 60, 0.6);
+      box-shadow: 0 12px 30px rgba(var(--accent-rgb),  0.6);
       filter: brightness(1.08);
     }
     .btn-outline {
-      background: rgba(36, 14, 20, 0.6);
-      border: 1px solid rgba(223, 179, 110, 0.5);
+      background: rgba(var(--dark-rgb),  0.6);
+      border: 1px solid rgba(var(--accent-soft-rgb),  0.5);
       color: #FFF;
       backdrop-filter: blur(8px);
     }
     .btn-outline:hover {
-      background: rgba(200, 138, 60, 0.25);
-      border-color: #E5C385;
+      background: rgba(var(--accent-rgb),  0.25);
+      border-color: var(--accent-light);
       transform: translateY(-2px);
     }
 
@@ -362,7 +372,7 @@
     .manual-card:hover {
       transform: translateY(-4px);
       box-shadow: var(--shadow-md);
-      border-color: rgba(200, 138, 60, 0.4);
+      border-color: rgba(var(--accent-rgb),  0.4);
     }
     .manual-icon-header {
       display: flex;
@@ -395,7 +405,7 @@
       flex-grow: 1;
     }
     .manual-highlight-box {
-      background: #FAF6F1;
+      background: var(--bg-cream);
       border-radius: 10px;
       padding: 12px 14px;
       margin-top: 16px;
@@ -407,7 +417,7 @@
 
     /* BANNER PIX OFICIAL EM DESTAQUE */
     .pix-hero-box {
-      background: linear-gradient(135deg, #FFFDFB 0%, #FAF0E4 100%);
+      background: linear-gradient(135deg, var(--bg-soft) 0%, #FAF0E4 100%);
       border: 2px solid var(--gold);
       border-radius: 20px;
       padding: clamp(24px, 4vw, 36px);
@@ -467,7 +477,7 @@
     .tab-btn.active {
       background: #FFF;
       color: var(--marsala);
-      box-shadow: 0 4px 15px rgba(77, 28, 40, 0.12);
+      box-shadow: 0 4px 15px rgba(var(--primary-rgb),  0.12);
     }
 
     /* RSVP INDIVIDUAL */
@@ -498,8 +508,8 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background: #FDF9F5;
-      border: 1px solid #F0DFD7;
+      background: var(--bg-soft);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 14px 20px;
       margin-bottom: 30px;
@@ -520,7 +530,7 @@
       align-items: center;
       justify-content: center;
       font-size: 20px;
-      color: #240E14;
+      color: var(--dark);
     }
     .rsvp-count-num {
       font-size: 22px;
@@ -548,7 +558,7 @@
       outline: none;
       border-color: var(--marsala);
       background: #FFF;
-      box-shadow: 0 0 0 4px rgba(77, 28, 40, 0.12);
+      box-shadow: 0 0 0 4px rgba(var(--primary-rgb),  0.12);
     }
     .radio-pill-group { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
     .radio-pill {
@@ -604,7 +614,7 @@
       background: var(--marsala);
       color: #FFF;
       border-color: var(--marsala);
-      box-shadow: 0 4px 12px rgba(77, 28, 40, 0.25);
+      box-shadow: 0 4px 12px rgba(var(--primary-rgb),  0.25);
     }
     .gifts-grid {
       display: grid;
@@ -625,12 +635,12 @@
     .gift-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow-md);
-      border-color: rgba(77, 28, 40, 0.3);
+      border-color: rgba(var(--primary-rgb),  0.3);
     }
     .gift-card-media {
       height: 200px;
       position: relative;
-      background: #F8F2EB;
+      background: var(--bg-alt);
       overflow: hidden;
       display: flex;
       align-items: center;
@@ -647,8 +657,8 @@
       position: absolute;
       top: 12px;
       left: 12px;
-      background: rgba(45, 18, 25, 0.88);
-      color: #F7E4BE;
+      background: rgba(var(--dark-rgb),  0.88);
+      color: var(--accent-pale);
       font-size: 11px;
       font-weight: 600;
       letter-spacing: 0.5px;
@@ -672,7 +682,7 @@
     .gift-btn-stack { display: grid; grid-template-columns: 1fr; gap: 8px; }
     .gift-btn-pix {
       background: var(--gold-gradient);
-      color: #240E14;
+      color: var(--dark);
       font-weight: 600;
       font-size: 14px;
       padding: 11px 14px;
@@ -703,7 +713,7 @@
       transition: 0.2s;
     }
     .gift-btn-store:hover { background: #F0ECE6; border-color: #D3C3B3; }
-    .gift-card-heart { background: linear-gradient(135deg, #FFFDFB 0%, #FAF1E8 100%); border: 1.5px solid #DFB36E; }
+    .gift-card-heart { background: linear-gradient(135deg, var(--bg-soft) 0%, var(--bg-alt) 100%); border: 1.5px solid var(--gold-soft); }
 
     /* GALERIA & HISTÓRIA */
     .gallery-grid {
@@ -724,7 +734,7 @@
     .gallery-overlay {
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, transparent 40%, rgba(36, 14, 20, 0.88) 100%);
+      background: linear-gradient(180deg, transparent 40%, rgba(var(--dark-rgb),  0.88) 100%);
       display: flex;
       align-items: flex-end;
       padding: 20px;
@@ -733,11 +743,11 @@
       transition: opacity 0.3s ease;
     }
     .gallery-item:hover .gallery-overlay { opacity: 1; }
-    .gallery-caption-title { font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: #F0D49C; }
+    .gallery-caption-title { font-family: var(--font-serif); font-size: 18px; font-weight: 600; color: var(--accent-pale); }
     .gallery-caption-sub { font-size: 12px; color: rgba(255,255,255,0.8); }
 
     /* MURAL DE RECADOS */
-    .guestbook-section { background: #F5EEE6; }
+    .guestbook-section { background: var(--bg-alt); }
     .messages-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; margin-top: 30px; }
     .msg-card {
       background: #FFF;
@@ -766,11 +776,11 @@
 
     /* FOOTER */
     footer {
-      background: #240E14;
+      background: var(--dark);
       color: rgba(255, 255, 255, 0.7);
       padding: 60px 20px 30px;
       text-align: center;
-      border-top: 1px solid rgba(223, 179, 110, 0.2);
+      border-top: 1px solid rgba(var(--accent-soft-rgb),  0.2);
     }
     .footer-logo {
       width: 58px;
@@ -779,7 +789,7 @@
       margin: 0 auto 14px;
       display: block;
     }
-    .footer-names { font-family: var(--font-serif); font-size: 32px; color: #F0D49C; margin-bottom: 8px; }
+    .footer-names { font-family: var(--font-serif); font-size: 32px; color: var(--accent-pale); margin-bottom: 8px; }
     .footer-quote { font-size: 14px; max-width: 520px; margin: 0 auto 24px; color: rgba(255, 255, 255, 0.65); font-style: italic; }
     .footer-bottom {
       border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -798,7 +808,7 @@
     .modal-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(18, 6, 10, 0.82);
+      background: rgba(var(--dark-rgb),  0.82);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
       z-index: 1000;
@@ -856,7 +866,7 @@
       box-shadow: 0 4px 12px rgba(0,0,0,0.04);
     }
     .pix-payload-box {
-      background: #FBF8F4;
+      background: var(--bg-soft);
       border: 1px solid var(--border-color);
       border-radius: 10px;
       padding: 10px 14px;
@@ -871,7 +881,7 @@
     }
     .btn-copy-pix {
       background: var(--gold-gradient);
-      color: #240E14;
+      color: var(--dark);
       font-weight: 700;
       font-size: 14px;
       padding: 12px 20px;
@@ -914,11 +924,11 @@
     .admin-tab-btn.active { background: var(--marsala-light); color: var(--marsala); }
     .admin-table { width: 100%; border-collapse: collapse; margin-top: 14px; font-size: 13px; }
     .admin-table th, .admin-table td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--border-color); }
-    .admin-table th { background: #F7F4EE; font-weight: 600; }
+    .admin-table th { background: var(--bg-soft); font-weight: 600; }
     .search-input { padding: 10px 14px; border-radius: 8px; border: 1px solid var(--border-color); width: 100%; font-size: 14px; margin-bottom: 14px; }
 
     .admin-img-card {
-      background: #FAF6F1;
+      background: var(--bg-cream);
       border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 14px;
@@ -943,7 +953,7 @@
       bottom: 24px;
       left: 50%;
       transform: translateX(-50%) translateY(100px);
-      background: #240E14;
+      background: var(--dark);
       color: #FFF;
       padding: 12px 24px;
       border-radius: 999px;
@@ -957,6 +967,73 @@
       gap: 8px;
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
+
+
+    /* PAINEL: componentes do editor de presentes e aparência */
+    .adm-box { background: var(--bg-cream); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+    .adm-box h4 { font-size: 15px; color: var(--marsala); margin-bottom: 10px; }
+    .adm-box-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+    .adm-box-head h4 { margin: 0; }
+    .adm-btn-sm { padding: 7px 14px !important; font-size: 12.5px !important; }
+    .adm-btn-plain { color: var(--text-main) !important; background: #FFF !important; }
+    .adm-savebar { position: sticky; bottom: -1px; display: flex; gap: 8px; flex-wrap: wrap; padding: 12px 0 4px; background: linear-gradient(180deg, rgba(255,255,255,0) 0%, #FFF 30%); z-index: 3; }
+    .adm-savebar .btn { padding: 10px 18px; font-size: 13px; }
+    .adm-input { padding: 9px 12px !important; font-size: 14px; border-radius: 8px !important; background: #FFF !important; }
+    .adm-field { display: block; margin-bottom: 10px; }
+    .adm-field > span:first-child { display: block; font-size: 12px; font-weight: 600; color: var(--text-muted); margin-bottom: 4px; }
+    .adm-inline { display: flex; gap: 6px; align-items: center; }
+    .adm-grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .adm-grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .adm-icon-btn { background: #FFF; border: 1px solid var(--border-color); border-radius: 8px; padding: 7px 10px; font-size: 13px; cursor: pointer; color: var(--text-main); white-space: nowrap; }
+    .adm-icon-btn:disabled { opacity: 0.35; cursor: default; }
+    .adm-danger { color: #B3473A; }
+    .adm-empty { font-size: 13px; color: var(--text-muted); padding: 8px 0; }
+    .adm-cat-row { display: grid; grid-template-columns: 1fr auto auto auto auto; gap: 6px; align-items: center; margin-bottom: 8px; }
+    .adm-cat-count { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+    .adm-gift { background: #FFF; border: 1px solid var(--border-color); border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+    .adm-gift > summary { list-style: none; display: flex; align-items: center; gap: 12px; padding: 10px 12px; cursor: pointer; }
+    .adm-gift > summary::-webkit-details-marker { display: none; }
+    .adm-gift > summary .admin-img-thumb { width: 52px; height: 52px; }
+    .adm-gift-sum { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+    .adm-gift-sum strong { font-size: 14px; color: var(--marsala); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .adm-gift-sum small { font-size: 12px; color: var(--text-muted); }
+    .adm-chevron { color: var(--text-muted); transition: transform 0.2s; }
+    .adm-gift[open] .adm-chevron { transform: rotate(180deg); }
+    .adm-gift-body { padding: 4px 14px 14px; border-top: 1px dashed var(--border-color); }
+    .adm-gift-actions { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+    .adm-presets { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+    .adm-preset { display: flex; align-items: center; gap: 8px; background: #FFF; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 9px 10px; font-size: 12.5px; cursor: pointer; text-align: left; color: var(--text-main); }
+    .adm-preset.active, .adm-font.active { border-color: var(--marsala); box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.15); }
+    .adm-swatches { display: inline-flex; flex-shrink: 0; }
+    .adm-swatches i { width: 16px; height: 16px; border-radius: 50%; border: 2px solid #FFF; margin-left: -5px; box-shadow: 0 0 0 1px rgba(0,0,0,0.12); }
+    .adm-swatches i:first-child { margin-left: 0; }
+    .adm-color { display: flex; flex-direction: column; gap: 4px; font-size: 12px; font-weight: 600; color: var(--text-muted); }
+    .adm-color input[type=color] { width: 100%; height: 42px; border: 1px solid var(--border-color); border-radius: 8px; background: #FFF; padding: 3px; cursor: pointer; }
+    .adm-fonts { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 8px; }
+    .adm-font { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; background: #FFF; border: 1.5px solid var(--border-color); border-radius: 10px; padding: 10px 12px; cursor: pointer; text-align: left; color: var(--text-main); }
+    .adm-font-title { font-size: 19px; color: var(--marsala); line-height: 1.2; }
+    .adm-font-script { font-size: 20px; color: var(--gold); line-height: 1.2; }
+    .adm-font-name { font-size: 11.5px; color: var(--text-muted); margin-top: 4px; }
+    .adm-sections { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
+    .adm-switch { display: flex; align-items: center; gap: 10px; background: #FFF; border: 1px solid var(--border-color); border-radius: 10px; padding: 10px 12px; font-size: 13.5px; cursor: pointer; }
+    .adm-switch input { width: 18px; height: 18px; accent-color: var(--marsala); }
+    .adm-text-group { background: #FFF; border: 1px solid var(--border-color); border-radius: 10px; margin-bottom: 8px; padding: 0 12px; }
+    .adm-text-group > summary { cursor: pointer; padding: 11px 0; font-weight: 600; font-size: 13.5px; color: var(--marsala); }
+    .adm-text-group[open] { padding-bottom: 6px; }
+
+    @media (max-width: 768px) {
+      .adm-grid2, .adm-grid3 { grid-template-columns: 1fr; }
+      .adm-grid3 { grid-template-columns: repeat(3, 1fr); }
+      .adm-cat-row { grid-template-columns: 1fr auto auto auto; }
+      .adm-cat-count { display: none; }
+      .adm-presets { grid-template-columns: 1fr 1fr; }
+      .adm-fonts { grid-template-columns: 1fr 1fr; }
+      .adm-box { padding: 12px; }
+      .adm-input { font-size: 16px !important; }
+      .adm-savebar { flex-wrap: nowrap; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+      .adm-savebar::-webkit-scrollbar { display: none; }
+      .adm-savebar .btn { padding: 9px 12px; font-size: 12px; white-space: nowrap; flex-shrink: 0; }
+    }
 
     /* =====================================================================
        OTIMIZAÇÃO PARA CELULAR
@@ -1128,7 +1205,7 @@
     <div class="container nav-inner">
       <a href="#inicio" class="nav-brand">
         <img src="./assets/logo-bj-transp.png" alt="B & J" class="nav-logo-img" id="navLogoImg" onerror="this.style.display='none'">
-        <span class="date-tag">13 · Nov · 2027</span>
+        <span class="date-tag" data-edit="hero.date_tag" data-edit-label="Data no menu (computador)">13 · Nov · 2027</span>
       </a>
       <div class="nav-links">
         <a href="#inicio" class="nav-link active"><span>🏠</span> <span class="nav-link-text">Início</span></a>
@@ -1148,27 +1225,27 @@
       <!-- Monograma Oficial no Topo -->
       <img src="./assets/logo-bj-transp.png" alt="Beatriz & João" class="hero-monogram-top" id="heroLogoImg">
 
-      <p class="hero-verse">
+      <p class="hero-verse" data-edit="hero.verse" data-edit-label="Versículo da capa">
         "Agora permanecem estes três: a fé, a esperança e o amor, mas o maior deles é o amor."
       </p>
-      <span class="hero-verse-ref">1 Coríntios 13.13</span>
+      <span class="hero-verse-ref" data-edit="hero.verse_ref" data-edit-label="Referência do versículo">1 Coríntios 13.13</span>
 
-      <h1 class="hero-title serif" id="heroTitle">Beatriz &amp; João</h1>
-      <p class="hero-subtitle script">Vamos nos casar!</p>
+      <h1 class="hero-title serif" id="heroTitle" data-edit="hero.title" data-edit-label="Nomes na capa">Beatriz &amp; João</h1>
+      <p class="hero-subtitle script" data-edit="hero.subtitle" data-edit-label="Frase abaixo dos nomes">Vamos nos casar!</p>
       
       <!-- Detalhes Oficiais da Cerimônia -->
       <div class="hero-details-card">
         <div class="hero-details-item">
           <span>🗓️</span>
-          <strong>13 de Novembro de 2027</strong>
+          <strong data-edit="hero.date" data-edit-label="Data">13 de Novembro de 2027</strong>
         </div>
         <div class="hero-details-item">
           <span>⏰</span>
-          <strong>15 horas e 30 minutos</strong>
+          <strong data-edit="hero.time" data-edit-label="Horário">15 horas e 30 minutos</strong>
         </div>
         <div class="hero-details-item">
           <span>📍</span>
-          <strong>Espaço Paradayse · Nova Iguaçu - RJ</strong>
+          <strong data-edit="hero.place" data-edit-label="Local">Espaço Paradayse · Nova Iguaçu - RJ</strong>
         </div>
       </div>
 
@@ -1194,9 +1271,9 @@
   <section id="manual">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Dicas &amp; Informações Práticas</span>
-        <h2 class="section-title serif">Manual do Convidado</h2>
-        <p class="section-desc">
+        <span class="section-tag" data-edit="manual.tag" data-edit-label="Etiqueta acima do título">Dicas &amp; Informações Práticas</span>
+        <h2 class="section-title serif" data-edit="manual.title" data-edit-label="Título da seção">Manual do Convidado</h2>
+        <p class="section-desc" data-edit="manual.desc" data-edit-label="Texto de apresentação">
           Preparamos com muito carinho tudo o que você precisa saber para viver esse dia inesquecível junto com a gente!
         </p>
       </div>
@@ -1319,9 +1396,9 @@
   <section id="rsvp">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Confirmação de Presença</span>
-        <h2 class="section-title serif">Você é Nosso Convidado Especial</h2>
-        <p class="section-desc">
+        <span class="section-tag" data-edit="rsvp.tag" data-edit-label="Etiqueta acima do título">Confirmação de Presença</span>
+        <h2 class="section-title serif" data-edit="rsvp.title" data-edit-label="Título da seção">Você é Nosso Convidado Especial</h2>
+        <p class="section-desc" data-edit="rsvp.desc" data-edit-label="Texto de apresentação">
           Sua presença tornará o nosso grande dia inesquecível. Por favor, confirme individualmente sua presença!
         </p>
       </div>
@@ -1402,12 +1479,12 @@
   <!-- ========================================================================= -->
   <!-- SEÇÃO 2: LISTA DE PRESENTES & PIX EM DESTAQUE -->
   <!-- ========================================================================= -->
-  <section id="presentes" style="background: #F8F2EB;">
+  <section id="presentes" style="background: var(--bg-alt);">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Montando Nosso Lar</span>
-        <h2 class="section-title serif">Lista de Presentes dos Noivos</h2>
-        <p class="section-desc">
+        <span class="section-tag" data-edit="presentes.tag" data-edit-label="Etiqueta acima do título">Montando Nosso Lar</span>
+        <h2 class="section-title serif" data-edit="presentes.title" data-edit-label="Título da seção">Lista de Presentes dos Noivos</h2>
+        <p class="section-desc" data-edit="presentes.desc" data-edit-label="Texto de apresentação">
           Ficaremos imensamente felizes com seu carinho! Você pode nos presentear via Pix pelo QR Code abaixo OU pelos links das lojas (Amazon e Mercado Livre) se preferir enviar o produto físico.
         </p>
       </div>
@@ -1442,14 +1519,8 @@
       </div>
 
       <!-- Filtros por Categoria -->
-      <div class="gifts-filter-bar">
-        <button class="gift-chip active" onclick="filterGifts('todos', this)">🌟 Todos</button>
-        <button class="gift-chip" onclick="filterGifts('cozinha', this)">🍳 Cozinha</button>
-        <button class="gift-chip" onclick="filterGifts('eletro', this)">⚡ Eletrodomésticos</button>
-        <button class="gift-chip" onclick="filterGifts('sala', this)">🛋️ Sala &amp; Casa</button>
-        <button class="gift-chip" onclick="filterGifts('quarto', this)">🛏️ Quarto</button>
-        <button class="gift-chip" onclick="filterGifts('banheiro', this)">🛁 Banheiro</button>
-        <button class="gift-chip" onclick="filterGifts('coracao', this)">❤️ Presente do Coração</button>
+      <div class="gifts-filter-bar" id="giftsFilterBar">
+        <!-- Renderizado dinamicamente pelo JavaScript -->
       </div>
 
       <!-- Grid de Presentes -->
@@ -1465,9 +1536,9 @@
   <section id="fotos">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Nossa Trajetória</span>
-        <h2 class="section-title serif">Momentos Inesquecíveis</h2>
-        <p class="section-desc">
+        <span class="section-tag" data-edit="fotos.tag" data-edit-label="Etiqueta acima do título">Nossa Trajetória</span>
+        <h2 class="section-title serif" data-edit="fotos.title" data-edit-label="Título da seção">Momentos Inesquecíveis</h2>
+        <p class="section-desc" data-edit="fotos.desc" data-edit-label="Texto de apresentação">
           Um pouquinho do amor, dos sorrisos e dos momentos especiais de Beatriz &amp; João.
         </p>
       </div>
@@ -1484,9 +1555,9 @@
   <section id="recados" class="guestbook-section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Carinho dos Amigos &amp; Família</span>
-        <h2 class="section-title serif">Mural de Votos &amp; Homenagens</h2>
-        <p class="section-desc">
+        <span class="section-tag" data-edit="recados.tag" data-edit-label="Etiqueta acima do título">Carinho dos Amigos &amp; Família</span>
+        <h2 class="section-title serif" data-edit="recados.title" data-edit-label="Título da seção">Mural de Votos &amp; Homenagens</h2>
+        <p class="section-desc" data-edit="recados.desc" data-edit-label="Texto de apresentação">
           Recadinhos deixados pelos convidados e padrinhos para celebrar a união de Beatriz &amp; João.
         </p>
       </div>
@@ -1505,13 +1576,13 @@
   <footer>
     <div class="container">
       <img src="./assets/logo-bj-transp.png" alt="B & J" class="footer-logo" id="footerLogoImg">
-      <div class="footer-names">Beatriz &amp; João</div>
-      <p class="footer-quote">
+      <div class="footer-names" data-edit="footer.names" data-edit-label="Nomes no rodapé">Beatriz &amp; João</div>
+      <p class="footer-quote" data-edit="footer.quote" data-edit-label="Frase do rodapé">
         "Assim, eles já não são dois, mas sim uma só carne. Portanto, o que Deus uniu, ninguém separe." — Mateus 19:6
       </p>
       <div class="footer-bottom">
-        <div>💍 Casamento em 13 de Novembro de 2027 às 15h30 · Espaço Paradayse, Nova Iguaçu - RJ</div>
-        <div>Com todo o amor de Beatriz &amp; João ❤️</div>
+        <div data-edit="footer.line1" data-edit-label="Linha de informações">💍 Casamento em 13 de Novembro de 2027 às 15h30 · Espaço Paradayse, Nova Iguaçu - RJ</div>
+        <div data-edit="footer.line2" data-edit-label="Assinatura">Com todo o amor de Beatriz &amp; João ❤️</div>
       </div>
     </div>
   </footer>
@@ -1667,7 +1738,8 @@
         <div class="admin-tabs-nav">
           <button class="admin-tab-btn active" id="btnAdminTabGuests" onclick="switchAdminTab('guests')">📋 Convidados Confirmados</button>
           <button class="admin-tab-btn" id="btnAdminTabImages" onclick="switchAdminTab('images')">🖼️ Editar Todas as Imagens</button>
-          <button class="admin-tab-btn" id="btnAdminTabGifts" onclick="switchAdminTab('gifts')">🎁 Fotos dos Presentes</button>
+          <button class="admin-tab-btn" id="btnAdminTabGifts" onclick="switchAdminTab('gifts')">🎁 Presentes</button>
+          <button class="admin-tab-btn" id="btnAdminTabAppearance" onclick="switchAdminTab('appearance')">🎨 Aparência</button>
           <button class="admin-tab-btn" id="btnAdminTabSettings" onclick="switchAdminTab('settings')">⚙️ Configurações &amp; Senha</button>
         </div>
 
@@ -1686,15 +1758,15 @@
 
           <!-- Estatísticas Rápidas -->
           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-bottom: 16px;">
-            <div style="background: #FDF9F5; border: 1px solid #F0DFD7; padding: 12px; border-radius: 10px; text-align: center;">
+            <div style="background: var(--bg-soft); border: 1px solid var(--border-color); padding: 12px; border-radius: 10px; text-align: center;">
               <div style="font-size: 24px; font-weight: 700; color: #2B7A4B;" id="adminConfirmedCount">0</div>
               <div style="font-size: 12px; color: var(--text-muted);">Presenças Confirmadas</div>
             </div>
-            <div style="background: #FDF9F5; border: 1px solid #F0DFD7; padding: 12px; border-radius: 10px; text-align: center;">
+            <div style="background: var(--bg-soft); border: 1px solid var(--border-color); padding: 12px; border-radius: 10px; text-align: center;">
               <div style="font-size: 24px; font-weight: 700; color: #C97C6B;" id="adminDeclinedCount">0</div>
               <div style="font-size: 12px; color: var(--text-muted);">Não Poderão Ir</div>
             </div>
-            <div style="background: #FDF9F5; border: 1px solid #F0DFD7; padding: 12px; border-radius: 10px; text-align: center;">
+            <div style="background: var(--bg-soft); border: 1px solid var(--border-color); padding: 12px; border-radius: 10px; text-align: center;">
               <div style="font-size: 24px; font-weight: 700; color: var(--marsala);" id="adminTotalEntries">0</div>
               <div style="font-size: 12px; color: var(--text-muted);">Total de Respostas</div>
             </div>
@@ -1726,7 +1798,7 @@
             Altere a foto de fundo principal (Hero) e todas as fotos da história do casal.
           </p>
 
-          <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 18px;">
+          <div style="background: var(--bg-cream); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 18px;">
             <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 6px;">Foto de Fundo Principal (Capa do Início)</h4>
             <div style="display: flex; gap: 12px; align-items: center; margin-bottom: 10px;">
               <img id="adminHeroThumb" src="./assets/hero-luzes.jpg" style="width: 70px; height: 50px; object-fit: cover; border-radius: 6px; border: 1px solid var(--border-color);">
@@ -1740,7 +1812,7 @@
           </div>
 
           <!-- Fotos da Galeria -->
-          <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
+          <div style="background: var(--bg-cream); border: 1px solid var(--border-color); border-radius: 12px; padding: 16px; margin-bottom: 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
               <h4 style="font-size: 15px; color: var(--marsala);">Fotos da Galeria do Casal</h4>
               <button class="btn btn-gold" style="padding: 6px 14px; font-size: 12px;" onclick="addNewGalleryItem()">+ Adicionar Nova Foto</button>
@@ -1751,15 +1823,74 @@
           </div>
         </div>
 
-        <!-- ABA ADMIN 3: FOTOS DOS PRESENTES -->
+        <!-- ABA ADMIN 3: PRESENTES & CATEGORIAS -->
         <div id="adminViewGifts" style="display: none;">
-          <h3 class="serif" style="font-size: 22px; color: var(--marsala); margin-bottom: 6px;">Gerenciar Fotos dos Presentes</h3>
+          <h3 class="serif" style="font-size: 22px; color: var(--marsala); margin-bottom: 6px;">Lista de Presentes</h3>
           <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
-            Altere a imagem de qualquer presente colando uma nova URL ou enviando uma foto (📤).
+            Adicione, edite, reordene ou remova presentes e categorias. Nada fica público até você clicar em <strong>Salvar presentes</strong>.
           </p>
 
-          <div id="adminGiftsList" style="max-height: 420px; overflow-y: auto;"></div>
-          <button class="btn btn-marsala" style="margin-top: 14px; padding: 9px 20px; font-size: 13px;" onclick="saveAllGiftsChanges()">💾 Salvar Alterações nos Presentes</button>
+          <div class="adm-box">
+            <div class="adm-box-head">
+              <h4>Categorias</h4>
+              <button class="btn btn-outline adm-btn-sm" onclick="addGiftCategory()">+ Nova categoria</button>
+            </div>
+            <div id="adminCategoriesList"></div>
+          </div>
+
+          <div class="adm-box">
+            <div class="adm-box-head">
+              <h4>Presentes (<span id="adminGiftsCount">0</span>)</h4>
+              <button class="btn btn-gold adm-btn-sm" onclick="addNewGift()">+ Adicionar presente</button>
+            </div>
+            <input type="text" class="search-input" id="adminGiftsSearch" placeholder="🔍 Filtrar por nome..." oninput="renderAdminGiftsEditor()">
+            <div id="adminGiftsList"></div>
+          </div>
+
+          <div class="adm-savebar">
+            <button class="btn btn-marsala" onclick="saveAllGiftsChanges()">💾 Salvar presentes</button>
+            <button class="btn btn-outline adm-btn-plain" onclick="discardGiftChanges()">↩️ Desfazer alterações</button>
+          </div>
+        </div>
+
+        <!-- ABA ADMIN 3B: APARÊNCIA (CORES, FONTES, TEXTOS, SEÇÕES) -->
+        <div id="adminViewAppearance" style="display: none;">
+          <h3 class="serif" style="font-size: 22px; color: var(--marsala); margin-bottom: 6px;">Aparência do Site</h3>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+            As mudanças aparecem na hora como <strong>prévia</strong> (feche o painel para ver a página). Só ficam públicas quando você clicar em <strong>Salvar aparência</strong>.
+          </p>
+
+          <div class="adm-box">
+            <h4>🎨 Cores</h4>
+            <div id="adminThemePresets" class="adm-presets"></div>
+            <div class="adm-grid3" style="margin-top: 12px;">
+              <label class="adm-color"><span>Cor principal</span><input type="color" id="adminColorPrimary" oninput="onAppearanceColorInput()"></label>
+              <label class="adm-color"><span>Cor de destaque</span><input type="color" id="adminColorAccent" oninput="onAppearanceColorInput()"></label>
+              <label class="adm-color"><span>Cor de fundo</span><input type="color" id="adminColorBg" oninput="onAppearanceColorInput()"></label>
+            </div>
+          </div>
+
+          <div class="adm-box">
+            <h4>🔤 Fontes</h4>
+            <div id="adminFontPresets" class="adm-fonts"></div>
+          </div>
+
+          <div class="adm-box">
+            <h4>👁️ Seções visíveis</h4>
+            <div id="adminSectionsList" class="adm-sections"></div>
+          </div>
+
+          <div class="adm-box">
+            <h4>✏️ Textos da página</h4>
+            <p style="font-size: 12px; color: var(--text-muted); margin-bottom: 10px;">Deixe um campo vazio para usar o texto original.</p>
+            <div id="adminTextsList"></div>
+          </div>
+
+          <div class="adm-savebar">
+            <button class="btn btn-marsala" onclick="saveAppearance()">💾 Salvar aparência</button>
+            <button class="btn btn-outline adm-btn-plain" onclick="discardAppearanceChanges()">↩️ Desfazer prévia</button>
+            <button class="btn btn-outline adm-btn-plain" onclick="resetAppearanceToDefault()">Restaurar padrão</button>
+          </div>
         </div>
 
         <!-- ABA ADMIN 4: CONFIGURAÇÕES, PIX & SENHA -->
@@ -1767,7 +1898,7 @@
           <h3 class="serif" style="font-size: 22px; color: var(--marsala); margin-bottom: 6px;">Configurações &amp; Segurança</h3>
           
           <!-- Alterar Senha de Admin -->
-          <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
+          <div style="background: var(--bg-cream); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 24px;">
             <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 12px;">Alterar a Sua Senha de Acesso</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
               <div>
@@ -1783,7 +1914,7 @@
           </div>
 
           <!-- Chave Pix & Copia e Cola -->
-          <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
+          <div style="background: var(--bg-cream); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px; margin-bottom: 20px;">
             <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 8px;">Configuração do Pix Oficial (C6 Bank)</h4>
             <div style="margin-bottom: 12px;">
               <label class="form-label" style="font-size: 12px;">Chave Pix (E-mail):</label>
@@ -1797,7 +1928,7 @@
           </div>
 
           <!-- Configurar Telefones dos Noivos -->
-          <div style="background: #FAF6F1; border: 1px solid var(--border-color); border-radius: 12px; padding: 18px;">
+          <div style="background: var(--bg-cream); border: 1px solid var(--border-color); border-radius: 12px; padding: 18px;">
             <h4 style="font-size: 15px; color: var(--marsala); margin-bottom: 12px;">Números de WhatsApp para Mensagem Automática</h4>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
               <div>
@@ -2127,6 +2258,51 @@
 
     let currentGifts = JSON.parse(JSON.stringify(DEFAULT_GIFTS));
 
+    // CATEGORIAS (editáveis pelo painel; salvas em casamento_config.gift_categories)
+    const DEFAULT_CATEGORIES = [
+      { id: 'cozinha',  label: '🍳 Cozinha' },
+      { id: 'eletro',   label: '⚡ Eletrodomésticos' },
+      { id: 'sala',     label: '🛋️ Sala & Casa' },
+      { id: 'quarto',   label: '🛏️ Quarto' },
+      { id: 'banheiro', label: '🛁 Banheiro' },
+      { id: 'coracao',  label: '❤️ Presente do Coração' }
+    ];
+    let currentCategories = JSON.parse(JSON.stringify(DEFAULT_CATEGORIES));
+
+    function categoryLabelFor(gift) {
+      const c = currentCategories.find(x => x.id === gift.category);
+      return c ? c.label : (gift.categoryLabel || '');
+    }
+
+    function safeUrl(u) {
+      const v = String(u || '').trim();
+      return /^https?:\/\/[^\s"'<>]+$/i.test(v) ? v : '';
+    }
+
+    // Link da loja: campo vazio = sem botão; campo nunca preenchido (presentes antigos) = busca pelo nome
+    function giftStoreUrl(item, store) {
+      const key = store === 'amazon' ? 'amazonUrl' : 'mlUrl';
+      if (item[key] === undefined) {
+        const q = String(item.title || '');
+        if (store === 'amazon') return 'https://www.amazon.com.br/s?k=' + encodeURIComponent(q);
+        const slug = q.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+        return 'https://lista.mercadolivre.com.br/' + slug;
+      }
+      return safeUrl(item[key]);
+    }
+
+    function renderGiftFilters() {
+      const bar = document.getElementById('giftsFilterBar');
+      if (!bar) return;
+      const used = currentCategories.filter(c => currentGifts.some(g => g.category === c.id));
+      if (currentGiftCategory !== 'todos' && !used.some(c => c.id === currentGiftCategory)) currentGiftCategory = 'todos';
+      const keepScroll = bar.scrollLeft;
+      bar.innerHTML = [{ id: 'todos', label: '🌟 Todos' }].concat(used).map(c =>
+        `<button class="gift-chip ${c.id === currentGiftCategory ? 'active' : ''}" data-cat="${escapeHtml(c.id)}" onclick="filterGifts(this.dataset.cat, this)">${escapeHtml(c.label)}</button>`
+      ).join('');
+      bar.scrollLeft = keepScroll;
+    }
+
     let supabaseClient = null;
     try {
       if (window.supabase) {
@@ -2168,7 +2344,7 @@
         const diff = WEDDING_DATE - now;
 
         if (diff <= 0) {
-          document.getElementById('countdownTimer').innerHTML = '<span style="font-size:22px;color:#E5C385;">💍 Chegou o grande dia do casamento de Beatriz & João!</span>';
+          document.getElementById('countdownTimer').innerHTML = '<span style="font-size:22px;color:var(--accent-light);">💍 Chegou o grande dia do casamento de Beatriz & João!</span>';
           return;
         }
 
@@ -2221,6 +2397,8 @@
     // 8. RENDERIZAR PRESENTES
     function renderGifts(category) {
       currentGiftCategory = category || 'todos';
+      renderGiftFilters();
+      category = currentGiftCategory;
       const container = document.getElementById('giftsContainer');
       const filtered = category === 'todos' 
         ? currentGifts 
@@ -2239,19 +2417,18 @@
             </div>
           `;
         } else {
+          const amazonUrl = giftStoreUrl(item, 'amazon');
+          const mlUrl = giftStoreUrl(item, 'ml');
+          const storeLinks = [
+            amazonUrl ? `<a href="${escapeHtml(amazonUrl)}" target="_blank" rel="noopener noreferrer" class="gift-btn-store"><span>Ir para Amazon</span></a>` : '',
+            mlUrl ? `<a href="${escapeHtml(mlUrl)}" target="_blank" rel="noopener noreferrer" class="gift-btn-store"><span>Mercado Livre</span></a>` : ''
+          ].filter(Boolean);
           buttonsHtml = `
             <div class="gift-btn-stack">
               <button class="gift-btn-pix" onclick="openPixModal('${escapeHtml(item.id)}')">
                 <span>🎁 Presentear via Pix</span>
               </button>
-              <div class="gift-store-row">
-                <a href="https://www.amazon.com.br" target="_blank" rel="noopener noreferrer" class="gift-btn-store">
-                  <span>Ir para Amazon</span>
-                </a>
-                <a href="https://www.mercadolivre.com.br" target="_blank" rel="noopener noreferrer" class="gift-btn-store">
-                  <span>Mercado Livre</span>
-                </a>
-              </div>
+              ${storeLinks.length ? `<div class="gift-store-row" style="${storeLinks.length === 1 ? 'grid-template-columns: 1fr;' : ''}">${storeLinks.join('')}</div>` : ''}
             </div>
           `;
         }
@@ -2260,7 +2437,7 @@
           <div class="gift-card ${item.isHeart ? 'gift-card-heart' : ''}">
             <div class="gift-card-media">
               <img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80'">
-              <span class="gift-category-tag">${escapeHtml(item.categoryLabel)}</span>
+              <span class="gift-category-tag">${escapeHtml(categoryLabelFor(item))}</span>
             </div>
             <div class="gift-card-body">
               <h3 class="gift-title serif">${escapeHtml(item.title)}</h3>
@@ -2334,7 +2511,7 @@
 
       currentGiftForPix = item;
       document.getElementById('pixModalItemTitle').textContent = item.title;
-      document.getElementById('pixModalItemSubtitle').textContent = item.categoryLabel + ' · ' + (item.isCustom ? 'Você pode definir qualquer valor' : 'Contribuição sugerida via Pix');
+      document.getElementById('pixModalItemSubtitle').textContent = categoryLabelFor(item) + ' · ' + (item.isCustom ? 'Você pode definir qualquer valor' : 'Contribuição sugerida via Pix');
       
       const customBox = document.getElementById('customValueBox');
       if (item.isCustom) {
@@ -2694,6 +2871,364 @@
       }
     }
 
+    // 13B. APARÊNCIA DO SITE (cores, fontes, textos e seções) — salva em casamento_config.appearance
+    const THEME_PRESETS = {
+      marsala:   { name: 'Marsala & Dourado',     primary: '#4D1C28', accent: '#C58A3E', bg: '#FAF6F1' },
+      esmeralda: { name: 'Esmeralda & Dourado',   primary: '#0F4C3A', accent: '#C9A24B', bg: '#F5F8F4' },
+      oliva:     { name: 'Oliva & Ouro Velho',    primary: '#3F4A2E', accent: '#B8954A', bg: '#F7F5EE' },
+      marinho:   { name: 'Azul Marinho & Prata',  primary: '#1F3A5F', accent: '#9AA5B1', bg: '#F5F7FA' },
+      rose:      { name: 'Rosé & Champagne',      primary: '#8E4A5A', accent: '#D4AF8A', bg: '#FBF5F3' },
+      terracota: { name: 'Terracota & Areia',     primary: '#8B3E2F', accent: '#D9A86C', bg: '#FAF3EC' },
+      classico:  { name: 'Preto & Dourado',       primary: '#1E1E1E', accent: '#C9A24B', bg: '#F7F5F0' }
+    };
+    const DEFAULT_THEME_KEY = 'marsala';
+
+    const FONT_PRESETS = {
+      atual: {
+        name: 'Elegante (atual)',
+        serif: "'Playfair Display', 'Cormorant Garamond', Georgia, serif",
+        garamond: "'Cormorant Garamond', Georgia, serif",
+        sans: "'Plus Jakarta Sans', system-ui, sans-serif",
+        script: "'Alex Brush', cursive",
+        load: null
+      },
+      classica: {
+        name: 'Clássica',
+        serif: "'Cormorant Garamond', Georgia, serif",
+        garamond: "'Cormorant Garamond', Georgia, serif",
+        sans: "'Lato', system-ui, sans-serif",
+        script: "'Great Vibes', cursive",
+        load: 'family=Lato:wght@300;400;700&family=Great+Vibes'
+      },
+      moderna: {
+        name: 'Moderna',
+        serif: "'Montserrat', system-ui, sans-serif",
+        garamond: "'Montserrat', system-ui, sans-serif",
+        sans: "'Inter', system-ui, sans-serif",
+        script: "'Parisienne', cursive",
+        load: 'family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Parisienne'
+      },
+      romantica: {
+        name: 'Romântica',
+        serif: "'Cinzel', Georgia, serif",
+        garamond: "'Cormorant Garamond', Georgia, serif",
+        sans: "'Nunito Sans', system-ui, sans-serif",
+        script: "'Pinyon Script', cursive",
+        load: 'family=Cinzel:wght@400;600;700&family=Nunito+Sans:wght@300;400;600;700&family=Pinyon+Script'
+      },
+      delicada: {
+        name: 'Delicada',
+        serif: "'Libre Baskerville', Georgia, serif",
+        garamond: "'Libre Baskerville', Georgia, serif",
+        sans: "'Source Sans 3', system-ui, sans-serif",
+        script: "'Dancing Script', cursive",
+        load: 'family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@300;400;600;700&family=Dancing+Script:wght@500;700'
+      }
+    };
+
+    const SECTION_DEFS = [
+      { id: 'manual',    label: '📖 Manual do Convidado' },
+      { id: 'rsvp',      label: '💌 Confirmação de Presença' },
+      { id: 'presentes', label: '🎁 Lista de Presentes' },
+      { id: 'fotos',     label: '📷 Galeria de Fotos' },
+      { id: 'recados',   label: '💬 Mural de Recados' }
+    ];
+
+    const TEXT_GROUPS = {
+      hero: '🏠 Capa', manual: '📖 Manual do Convidado', rsvp: '💌 Confirmação de Presença',
+      presentes: '🎁 Lista de Presentes', fotos: '📷 Galeria', recados: '💬 Mural', footer: '🔻 Rodapé'
+    };
+
+    // Textos originais (capturados do HTML antes de qualquer personalização)
+    const TEXT_DEFAULTS = {};
+    document.querySelectorAll('[data-edit]').forEach(el => {
+      TEXT_DEFAULTS[el.dataset.edit] = el.textContent.replace(/\s+/g, ' ').trim();
+    });
+
+    let currentAppearance = {};
+    let draftAppearance = null; // edição em andamento no painel
+
+    function hexToRgb(hex) {
+      const m = /^#?([0-9a-f]{6})$/i.exec(String(hex || '').trim());
+      if (!m) return null;
+      const n = parseInt(m[1], 16);
+      return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+    }
+    function rgbToHex(rgb) {
+      return '#' + rgb.map(v => Math.max(0, Math.min(255, Math.round(v))).toString(16).padStart(2, '0')).join('').toUpperCase();
+    }
+    function mixHex(a, b, t) {
+      const A = hexToRgb(a), B = hexToRgb(b);
+      return rgbToHex(A.map((v, i) => v + (B[i] - v) * t));
+    }
+    function rgbTriplet(hex) { return hexToRgb(hex).join(', '); }
+
+    function resolveThemeColors(theme) {
+      const t = theme || {};
+      const preset = THEME_PRESETS[t.preset] || THEME_PRESETS[DEFAULT_THEME_KEY];
+      return {
+        primary: hexToRgb(t.primary) ? t.primary.toUpperCase() : preset.primary,
+        accent:  hexToRgb(t.accent)  ? t.accent.toUpperCase()  : preset.accent,
+        bg:      hexToRgb(t.bg)      ? t.bg.toUpperCase()      : preset.bg
+      };
+    }
+
+    const THEME_VARS = ['--marsala', '--marsala-hover', '--marsala-light', '--primary-rgb', '--dark', '--dark-rgb',
+      '--gold', '--gold-soft', '--accent-light', '--accent-pale', '--accent-rgb', '--accent-soft-rgb', '--gold-gradient',
+      '--bg-cream', '--bg-soft', '--bg-alt', '--border-color', '--text-main', '--text-muted'];
+
+    function applyThemeColors(theme) {
+      const root = document.documentElement.style;
+      const c = resolveThemeColors(theme);
+      const def = THEME_PRESETS[DEFAULT_THEME_KEY];
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+      // Tema padrão: remove sobrescritas e usa exatamente o CSS original
+      if (c.primary === def.primary && c.accent === def.accent && c.bg === def.bg) {
+        THEME_VARS.forEach(v => root.removeProperty(v));
+        if (metaTheme) metaTheme.setAttribute('content', '#4A1E29');
+        return;
+      }
+
+      const P = c.primary, A = c.accent, B = c.bg;
+      const dark = mixHex(P, '#000000', 0.55);
+      const goldSoft = mixHex(A, '#FFFFFF', 0.3);
+      const accentLight = mixHex(A, '#FFFFFF', 0.4);
+      const vars = {
+        '--marsala': P,
+        '--marsala-hover': mixHex(P, '#000000', 0.25),
+        '--marsala-light': mixHex(P, '#FFFFFF', 0.92),
+        '--primary-rgb': rgbTriplet(P),
+        '--dark': dark,
+        '--dark-rgb': rgbTriplet(dark),
+        '--gold': A,
+        '--gold-soft': goldSoft,
+        '--accent-light': accentLight,
+        '--accent-pale': mixHex(A, '#FFFFFF', 0.72),
+        '--accent-rgb': rgbTriplet(A),
+        '--accent-soft-rgb': rgbTriplet(goldSoft),
+        '--gold-gradient': `linear-gradient(135deg, ${accentLight} 0%, ${A} 50%, ${mixHex(A, '#000000', 0.35)} 100%)`,
+        '--bg-cream': B,
+        '--bg-soft': mixHex(B, '#FFFFFF', 0.45),
+        '--bg-alt': mixHex(B, A, 0.08),
+        '--border-color': mixHex(B, P, 0.12),
+        '--text-main': mixHex(dark, '#2A2A2A', 0.4),
+        '--text-muted': mixHex(P, '#7A7A7A', 0.65)
+      };
+      Object.entries(vars).forEach(([k, v]) => root.setProperty(k, v));
+      if (metaTheme) metaTheme.setAttribute('content', dark);
+    }
+
+    function getThemeConfettiColors() {
+      const cs = getComputedStyle(document.documentElement);
+      const pick = (v, fb) => (cs.getPropertyValue(v) || '').trim() || fb;
+      return [pick('--marsala', '#4D1C28'), pick('--gold', '#C58A3E'), pick('--gold-soft', '#DFB36E'), '#FFFFFF', '#D65D7B'];
+    }
+
+    function ensureFontLoaded(key) {
+      const f = FONT_PRESETS[key];
+      if (!f || !f.load) return;
+      const id = 'themeFont_' + key;
+      if (document.getElementById(id)) return;
+      const link = document.createElement('link');
+      link.id = id;
+      link.rel = 'stylesheet';
+      link.href = `https://fonts.googleapis.com/css2?${f.load}&display=swap`;
+      document.head.appendChild(link);
+    }
+
+    function applyFonts(key) {
+      const root = document.documentElement.style;
+      const f = FONT_PRESETS[key];
+      if (!f || key === 'atual') {
+        ['--font-serif', '--font-garamond', '--font-sans', '--font-script'].forEach(v => root.removeProperty(v));
+        return;
+      }
+      ensureFontLoaded(key);
+      root.setProperty('--font-serif', f.serif);
+      root.setProperty('--font-garamond', f.garamond);
+      root.setProperty('--font-sans', f.sans);
+      root.setProperty('--font-script', f.script);
+    }
+
+    function applyTexts(texts) {
+      const t = texts || {};
+      document.querySelectorAll('[data-edit]').forEach(el => {
+        const key = el.dataset.edit;
+        const custom = typeof t[key] === 'string' ? t[key].trim() : '';
+        el.textContent = custom || TEXT_DEFAULTS[key] || '';
+      });
+    }
+
+    function isSectionVisible(sections, id) {
+      return !(sections && sections[id] === false);
+    }
+
+    function applySections(sections) {
+      SECTION_DEFS.forEach(({ id }) => {
+        const visible = isSectionVisible(sections, id);
+        const sec = document.getElementById(id);
+        if (sec) sec.style.display = visible ? '' : 'none';
+        document.querySelectorAll(`a[href="#${id}"]`).forEach(a => { a.style.display = visible ? '' : 'none'; });
+      });
+      // Abas "Confirme sua Presença / Lista de Presentes" só fazem sentido com as duas seções visíveis
+      const tabs = document.getElementById('navegacao-abas');
+      if (tabs) tabs.style.display = (isSectionVisible(sections, 'rsvp') && isSectionVisible(sections, 'presentes')) ? '' : 'none';
+    }
+
+    function applyAppearance(appearance) {
+      const a = appearance && typeof appearance === 'object' ? appearance : {};
+      applyThemeColors(a.theme);
+      applyFonts(a.font || 'atual');
+      applyTexts(a.texts);
+      applySections(a.sections);
+    }
+
+    // ---------- Painel: aba Aparência ----------
+    function cloneJson(v) { return JSON.parse(JSON.stringify(v || {})); }
+
+    function startAppearanceDraft() {
+      draftAppearance = cloneJson(currentAppearance);
+      draftAppearance.theme = draftAppearance.theme || { preset: DEFAULT_THEME_KEY };
+      draftAppearance.texts = draftAppearance.texts || {};
+      draftAppearance.sections = draftAppearance.sections || {};
+      draftAppearance.font = draftAppearance.font || 'atual';
+      renderAppearanceEditor();
+    }
+
+    function previewDraft() { applyAppearance(draftAppearance); }
+
+    function renderAppearanceEditor() {
+      if (!draftAppearance) return;
+      const colors = resolveThemeColors(draftAppearance.theme);
+      const presetKey = draftAppearance.theme.preset;
+
+      document.getElementById('adminThemePresets').innerHTML = Object.entries(THEME_PRESETS).map(([key, p]) => `
+        <button type="button" class="adm-preset ${presetKey === key ? 'active' : ''}" onclick="selectThemePreset('${key}')">
+          <span class="adm-swatches">
+            <i style="background:${p.primary}"></i><i style="background:${p.accent}"></i><i style="background:${p.bg}"></i>
+          </span>
+          <span>${escapeHtml(p.name)}</span>
+        </button>
+      `).join('') + `
+        <button type="button" class="adm-preset ${presetKey === 'custom' ? 'active' : ''}" onclick="document.getElementById('adminColorPrimary').click()">
+          <span class="adm-swatches"><i style="background:${colors.primary}"></i><i style="background:${colors.accent}"></i><i style="background:${colors.bg}"></i></span>
+          <span>Personalizado</span>
+        </button>`;
+
+      document.getElementById('adminColorPrimary').value = colors.primary.toLowerCase();
+      document.getElementById('adminColorAccent').value = colors.accent.toLowerCase();
+      document.getElementById('adminColorBg').value = colors.bg.toLowerCase();
+
+      Object.keys(FONT_PRESETS).forEach(ensureFontLoaded);
+      document.getElementById('adminFontPresets').innerHTML = Object.entries(FONT_PRESETS).map(([key, f]) => `
+        <button type="button" class="adm-font ${draftAppearance.font === key ? 'active' : ''}" onclick="selectFontPreset('${key}')">
+          <span class="adm-font-title" style="font-family:${f.serif}">Beatriz &amp; João</span>
+          <span class="adm-font-script" style="font-family:${f.script}">Vamos nos casar!</span>
+          <span class="adm-font-name" style="font-family:${f.sans}">${escapeHtml(f.name)}</span>
+        </button>
+      `).join('');
+
+      document.getElementById('adminSectionsList').innerHTML = SECTION_DEFS.map(s => `
+        <label class="adm-switch">
+          <input type="checkbox" ${isSectionVisible(draftAppearance.sections, s.id) ? 'checked' : ''} onchange="toggleSectionDraft('${s.id}', this.checked)">
+          <span>${escapeHtml(s.label)}</span>
+        </label>
+      `).join('');
+
+      const groups = {};
+      document.querySelectorAll('[data-edit]').forEach(el => {
+        const key = el.dataset.edit;
+        const g = key.split('.')[0];
+        (groups[g] = groups[g] || []).push({ key, label: el.dataset.editLabel || key });
+      });
+      document.getElementById('adminTextsList').innerHTML = Object.entries(groups).map(([g, items]) => `
+        <details class="adm-text-group">
+          <summary>${escapeHtml(TEXT_GROUPS[g] || g)}</summary>
+          ${items.map(({ key, label }) => {
+            const val = draftAppearance.texts[key] || '';
+            const def = TEXT_DEFAULTS[key] || '';
+            const long = def.length > 70;
+            const attrs = `class="form-control adm-input" data-text-key="${escapeHtml(key)}" placeholder="${escapeHtml(def)}" oninput="onTextDraftInput(this)"`;
+            return `<label class="adm-field"><span>${escapeHtml(label)}</span>${long
+              ? `<textarea rows="3" ${attrs}>${escapeHtml(val)}</textarea>`
+              : `<input type="text" ${attrs} value="${escapeHtml(val)}">`}</label>`;
+          }).join('')}
+        </details>
+      `).join('');
+    }
+
+    function selectThemePreset(key) {
+      draftAppearance.theme = { preset: key };
+      previewDraft();
+      renderAppearanceEditor();
+    }
+
+    function onAppearanceColorInput() {
+      draftAppearance.theme = {
+        preset: 'custom',
+        primary: document.getElementById('adminColorPrimary').value,
+        accent: document.getElementById('adminColorAccent').value,
+        bg: document.getElementById('adminColorBg').value
+      };
+      previewDraft();
+      document.querySelectorAll('#adminThemePresets .adm-preset').forEach((b, i, all) => b.classList.toggle('active', i === all.length - 1));
+    }
+
+    function selectFontPreset(key) {
+      draftAppearance.font = key;
+      previewDraft();
+      document.querySelectorAll('#adminFontPresets .adm-font').forEach(b => b.classList.remove('active'));
+      const idx = Object.keys(FONT_PRESETS).indexOf(key);
+      const btn = document.querySelectorAll('#adminFontPresets .adm-font')[idx];
+      if (btn) btn.classList.add('active');
+    }
+
+    function toggleSectionDraft(id, visible) {
+      if (visible) delete draftAppearance.sections[id];
+      else draftAppearance.sections[id] = false;
+      previewDraft();
+    }
+
+    function onTextDraftInput(el) {
+      const key = el.dataset.textKey;
+      const v = el.value;
+      if (v.trim()) draftAppearance.texts[key] = v.slice(0, 600);
+      else delete draftAppearance.texts[key];
+      previewDraft();
+    }
+
+    function cleanAppearance(a) {
+      const out = {};
+      if (a.theme && a.theme.preset && !(a.theme.preset === DEFAULT_THEME_KEY && !a.theme.primary)) out.theme = a.theme;
+      if (a.font && a.font !== 'atual') out.font = a.font;
+      const texts = {};
+      Object.entries(a.texts || {}).forEach(([k, v]) => { if (typeof v === 'string' && v.trim() && v.trim() !== TEXT_DEFAULTS[k]) texts[k] = v.trim(); });
+      if (Object.keys(texts).length) out.texts = texts;
+      const sections = {};
+      Object.entries(a.sections || {}).forEach(([k, v]) => { if (v === false) sections[k] = false; });
+      if (Object.keys(sections).length) out.sections = sections;
+      return out;
+    }
+
+    async function saveAppearance() {
+      if (!draftAppearance) return;
+      const ok = await saveSiteConfig({ appearance: cleanAppearance(draftAppearance) }, 'Aparência salva! Já está valendo para todos.', '🎨');
+      if (ok) startAppearanceDraft();
+    }
+
+    function discardAppearanceChanges() {
+      applyAppearance(currentAppearance);
+      startAppearanceDraft();
+      showToast('Prévia desfeita.', '↩️');
+    }
+
+    async function resetAppearanceToDefault() {
+      if (!confirm('Voltar cores, fontes, textos e seções ao padrão original do site?')) return;
+      const ok = await saveSiteConfig({ appearance: {} }, 'Aparência restaurada para o padrão.', '✨');
+      if (ok) startAppearanceDraft();
+    }
+
     // 14. UTILITÁRIOS DE SEGURANÇA
     function escapeHtml(value) {
       return String(value ?? '')
@@ -2739,8 +3274,11 @@
       if (cfg.whatsapp_groom) groomWhatsApp = cfg.whatsapp_groom;
       if (cfg.whatsapp_bride) brideWhatsApp = cfg.whatsapp_bride;
       heroPhotoUrl = cfg.hero_url || DEFAULT_HERO;
-      currentGallery = Array.isArray(cfg.gallery) ? cfg.gallery : JSON.parse(JSON.stringify(DEFAULT_GALLERY));
-      currentGifts = Array.isArray(cfg.gifts) ? cfg.gifts : JSON.parse(JSON.stringify(DEFAULT_GIFTS));
+      currentGallery = JSON.parse(JSON.stringify(Array.isArray(cfg.gallery) ? cfg.gallery : DEFAULT_GALLERY));
+      currentGifts = JSON.parse(JSON.stringify(Array.isArray(cfg.gifts) ? cfg.gifts : DEFAULT_GIFTS));
+      currentCategories = JSON.parse(JSON.stringify(Array.isArray(cfg.gift_categories) && cfg.gift_categories.length ? cfg.gift_categories : DEFAULT_CATEGORIES));
+      currentAppearance = cfg.appearance && typeof cfg.appearance === 'object' ? cfg.appearance : {};
+      applyAppearance(currentAppearance);
 
       if (opts.skipEditors) return; // na primeira carga o DOMContentLoaded já renderiza
       applyHeroPhoto(heroPhotoUrl);
@@ -3011,6 +3549,7 @@
       document.getElementById('adminViewImages').style.display = 'none';
       document.getElementById('adminViewGifts').style.display = 'none';
       document.getElementById('adminViewSettings').style.display = 'none';
+      document.getElementById('adminViewAppearance').style.display = 'none';
 
       if (tab === 'guests') {
         document.getElementById('btnAdminTabGuests').classList.add('active');
@@ -3023,9 +3562,18 @@
         document.getElementById('btnAdminTabGifts').classList.add('active');
         document.getElementById('adminViewGifts').style.display = 'block';
         renderAdminGiftsEditor();
+      } else if (tab === 'appearance') {
+        document.getElementById('btnAdminTabAppearance').classList.add('active');
+        document.getElementById('adminViewAppearance').style.display = 'block';
+        startAppearanceDraft();
       } else if (tab === 'settings') {
         document.getElementById('btnAdminTabSettings').classList.add('active');
         document.getElementById('adminViewSettings').style.display = 'block';
+      }
+      const activeTab = document.querySelector('.admin-tab-btn.active');
+      if (activeTab && activeTab.parentElement) {
+        const nav = activeTab.parentElement;
+        nav.scrollLeft = activeTab.offsetLeft - (nav.clientWidth - activeTab.offsetWidth) / 2;
       }
     }
 
@@ -3137,25 +3685,223 @@
       await saveSiteConfig({ gallery: currentGallery }, 'Galeria de fotos salva com sucesso!', '💾');
     }
 
+    // PRESENTES & CATEGORIAS NO ADMIN
+    let openGiftEditors = new Set();
+
+    function slugify(text) {
+      return String(text || '').normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 40);
+    }
+
+    function giftTypeOf(g) { return g.isCustom ? 'livre' : (g.isHeart ? 'coracao' : 'produto'); }
+
+    function renderAdminCategoriesEditor() {
+      const box = document.getElementById('adminCategoriesList');
+      if (!box) return;
+      box.innerHTML = currentCategories.map((c, idx) => {
+        const used = currentGifts.filter(g => g.category === c.id).length;
+        return `
+          <div class="adm-cat-row">
+            <input type="text" class="form-control adm-input" value="${escapeHtml(c.label)}" maxlength="40"
+                   placeholder="Ex.: 🍽️ Mesa Posta" oninput="currentCategories[${idx}].label = this.value">
+            <span class="adm-cat-count">${used} presente${used === 1 ? '' : 's'}</span>
+            <button class="adm-icon-btn" title="Subir" onclick="moveCategory(${idx}, -1)" ${idx === 0 ? 'disabled' : ''}>↑</button>
+            <button class="adm-icon-btn" title="Descer" onclick="moveCategory(${idx}, 1)" ${idx === currentCategories.length - 1 ? 'disabled' : ''}>↓</button>
+            <button class="adm-icon-btn adm-danger" title="Excluir categoria" onclick="removeGiftCategory(${idx})">🗑️</button>
+          </div>`;
+      }).join('') || '<p class="adm-empty">Nenhuma categoria. Crie pelo menos uma.</p>';
+    }
+
+    function addGiftCategory() {
+      const label = prompt('Nome da nova categoria (pode usar emoji):', '✨ Nova Categoria');
+      if (!label || !label.trim()) return;
+      let id = slugify(label) || 'categoria';
+      while (currentCategories.some(c => c.id === id)) id += '-' + Math.random().toString(36).slice(2, 5);
+      currentCategories.push({ id, label: label.trim().slice(0, 40) });
+      renderAdminCategoriesEditor();
+      renderAdminGiftsEditor();
+    }
+
+    function moveCategory(idx, dir) {
+      const j = idx + dir;
+      if (j < 0 || j >= currentCategories.length) return;
+      [currentCategories[idx], currentCategories[j]] = [currentCategories[j], currentCategories[idx]];
+      renderAdminCategoriesEditor();
+    }
+
+    function removeGiftCategory(idx) {
+      const cat = currentCategories[idx];
+      if (!cat) return;
+      const used = currentGifts.filter(g => g.category === cat.id);
+      if (currentCategories.length === 1) { alert('O site precisa de pelo menos uma categoria.'); return; }
+      if (used.length) {
+        const target = currentCategories.find((c, i) => i !== idx);
+        if (!confirm(`A categoria "${cat.label}" tem ${used.length} presente(s). Eles serão movidos para "${target.label}". Continuar?`)) return;
+        used.forEach(g => { g.category = target.id; });
+      } else if (!confirm(`Excluir a categoria "${cat.label}"?`)) {
+        return;
+      }
+      currentCategories.splice(idx, 1);
+      renderAdminCategoriesEditor();
+      renderAdminGiftsEditor();
+    }
+
     function renderAdminGiftsEditor() {
+      renderAdminCategoriesEditor();
       const container = document.getElementById('adminGiftsList');
-      container.innerHTML = currentGifts.map((gift, idx) => `
-        <div class="admin-img-card" id="adminGiftCard_${idx}">
-          <img src="${escapeHtml(gift.image)}" class="admin-img-thumb" onerror="this.src='https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80'">
-          <div style="flex-grow: 1;">
-            <div style="font-weight: 600; font-size: 14px; color: var(--marsala);">${escapeHtml(gift.title)} (${escapeHtml(gift.categoryLabel)})</div>
-            <div style="display: flex; gap: 8px; margin-top: 6px;">
-              <input type="text" class="form-control" style="padding: 6px 10px; font-size: 12px;" value="${escapeHtml(gift.image)}" placeholder="URL da foto do produto" oninput="currentGifts[${idx}].image = this.value; document.querySelector('#adminGiftCard_${idx} .admin-img-thumb').src = this.value">
-              <button onclick="uploadGiftImage(${idx})" class="btn btn-outline" style="padding: 4px 10px; font-size: 12px; color: var(--text-main); white-space: nowrap;" title="Enviar foto do aparelho">📤</button>
-              <input type="number" class="form-control" style="width: 100px; padding: 6px 8px; font-size: 13px;" value="${Number(gift.price) || 0}" placeholder="Preço (R$)" oninput="currentGifts[${idx}].price = parseFloat(this.value) || 50">
+      if (!container) return;
+      const countEl = document.getElementById('adminGiftsCount');
+      if (countEl) countEl.textContent = currentGifts.length;
+      const q = (document.getElementById('adminGiftsSearch') || {}).value || '';
+      const qn = slugify(q);
+      const fallbackImg = 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?w=600&auto=format&fit=crop&q=80';
+
+      container.innerHTML = currentGifts.map((gift, idx) => {
+        if (qn && !slugify(gift.title).includes(qn)) return '';
+        const type = giftTypeOf(gift);
+        const catOptions = currentCategories.map(c =>
+          `<option value="${escapeHtml(c.id)}" ${c.id === gift.category ? 'selected' : ''}>${escapeHtml(c.label)}</option>`).join('');
+        const price = (Number(gift.price) || 0).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        const isOpen = openGiftEditors.has(gift.id);
+        return `
+          <details class="adm-gift" id="adminGiftCard_${idx}" ${isOpen ? 'open' : ''} ontoggle="toggleGiftEditor('${escapeHtml(gift.id)}', this.open)">
+            <summary>
+              <img src="${escapeHtml(gift.image || fallbackImg)}" class="admin-img-thumb" onerror="this.src='${fallbackImg}'">
+              <span class="adm-gift-sum">
+                <strong>${escapeHtml(gift.title || '(sem nome)')}</strong>
+                <small>${escapeHtml(categoryLabelFor(gift))} · ${type === 'livre' ? 'Valor livre' : price}</small>
+              </span>
+              <span class="adm-chevron">▾</span>
+            </summary>
+            <div class="adm-gift-body">
+              <label class="adm-field"><span>Nome do presente</span>
+                <input type="text" class="form-control adm-input" maxlength="90" value="${escapeHtml(gift.title)}" oninput="currentGifts[${idx}].title = this.value">
+              </label>
+              <div class="adm-grid2">
+                <label class="adm-field"><span>Categoria</span>
+                  <select class="form-control adm-input" onchange="currentGifts[${idx}].category = this.value">${catOptions}</select>
+                </label>
+                <label class="adm-field"><span>Tipo</span>
+                  <select class="form-control adm-input" onchange="setGiftType(${idx}, this.value)">
+                    <option value="produto" ${type === 'produto' ? 'selected' : ''}>Produto (Pix + lojas)</option>
+                    <option value="coracao" ${type === 'coracao' ? 'selected' : ''}>Do coração (só Pix)</option>
+                    <option value="livre" ${type === 'livre' ? 'selected' : ''}>Valor livre (convidado escolhe)</option>
+                  </select>
+                </label>
+              </div>
+              <label class="adm-field"><span>Descrição</span>
+                <textarea class="form-control adm-input" rows="2" maxlength="220" oninput="currentGifts[${idx}].desc = this.value">${escapeHtml(gift.desc || '')}</textarea>
+              </label>
+              <div class="adm-grid2">
+                <label class="adm-field"><span>${type === 'livre' ? 'Valor sugerido (R$)' : 'Preço (R$)'}</span>
+                  <input type="number" min="0" step="1" inputmode="decimal" class="form-control adm-input" value="${Number(gift.price) || 0}" oninput="currentGifts[${idx}].price = Math.max(0, parseFloat(this.value) || 0)">
+                </label>
+                <label class="adm-field"><span>Foto (URL)</span>
+                  <span class="adm-inline">
+                    <input type="text" class="form-control adm-input" value="${escapeHtml(gift.image || '')}" placeholder="https://..." oninput="currentGifts[${idx}].image = this.value; document.querySelector('#adminGiftCard_${idx} .admin-img-thumb').src = this.value || '${fallbackImg}'">
+                    <button type="button" class="adm-icon-btn" title="Enviar foto do aparelho" onclick="uploadGiftImage(${idx})">📤</button>
+                  </span>
+                </label>
+              </div>
+              ${type === 'produto' ? `
+              <div class="adm-grid2">
+                <label class="adm-field"><span>Link na Amazon</span>
+                  <input type="url" class="form-control adm-input" value="${escapeHtml(gift.amazonUrl === undefined ? '' : gift.amazonUrl)}" placeholder="${gift.amazonUrl === undefined ? 'Vazio = busca automática pelo nome' : 'Vazio = sem botão da Amazon'}" oninput="currentGifts[${idx}].amazonUrl = this.value.trim()">
+                </label>
+                <label class="adm-field"><span>Link no Mercado Livre</span>
+                  <input type="url" class="form-control adm-input" value="${escapeHtml(gift.mlUrl === undefined ? '' : gift.mlUrl)}" placeholder="${gift.mlUrl === undefined ? 'Vazio = busca automática pelo nome' : 'Vazio = sem botão do Mercado Livre'}" oninput="currentGifts[${idx}].mlUrl = this.value.trim()">
+                </label>
+              </div>` : ''}
+              <div class="adm-gift-actions">
+                <button type="button" class="adm-icon-btn" onclick="moveGift(${idx}, -1)" ${idx === 0 ? 'disabled' : ''}>↑ Subir</button>
+                <button type="button" class="adm-icon-btn" onclick="moveGift(${idx}, 1)" ${idx === currentGifts.length - 1 ? 'disabled' : ''}>↓ Descer</button>
+                <button type="button" class="adm-icon-btn adm-danger" onclick="removeGift(${idx})">🗑️ Remover</button>
+              </div>
             </div>
-          </div>
-        </div>
-      `).join('');
+          </details>`;
+      }).join('') || '<p class="adm-empty">Nenhum presente encontrado.</p>';
+    }
+
+    function toggleGiftEditor(id, open) {
+      if (open) openGiftEditors.add(id); else openGiftEditors.delete(id);
+    }
+
+    function setGiftType(idx, type) {
+      const g = currentGifts[idx];
+      if (!g) return;
+      g.isHeart = type !== 'produto';
+      g.isCustom = type === 'livre';
+      if (!g.isHeart) delete g.isHeart;
+      if (!g.isCustom) delete g.isCustom;
+      renderAdminGiftsEditor();
+    }
+
+    function addNewGift() {
+      const id = 'gift-' + Date.now().toString(36);
+      currentGifts.unshift({
+        id,
+        title: 'Novo presente',
+        category: (currentCategories[0] || {}).id || 'geral',
+        desc: '',
+        price: 100,
+        image: '',
+        amazonUrl: '',
+        mlUrl: ''
+      });
+      openGiftEditors.add(id);
+      const search = document.getElementById('adminGiftsSearch');
+      if (search) search.value = '';
+      renderAdminGiftsEditor();
+      const first = document.querySelector('#adminGiftsList .adm-gift input');
+      if (first) { first.focus(); first.select(); }
+    }
+
+    function moveGift(idx, dir) {
+      const j = idx + dir;
+      if (j < 0 || j >= currentGifts.length) return;
+      [currentGifts[idx], currentGifts[j]] = [currentGifts[j], currentGifts[idx]];
+      renderAdminGiftsEditor();
+    }
+
+    function removeGift(idx) {
+      const g = currentGifts[idx];
+      if (!g || !confirm(`Remover "${g.title}" da lista? (Clique em "Salvar presentes" para confirmar.)`)) return;
+      currentGifts.splice(idx, 1);
+      renderAdminGiftsEditor();
+    }
+
+    function discardGiftChanges() {
+      if (!confirm('Descartar as alterações não salvas nos presentes e categorias?')) return;
+      applyConfig(siteConfig);
+      renderAdminGiftsEditor();
+      showToast('Alterações descartadas.', '↩️');
+    }
+
+    function validateGiftsBeforeSave() {
+      const problems = [];
+      currentGifts.forEach(g => {
+        g.title = String(g.title || '').trim().slice(0, 90);
+        g.desc = String(g.desc || '').trim().slice(0, 220);
+        g.price = Math.max(0, Number(g.price) || 0);
+        g.image = String(g.image || '').trim();
+        if (!g.title) problems.push('Há presente sem nome.');
+        if (!currentCategories.some(c => c.id === g.category)) g.category = (currentCategories[0] || {}).id;
+        ['amazonUrl', 'mlUrl'].forEach(k => {
+          if (g[k] !== undefined && g[k] !== '' && !safeUrl(g[k])) {
+            problems.push(`Link inválido em "${g.title}" (precisa começar com https://).`);
+          }
+        });
+        delete g.categoryLabel; // a etiqueta agora vem da categoria
+      });
+      currentCategories.forEach(c => { c.label = String(c.label || '').trim().slice(0, 40) || c.id; });
+      return [...new Set(problems)];
     }
 
     async function saveAllGiftsChanges() {
-      await saveSiteConfig({ gifts: currentGifts }, 'Lista de presentes atualizada com sucesso!', '🎁');
+      const problems = validateGiftsBeforeSave();
+      if (problems.length) { alert('Corrija antes de salvar:\n\n• ' + problems.join('\n• ')); return; }
+      await saveSiteConfig({ gifts: currentGifts, gift_categories: currentCategories }, 'Lista de presentes atualizada com sucesso!', '🎁');
+      renderAdminGiftsEditor();
     }
 
     // SENHA E CONFIGURAÇÕES NO ADMIN
@@ -3270,7 +4016,7 @@
           particleCount: 80,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#4D1C28', '#C58A3E', '#DFB36E', '#FFFFFF', '#D65D7B']
+          colors: getThemeConfettiColors()
         });
       }
     }

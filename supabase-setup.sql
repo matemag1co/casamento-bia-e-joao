@@ -48,6 +48,10 @@ create table if not exists public.casamento_config (
   updated_at timestamptz default now()
 );
 
+-- Colunas adicionadas depois (editor de presentes e aparência)
+alter table public.casamento_config add column if not exists gift_categories jsonb;  -- null = categorias padrão
+alter table public.casamento_config add column if not exists appearance jsonb;       -- cores, fontes, textos, seções
+
 -- Cria a linha se não existir (NÃO sobrescreve o que foi editado no painel)
 insert into public.casamento_config (id) values (1) on conflict (id) do nothing;
 
